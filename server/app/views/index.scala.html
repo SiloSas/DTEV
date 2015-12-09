@@ -1,0 +1,16 @@
+@(message: String)
+
+@main("Play with Scala.js") {
+  <md-toolbar class="absolute transparent zIndex4">
+    <div>
+      <div class = "float-right margin20 paddingRight20" hide-sm>
+        <a href="#/" class = "padding10">Accueil</a>
+        <ng-contact class = "padding10 textPrimColor pointer">Contact</ng-contact>
+        <a href="/mentionsLegales" class = "padding10">Mentions légales</a>
+      </div>
+
+      <room-nav data-ng-controller = "roomController" class="zIndex4 float-left"></room-nav>
+    </div>
+  </md-toolbar>
+  <md-content flex class="height100p mainContainer " ng-view=""></md-content>
+}
