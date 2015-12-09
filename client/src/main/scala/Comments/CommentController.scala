@@ -14,11 +14,12 @@ import scala.scalajs.js.annotation.JSExport
 import scala.util.{Failure, Success}
 import org.scalajs.dom.console
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
+import scala.concurrent.ExecutionContext.Implicits.global
 
 
 @JSExport
 @injectable("commentController")
-class CommentController(scope: CommentScope, newComment: NewComment)
+class CommentController(scope: CommentScope, newComment: NewComment, commentService: CommentService)
   extends AbstractController[CommentScope](scope) {
 
   scope.comments = js.Array[shared.Comment]()
@@ -35,40 +36,31 @@ class CommentController(scope: CommentScope, newComment: NewComment)
     newComment.rate = 0
   }
 
-  val comment = Comment(
-    id = "1",
-    title = "genial!!!!",
-    comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ullamcorper massa, sit amet ornare erat blandit ut.",
-    userName = "user1",
-    rate = 4,
-    date = new Date())
-  val comment1 = Comment(
-    id = "2",
-    title = "cool",
-    comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ullamcorper massa, sit amet ornare erat blandit ut.",
-    userName = "user2",
-    rate = 3,
-    date = new Date())
-  val comment2 = Comment(
-    id = "3",
-    title = "un autre commentaire",
-    comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pretium ullamcorper massa, sit amet ornare erat blandit ut.",
-    userName = "user3",
-    rate = 5,
-    date = new Date())
-
-  val comments = Seq(comment, comment1, comment2)
-
-  scope.comments = comments.toJSArray
+  commentService.findAll() onComplete {
+    case Success(foundComments) =>
+      scope.$apply {
+        scope.comments = foundComments.toJSArray
+      }
+    case Failure(t: Throwable) =>
+      handleError(t)
+  }
 
 
   @JSExport
   def post(): Unit = {
     val comment = Comment(id = UUID.randomUUID().toString, title = scope.newComment.title, comment = scope.newComment.comment,
-      userName = scope.newComment.userName, rate = scope.newComment.rate, date = new Date())
-
-    scope.comments :+= comment
-    cleanNewComment()
+      userName = scope.newComment.userName, rate = scope.newComment.rate, date = new Date().toString)
+    commentService.post(comment) onComplete {
+      case Success(0) =>
+        println("raté")
+      case Success(1) =>
+        scope.$apply {
+          scope.comments :+= comment
+          cleanNewComment()
+        }
+      case Failure(t: Throwable) =>
+        handleError(t)
+    }
   }
 
   private def handleError(t: Throwable) {

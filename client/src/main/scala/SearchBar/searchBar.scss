@@ -1,0 +1,31 @@
+data-search-bar {
+  background-color: $blackTransparent;
+  float: left;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+} * {
+    md-datepicker {
+      background: transparent !important;
+    }
+
+    .md-calendar-scroll-mask {
+      margin-top: -20px;
+    }
+
+    .md-datepicker-input {
+      color: white !important;
+      font-weight: bold;
+      font-size: 17px !important;
+      width: 100%;
+    }
+
+    .md-datepicker-input-container {
+      width: 75% !important;
+      margin-left: 0;
+    }
+
+    .md-datepicker-expand-triangle {
+      border-top-color: white !important;
+    }
+  }

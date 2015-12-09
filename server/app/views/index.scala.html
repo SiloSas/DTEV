@@ -12,5 +12,24 @@
       <room-nav data-ng-controller = "roomController" class="zIndex4 float-left"></room-nav>
     </div>
   </md-toolbar>
-  <md-content flex class="height100p mainContainer " ng-view=""></md-content>
+
+  <md-content flex class="height100p mainContainer absolute" ng-view=""></md-content>
+
+  <data-search-bar class="zIndex5"></data-search-bar>
+
+  <md-sidenav  class="md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-gt-md>
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+    </md-toolbar>
+    <md-content layout-padding ng-controller = "roomController">
+      <md-button ng-click="directive.close()" class="md-primary slide-left" hide-gt-md>
+        Close Sidenav Left
+      </md-button>
+      <a href="#/rooms/{{room.id}}" class="column primCol md-button float-left small-10"
+      ng-click="directive.close()" data-ng-repeat="room in rooms">{{room.name}}</a>
+      <a href="#/" class = "column primCol md-button float-left small-10">Accueil</a>
+      <ng-contact class = "padding10 textPrimColor pointer">Contact</ng-contact>
+      <a href="/mentionsLegales" class = "column primCol md-button float-left small-10">Mentions légales</a>
+    </md-content>
+  </md-sidenav>
 }

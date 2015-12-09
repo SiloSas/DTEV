@@ -28,7 +28,26 @@ INSERT INTO agreements(id, title, description, image) VALUES
 INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47d0-b55c-593c91cb38akjhhe', 'dsdlksda', 'dsdlksdads', 'assets/images/doubleBed.jpg');
 
+
+CREATE TABLE comments (
+  id                        VARCHAR PRIMARY KEY,
+  title                     VARCHAR,
+  comment                   VARCHAR,
+  userName                  VARCHAR,
+  rate                      VARCHAR,
+  date                      VARCHAR
+
+);
+
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'dsdlksd', 'dsdlksdadss', 'fsfsdfsdf', 2, '2012-08-24 14:00:00' );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-593cd1cb32ae', 'dsdlksd', 'dsdlksdadss', 'fsfsdfsdf', 2, '2012-08-24 14:00:00' );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-593cq1cb32ae', 'dsdlksd', 'dsdlksdadss', 'fsfsdfsdf', 2, '2012-08-24 14:00:00' );
+
 # --- !Downs
 
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS agreements;
+DROP TABLE IF EXISTS comments;

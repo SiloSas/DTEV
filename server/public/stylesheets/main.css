@@ -25438,7 +25438,41 @@ md-fab-actions {
   top: 10px;
 }
 
-/* line 8, ../scss/main.scss */
+/* line 1, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+data-search-bar {
+  background-color: rgba(0, 0, 0, 0.25);
+  float: left;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* line 8, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+* md-datepicker {
+  background: transparent !important;
+}
+/* line 12, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+* .md-calendar-scroll-mask {
+  margin-top: -20px;
+}
+/* line 16, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+* .md-datepicker-input {
+  color: white !important;
+  font-weight: bold;
+  font-size: 17px !important;
+  width: 100%;
+}
+/* line 23, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+* .md-datepicker-input-container {
+  width: 75% !important;
+  margin-left: 0;
+}
+/* line 28, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+* .md-datepicker-expand-triangle {
+  border-top-color: white !important;
+}
+
+/* line 9, ../scss/main.scss */
 body, html {
   background-color: white;
   background-size: 100%;
@@ -25448,13 +25482,13 @@ body, html {
   width: 100%;
 }
 
-/* line 17, ../scss/main.scss */
+/* line 18, ../scss/main.scss */
 .mainContainer {
   float: left;
   width: 100%;
 }
 
-/* line 23, ../scss/main.scss */
+/* line 24, ../scss/main.scss */
 .parallax {
   perspective: 1px;
   height: 100vh;
@@ -25463,7 +25497,7 @@ body, html {
   perspective-origin-x: 100%;
 }
 
-/* line 30, ../scss/main.scss */
+/* line 31, ../scss/main.scss */
 .parallax__layer {
   position: absolute;
   top: 0;
@@ -25473,24 +25507,24 @@ body, html {
   transform-origin-x: 100%;
 }
 
-/* line 38, ../scss/main.scss */
+/* line 39, ../scss/main.scss */
 .parallax__layer--base {
   transform: translateZ(0);
 }
 
-/* line 41, ../scss/main.scss */
+/* line 42, ../scss/main.scss */
 .parallax__layer--back {
   transform: translateZ(-5px) scale(6.1);
 }
 
-/* line 45, ../scss/main.scss */
+/* line 46, ../scss/main.scss */
 .parallax__group {
   position: relative;
   height: 100vh;
   transform-style: preserve-3d;
 }
 
-/* line 51, ../scss/main.scss */
+/* line 52, ../scss/main.scss */
 .homeRoomTitle, .homeRoomTitle > h1 {
   width: 100%;
   top: 50%;
@@ -25502,13 +25536,13 @@ body, html {
   transform: translateZ(-0.8px) scale(1);
 }
 
-/* line 62, ../scss/main.scss */
+/* line 63, ../scss/main.scss */
 .homeRoomTitle > p {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
 
-/* line 68, ../scss/main.scss */
+/* line 69, ../scss/main.scss */
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
@@ -25516,7 +25550,7 @@ body, html {
   padding: 80px;
 }
 
-/* line 74, ../scss/main.scss */
+/* line 75, ../scss/main.scss */
 .mainText {
   font-size: 27px;
   padding: 20px 50px;
@@ -25524,7 +25558,7 @@ body, html {
   text-align: center;
 }
 
-/* line 81, ../scss/main.scss */
+/* line 82, ../scss/main.scss */
 .paddingSearchMin {
   padding-bottom: 80px;
   float: left;
@@ -25532,7 +25566,7 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* line 87, ../scss/main.scss */
+  /* line 88, ../scss/main.scss */
   .homeRoomTitle {
     right: auto;
     left: 0;
@@ -25540,7 +25574,7 @@ body, html {
     text-align: center;
   }
 
-  /* line 93, ../scss/main.scss */
+  /* line 94, ../scss/main.scss */
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;

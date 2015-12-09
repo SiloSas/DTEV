@@ -1,6 +1,8 @@
 package database
 
-import shared.{Room, Agreement}
+
+import org.joda.time.DateTime
+import shared.{Room, Agreement, Comment}
 import MyPostgresDriver.api._
 
 trait MyDBTableDefinitions {
@@ -18,13 +20,25 @@ trait MyDBTableDefinitions {
   }
   lazy val rooms = TableQuery[Rooms]
 
-  class Agreements(tag: Tag) extends Table[Agreement](tag, "rooms") {
+  class Agreements(tag: Tag) extends Table[Agreement](tag, "agreements") {
     def id = column[String]("id")
-    def title = column[String]("name")
-    def description = column[String]("presentation")
-    def image = column[String]("images")
+    def title = column[String]("title")
+    def description = column[String]("description")
+    def image = column[String]("image")
 
     def * = (id, title, description, image) <> ((Agreement.apply _).tupled, Agreement.unapply)
   }
   lazy val agreements = TableQuery[Agreements]
+
+  class Comments(tag: Tag) extends Table[Comment](tag, "comments") {
+    def id = column[String]("id")
+    def title = column[String]("title")
+    def comment = column[String]("comment")
+    def userName = column[String]("username")
+    def rate = column[Int]("rate")
+    def date = column[String]("date")
+
+    def * = (id, title, comment, userName, rate, date) <> ((Comment.apply _).tupled, Comment.unapply)
+  }
+  lazy val comments = TableQuery[Comments]
 }

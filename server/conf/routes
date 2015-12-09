@@ -6,6 +6,8 @@
 GET     /                           controllers.Application.index
 GET	    /rooms						@Room.RoomController.findAll
 GET	    /agreements				    @Agreement.AgreementController.findAll
+GET	    /comments				    @Comments.CommentsController.findAll
+POST    /comments                   @Comments.CommentsController.post(comment: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

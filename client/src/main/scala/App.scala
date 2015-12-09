@@ -1,8 +1,9 @@
 import Agreement.{AgreementController, AgreementServiceFactory, AgreementDirective}
-import Comments.{CommentsDirective, CommentController}
+import Comments.{CommentServiceFactory, CommentsDirective, CommentController}
 import Map.MapDirective
 import Room.{RoomMinHomeDirective, RoomController, RoomMinDirective, RoomServiceFactory}
-import RoomNav.RoomNavDirective
+import RoomNav.{SlideLeftDirective, RoomNavDirective}
+import SearchBar.SearchBarDirective
 import Slider.{SliderController, SliderDirective}
 import com.greencatsoft.angularjs._
 
@@ -27,8 +28,11 @@ object App extends JSApp {
       .directive[CommentsDirective]
       .directive[MapDirective]
       .directive[RoomNavDirective]
+      .directive[SlideLeftDirective]
+      .directive[SearchBarDirective]
       .factory[RoomServiceFactory]
       .factory[AgreementServiceFactory]
+      .factory[CommentServiceFactory]
       .config(RoutingConfig)
   }
 }
