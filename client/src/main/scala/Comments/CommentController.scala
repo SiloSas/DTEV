@@ -45,19 +45,15 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
   }
 
   def displayToast(): Any = {
-    val newToast: MdToastOption = new js.Object().asInstanceOf[MdToastOption]
-    newToast.textContent = "Simple Toast!"
-    newToast.hideDelay = 3000
-    
-    newToast.position = """{
-      bottom: false
-    top: true
-    left: false
-    right: true
-      }"""
     console.log( mdToast.simple("hello"))
-    mdToast.simple("hello")
-    mdToast.show(mdToast.simple("hello"))
+    var toast = mdToast.simple("hello")
+    toast._options.position = """{
+      bottom: false
+      top: true
+      left: false
+      right: true
+      }"""
+    mdToast.show(toast)
   }
 
   @JSExport

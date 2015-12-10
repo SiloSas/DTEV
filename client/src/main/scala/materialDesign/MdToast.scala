@@ -10,12 +10,15 @@ import scala.scalajs.js.annotation.JSExportAll
 @injectable("$mdToast")
 trait MdToastService extends js.Object {
 
-  def show(mdToast: js.Object): Promise[BottomSheetHideOrCancel] = js.native
+  def show(mdToast: MdToast): Promise[BottomSheetHideOrCancel] = js.native
 
-  def simple(content: String): js.Object = js.native
+  def simple(content: String): MdToast = js.native
 
 }
 
+trait MdToast extends js.Object {
+  var _options: MdToastOption = js.native
+}
 
 trait MdToastOption extends js.Object {
 
