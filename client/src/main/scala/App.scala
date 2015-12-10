@@ -1,4 +1,5 @@
 import Agreement.{AgreementController, AgreementServiceFactory, AgreementDirective}
+import BackEnd.{AgreementBackEndDirective, RoomMinBeDirective}
 import Booking.{BookingModalController, BookingController}
 import Comments.{CommentServiceFactory, CommentsDirective, CommentController}
 import Contact.{ContactServiceFactory, ContactDirective, ContactController}
@@ -37,6 +38,8 @@ object App extends JSApp {
       .directive[SlideLeftDirective]
       .directive[SearchBarDirective]
       .directive[ContactDirective]
+      .directive[RoomMinBeDirective]
+      .directive[AgreementBackEndDirective]
       .factory[RoomServiceFactory]
       .factory[AgreementServiceFactory]
       .factory[CommentServiceFactory]

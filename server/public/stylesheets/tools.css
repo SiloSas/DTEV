@@ -131,6 +131,11 @@
   border-radius: 3px;
 }
 
+/* line 32, ../scss/tools.scss */
+.scrollAuto {
+  overflow-y: auto;
+}
+
 /*text*/
 /* line 34, ../scss/tools.scss */
 .center {

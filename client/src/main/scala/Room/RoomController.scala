@@ -25,12 +25,14 @@ class RoomController(scope: RoomScope, service: RoomService, $routeParams: Route
       case Success(rooms) =>
         scope.$apply {
           scope.rooms = rooms.toJSArray
+          console.log("yo", scope.rooms)
         }
       case Failure(t) => handleError(t)
     }
   }
 
   def findById(id: String): Any = {
+    println("yo")
     service.findById(id) onComplete {
       case Success(maybeRoom) =>
         maybeRoom match {

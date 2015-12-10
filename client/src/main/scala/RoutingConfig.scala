@@ -28,6 +28,12 @@ object RoutingConfig extends Config {
           templateUrl = "/assets/templates/Booking/booking.html",
           title = "Research",
           controller = "bookingController"))
+      .when(
+        path = "/admin",
+        route = Route(
+          templateUrl = "/assets/templates/BackEnd/main.html",
+          title = "Research",
+          controller = "bookingController"))
 
   }
 }

@@ -1,6 +1,6 @@
 package Agreement
 
-import com.greencatsoft.angularjs.core.Window
+import com.greencatsoft.angularjs.core.{Timeout, Window}
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, TemplatedDirective, injectable}
 import org.scalajs.dom.{Element, document}
 import org.scalajs.dom.html.Html
@@ -10,7 +10,7 @@ import scala.scalajs.js.annotation.JSExport
 
 @JSExport
 @injectable("agreement")
-class AgreementDirective(window: Window) extends ElementDirective with TemplatedDirective {
+class AgreementDirective(window: Window, timeout: Timeout) extends ElementDirective with TemplatedDirective {
   override val templateUrl = "assets/templates/Agreement/agreement.html"
 
   override def link(scope: ScopeType, elements: Seq[Element], attrs: Attributes): Unit = {
@@ -18,7 +18,9 @@ class AgreementDirective(window: Window) extends ElementDirective with Templated
       def setNewHeight(newHeight: Double): Unit = {
         element.style.height = newHeight + "px"
       }
-      setNewHeight(element.clientWidth * 0.66)
+      timeout (fn = () => {
+        setNewHeight(element.clientWidth * 0.66)
+      }, 0, false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(element.clientWidth * 0.66)

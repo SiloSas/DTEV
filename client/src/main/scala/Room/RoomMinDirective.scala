@@ -1,6 +1,6 @@
 package Room
 
-import com.greencatsoft.angularjs.core.Window
+import com.greencatsoft.angularjs.core.{Timeout, Window}
 import com.greencatsoft.angularjs.extensions.{ModalOptions, ModalService}
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, TemplatedDirective, injectable}
 import org.scalajs.dom.Element
@@ -13,7 +13,7 @@ import scala.scalajs.js.annotation.JSExport
 
 @JSExport
 @injectable("roomMin")
-class RoomMinDirective(modal: ModalService, window: Window) extends ElementDirective with TemplatedDirective {
+class RoomMinDirective(modal: ModalService, window: Window, timeout: Timeout) extends ElementDirective with TemplatedDirective {
   override val templateUrl = "assets/templates/Room/roomMin.html"
 
   override def link(scope: ScopeType, elements: Seq[Element], attrs: Attributes): Unit = {
@@ -21,10 +21,12 @@ class RoomMinDirective(modal: ModalService, window: Window) extends ElementDirec
       def setNewHeight(newHeight: Double): Unit = {
         element.style.height = newHeight + "px"
       }
-      setNewHeight(element.clientWidth * 0.62893081761)
+      timeout (fn = () => {
+        setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
+      }, 0, false)
 
       window.onresize = (event: UIEvent) =>
-        setNewHeight(element.clientWidth * 0.62893081761)
+        setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
     }
   }
 
