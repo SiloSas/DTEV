@@ -5,9 +5,8 @@ import java.util.UUID
 import com.greencatsoft.angularjs.core.{RouteParams, Timeout}
 import com.greencatsoft.angularjs.extensions.{ModalService, ModalInstance}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
+import materialDesign.{MdToastService, MdPositions, MdToastOption}
 import shared.Comment
-import upickle.default._
-
 import scala.scalajs.js
 import scala.scalajs.js.Date
 import scala.scalajs.js.annotation.JSExport
@@ -19,7 +18,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 
 @JSExport
 @injectable("commentController")
-class CommentController(scope: CommentScope, newComment: NewComment, commentService: CommentService)
+class CommentController(scope: CommentScope, newComment: NewComment, commentService: CommentService, mdToast: MdToastService)
   extends AbstractController[CommentScope](scope) {
 
   scope.comments = js.Array[shared.Comment]()
@@ -45,6 +44,21 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
       handleError(t)
   }
 
+  def displayToast(): Any = {
+    val newToast: MdToastOption = new js.Object().asInstanceOf[MdToastOption]
+    newToast.textContent = "Simple Toast!"
+    newToast.hideDelay = 3000
+    
+    newToast.position = """{
+      bottom: false
+    top: true
+    left: false
+    right: true
+      }"""
+    console.log( mdToast.simple("hello"))
+    mdToast.simple("hello")
+    mdToast.show(mdToast.simple("hello"))
+  }
 
   @JSExport
   def post(): Unit = {
@@ -53,12 +67,15 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
     commentService.post(comment) onComplete {
       case Success(0) =>
         println("raté")
+        displayToast()
       case Success(1) =>
+        displayToast()
         scope.$apply {
           scope.comments :+= comment
           cleanNewComment()
         }
       case Failure(t: Throwable) =>
+        displayToast()
         handleError(t)
     }
   }

@@ -25580,4 +25580,11 @@ body, html {
     float: left;
     width: 100%;
   }
+
+  /* line 99, ../scss/main.scss */
+  .bookingModal {
+    max-height: 80%;
+    overflow: auto;
+    padding: 10px;
+  }
 }

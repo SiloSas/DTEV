@@ -10,7 +10,7 @@ object RoutingConfig extends Config {
   override def initialize() {
 
     routeProvider
-      .when(path = "/contact", route = Route(templateUrl = "/assets/templates/Contact/contact.html", title = "Contact"))
+      .when(path = "/Contact", route = Route(templateUrl = "/assets/templates/Contact/contact.html", title = "Contact"))
       .when(
         path = "/",
         route = Route(
@@ -25,9 +25,9 @@ object RoutingConfig extends Config {
       .when(
         path = "/search/:start/:end",
         route = Route(
-          templateUrl = "/assets/templates/Research/research.html",
+          templateUrl = "/assets/templates/Booking/booking.html",
           title = "Research",
-          controller = "researchController"))
+          controller = "bookingController"))
 
   }
 }

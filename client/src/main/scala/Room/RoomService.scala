@@ -34,6 +34,30 @@ class RoomService(http: HttpService) extends Service {
     }
   }
 
+  @JSExport
+  var lastRoom: Option[Room] = None
+  def findById(id: String): Future[Option[Room]] = {
+    lastRoom match {
+      case Some(room) if room.id == id =>
+        Future(Option(room))
+      case _ =>
+        http.get[js.Any]("/room?id=" + id)
+          .map(JSON.stringify(_))
+          .map { room =>
+            println(room)
+            lastRoom = read[Seq[Room]](room).headOption
+            lastRoom
+          }
+    }
+  }
+
+  @JSExport
+  def findAvailable(start: String, end: String): Future[Seq[Room]] = {
+    http.get[js.Any]("/availableRooms?start=" + start + "&end=" + end)
+      .map(JSON.stringify(_))
+      .map(read[Seq[Room]])
+  }
+
   protected def flatten[T](future: Future[Try[T]]): Future[T] = future flatMap {
     case Success(s) => Future.successful(s)
     case Failure(f) => Future.failed(f)

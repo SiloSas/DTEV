@@ -1,8 +1,10 @@
 package Slider
 
 import Room.RoomService
-import com.greencatsoft.angularjs.core.Timeout
+import com.greencatsoft.angularjs.core.{RouteParams, Location, Timeout}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
+import shared.Room
+import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.{Failure, Success}
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
@@ -12,23 +14,62 @@ import scala.concurrent.ExecutionContext.Implicits.global
 @JSExportAll
 case class ActiveImage(step: Int, url: String, url1: String)
 @injectable("sliderController")
-class SliderController(sliderScope: SliderScope, roomService: RoomService, timeout: Timeout) extends AbstractController[SliderScope](sliderScope) {
+class SliderController(sliderScope: SliderScope, roomService: RoomService, timeout: Timeout, location: Location, $routeParams: RouteParams)
+  extends AbstractController[SliderScope](sliderScope) {
 
-  roomService.findAll() onComplete {
-    case Success(rooms) =>
-      println(rooms)
-      scope.$apply {
-        sliderScope.images = rooms.map(_.images).toJSArray
-        scope.activeImage = ActiveImage(step = 0, url = scope.images.head, url1 = scope.images.head)
-        timeout(fn = () => {
-          changeActiveImage(scope.images.tail)
-        },
-          delay = 10000,
-          invokeApply = true
-        )
-      }
-    case Failure(t) => handleError(t)
+  if(location.path().indexOf("rooms") > -1) findById($routeParams.get("id").toString)
+  else findAll()
+
+
+  def findAll(): Any = {
+    roomService.findAll() onComplete {
+      case Success(rooms) =>
+        println(rooms)
+        scope.$apply {
+          sliderScope.images = rooms.map(_.images).toJSArray
+          scope.activeImage = ActiveImage(step = 0, url = scope.images.head, url1 = scope.images.head)
+          if(sliderScope.images.length > 1) {
+            timeout(fn = () => {
+              changeActiveImage(scope.images.tail)
+            },
+              delay = 10000,
+              invokeApply = true
+            )
+          } else {
+            println("one image")
+          }
+        }
+      case Failure(t) => handleError(t)
+    }
   }
+
+  def findById(id: String): Any = {
+    roomService.findById(id) onComplete {
+      case Success(maybeRoom) =>
+        maybeRoom match {
+          case Some(room) =>
+            scope.$apply {
+              sliderScope.images = Seq(room.images).toJSArray
+              scope.activeImage = ActiveImage(step = 0, url = scope.images.head, url1 = scope.images.head)
+              if (sliderScope.images.length > 1) {
+                timeout(fn = () => {
+                  changeActiveImage(scope.images.tail)
+                },
+                  delay = 10000,
+                  invokeApply = true
+                )
+              } else {
+                println("only one picture")
+              }
+            }
+          case None =>
+            println("none")
+        }
+      case Failure(t: Throwable) =>
+        handleError(t)
+    }
+  }
+
 
   def changeActiveImage(images: Seq[String]): Any = {
     images.headOption match {

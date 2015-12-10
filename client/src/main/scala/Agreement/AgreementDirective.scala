@@ -18,10 +18,10 @@ class AgreementDirective(window: Window) extends ElementDirective with Templated
       def setNewHeight(newHeight: Double): Unit = {
         element.style.height = newHeight + "px"
       }
-      setNewHeight(element.clientWidth * 0.62893081761)
+      setNewHeight(element.clientWidth * 0.66)
 
       window.onresize = (event: UIEvent) =>
-        setNewHeight(element.clientWidth * 0.62893081761)
+        setNewHeight(element.clientWidth * 0.66)
 
     }
   }

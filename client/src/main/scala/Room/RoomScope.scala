@@ -9,4 +9,6 @@ trait RoomScope extends Scope {
 
   var rooms: js.Array[Room] = js.native
 
+  var room: Room = js.native
+
 }

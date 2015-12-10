@@ -1,1 +1,29 @@
-<div>YO</div>
+<div class="parallax">
+    <slider class="parallax__layer parallax__layer--back" ng-controller="sliderController"></slider>
+    <div class="absolute zIndex2 homeRoomTitle float-left">
+        <b class="float-left marginTop0 column large-12">{{room.name}}</b>
+        <p>{{room.header}}</p>
+    </div>
+    <div class="slider-content width100p float-left parallax__layer parallax__layer--base zIndex3">
+        <div class="white width100p float-left text-center">
+            <div class="column large-12 mainText">
+                {{room.presentation}}
+            </div>
+            <div class="column large-12 mainText">
+                <md-button class="md-fab primCol"><i class="fa fa-eur"></i></md-button>
+                <b class="textPrimColor">{{room.price}}</b>
+                <md-button class="md-fab primCol"><i class="fa fa-subway"></i></md-button>
+                <b class="textPrimColor">Cusset (A)</b>
+                <md-button class="md-fab primCol"><i class="fa fa-car"></i></md-button>
+                <b class="textPrimColor">Parking (4€)</b>
+                <md-button class="md-fab primCol"><i class="fa fa-paw"></i></md-button>
+                <b class="textPrimColor">Annimaux acceptés</b>
+            </div>
+        </div>
+        <h1 class="column large-12 text-center margin0 textColorWhite mainTitles">NOS SERVICES</h1>
+        <div class="width100p white float-left grid column large-12 padding0 margin0" data-ng-controller="agreementController">
+            <agreement class="column large-3 medium-6 padding0 margin0 float-left" ng-repeat="agreement in agreements"></agreement>
+        </div>
+        <div class = "paddingSearchMin white"></div>
+    </div>
+</div>
