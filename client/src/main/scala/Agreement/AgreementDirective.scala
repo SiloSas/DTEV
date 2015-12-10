@@ -20,7 +20,7 @@ class AgreementDirective(window: Window, timeout: Timeout) extends ElementDirect
       }
       timeout (fn = () => {
         setNewHeight(element.clientWidth * 0.66)
-      }, 0, false)
+      }, 50, false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(element.clientWidth * 0.66)

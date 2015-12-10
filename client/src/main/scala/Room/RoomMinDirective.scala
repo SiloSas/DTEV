@@ -23,7 +23,7 @@ class RoomMinDirective(modal: ModalService, window: Window, timeout: Timeout) ex
       }
       timeout (fn = () => {
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
-      }, 0, false)
+      }, 50, false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))

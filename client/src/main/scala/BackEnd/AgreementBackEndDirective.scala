@@ -22,7 +22,7 @@ class AgreementBackEndDirective(window: Window, timeout: Timeout) extends Elemen
 
       timeout (fn = () => {
         setNewHeight(Math.ceil(element.clientWidth * 0.66))
-      }, 0, false)
+      }, 50, false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(Math.ceil(element.clientWidth * 0.66))

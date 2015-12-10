@@ -22,7 +22,9 @@ class SliderDirective(window: Window, timeout: Timeout) extends ElementDirective
             element.style.height = window.innerHeight + "px"
           }
       }
-      setNewHeight(window.innerWidth * 0.75369458128)
+      timeout (fn = () => {
+        setNewHeight(window.innerWidth * 0.75369458128)
+      }, 50, false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(window.innerWidth * 0.75369458128)
@@ -44,7 +46,10 @@ class SliderContentDirective(window: Window, timeout: Timeout) extends ClassDire
             element.style.marginTop = window.innerHeight + "px"
           }
       }
-      setNewHeight(window.innerWidth * 0.75369458128)
+
+      timeout (fn = () => {
+        setNewHeight(window.innerWidth * 0.75369458128)
+      }, 50, false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(window.innerWidth * 0.75369458128)

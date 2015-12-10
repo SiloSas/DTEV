@@ -21,7 +21,7 @@ class RoomMinHomeDirective(window: Window, timeout: Timeout) extends ElementDire
 
       timeout (fn = () => {
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
-      }, 0, false)
+      }, 50, false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
