@@ -23494,7 +23494,7 @@ th.hide-for-touch {
 
 /* line 21, ../scss/tools.scss */
 .BlackTrans {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(0, 0, 0, 0.66);
 }
 
 /* line 22, ../scss/tools.scss */
@@ -25445,7 +25445,7 @@ md-fab-actions {
 
 /* line 1, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 data-search-bar {
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.66);
   float: left;
   bottom: 0;
   position: absolute;
@@ -25462,7 +25462,6 @@ data-search-bar {
 }
 /* line 16, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-input {
-  color: white !important;
   font-weight: bold;
   font-size: 17px !important;
   width: 100%;
@@ -25475,6 +25474,11 @@ data-search-bar {
 /* line 28, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-expand-triangle {
   border-top-color: white !important;
+}
+
+/* line 33, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+.md-datepicker-calendar-icon {
+  color: white;
 }
 
 /* line 9, ../scss/main.scss */
@@ -25532,7 +25536,7 @@ body, html {
 /* line 52, ../scss/main.scss */
 .homeRoomTitle, .homeRoomTitle > h1 {
   width: 100%;
-  top: 50%;
+  top: 22%;
   font-size: 80px;
   text-align: center;
   font-family: 'feathericons';

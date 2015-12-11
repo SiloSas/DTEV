@@ -14,7 +14,7 @@ data-search-bar {
     }
 
     .md-datepicker-input {
-      color: white !important;
+      //color: white !important;
       font-weight: bold;
       font-size: 17px !important;
       width: 100%;
@@ -29,3 +29,7 @@ data-search-bar {
       border-top-color: white !important;
     }
   }
+
+.md-datepicker-calendar-icon {
+  color: white;
+}

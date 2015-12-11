@@ -2,18 +2,17 @@ package Comments
 
 import java.util.UUID
 
-import com.greencatsoft.angularjs.core.{RouteParams, Timeout}
-import com.greencatsoft.angularjs.extensions.{ModalService, ModalInstance}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
-import materialDesign.{MdToastService, MdPositions, MdToastOption}
+import materialDesign.MdToastService
+import org.scalajs.dom.console
 import shared.Comment
+
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
 import scala.scalajs.js.Date
+import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 import scala.scalajs.js.annotation.JSExport
 import scala.util.{Failure, Success}
-import org.scalajs.dom.console
-import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import scala.concurrent.ExecutionContext.Implicits.global
 
 
 @JSExport
