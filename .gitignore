@@ -1,1 +1,15 @@
 # Created by .ignore support plugin (hsz.mobi)
+.idea
+.idea_modules/
+.sass-cache/
+bower_components/
+client/target/
+node_modules/
+project/project/
+project/target/
+server/logs/
+server/target/
+shared/.js/
+shared/.jvm/
+target/
+
