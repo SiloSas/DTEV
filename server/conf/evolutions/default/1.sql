@@ -27,6 +27,10 @@ INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'dsdlksd', 'dsdlksdadss', 'assets/images/desToits1.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47d0-b55c-593c91cb38akjhhe', 'dsdlksda', 'dsdlksdads', 'assets/images/doubleBed.jpg');
+INSERT INTO agreements(id, title, description, image) VALUES
+  ('a4aea509-1002-47d0d-b55c-593c91cb38akjhhe', 'dsdlksda', 'dsdlksdads', 'assets/images/doubleBed.jpg');
+INSERT INTO agreements(id, title, description, image) VALUES
+  ('a4aea509-1002-47sd0-b55c-593c91cb38akjhhe', 'dsdlksda', 'dsdlksdads', 'assets/images/doubleBed.jpg');
 
 
 CREATE TABLE comments (
