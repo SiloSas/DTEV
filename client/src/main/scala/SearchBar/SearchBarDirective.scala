@@ -14,12 +14,7 @@ class SearchBarDirective(mdToastService: MdToastService, location: Location, fil
 
   @JSExport
   def search(start: js.Date, end: js.Date): Any = {
-    println("OK")/*
-    Try{start.getDate()} match {
-      case Success(int) => int;println("aaa")
-      case _ => println("kljlkj")
-    }*/
-    if (!js.isUndefined(start) && !js.isUndefined(start)) {
+    if (!js.isUndefined(start)) {
       val startString = start.getFullYear() + "-" + start.getMonth() + "-" + start.getDay()
       val endString = end.getFullYear() + "-" + end.getMonth() + "-" + end.getDay()
       println(startString)

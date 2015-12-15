@@ -1,6 +1,6 @@
 @(message: String)
 
-@main("Play with Scala.js") {
+@main("Des toits en ville") {
   <md-toolbar class="absolute transparent zIndex4">
     <div>
       <div class = "float-right margin20 paddingRight20" hide-sm>
@@ -19,11 +19,11 @@
 
   <md-sidenav  class="md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-gt-md>
     <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Sidenav Left</h1>
+      <h1 class="md-toolbar-tools">Nos chambres</h1>
     </md-toolbar>
     <md-content layout-padding ng-controller = "roomController">
       <md-button ng-click="directive.close()" class="md-primary slide-left" hide-gt-md>
-        Close Sidenav Left
+        Fermer le menu
       </md-button>
       <a href="#/rooms/{{room.id}}" class="column primCol md-button float-left small-10"
       ng-click="directive.close()" data-ng-repeat="room in rooms">{{room.name}}</a>
@@ -31,5 +31,8 @@
       <ng-contact class = "padding10 textPrimColor pointer">Contact</ng-contact>
       <a href="/mentionsLegales" class = "column primCol md-button float-left small-10">Mentions légales</a>
     </md-content>
+    <md-toolbar class="md-theme-indigo">
+      <h1 class="md-toolbar-tools">Nos appartements</h1>
+    </md-toolbar>
   </md-sidenav>
 }
