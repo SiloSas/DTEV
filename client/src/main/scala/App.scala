@@ -2,7 +2,7 @@ import Agreement.{AgreementController, AgreementDirective, AgreementServiceFacto
 import BackEnd.{AgreementBackEndDirective, RoomMinBeDirective}
 import Booking.{BookingController, BookingModalController}
 import Comments.{CommentController, CommentServiceFactory, CommentsDirective}
-import Contact.{ContactController, ContactDirective, ContactServiceFactory}
+import Contact.{ContactController, ContactServiceFactory}
 import Map.MapDirective
 import Navigation.SmoothScrollDirective
 import Room.{RoomController, RoomMinDirective, RoomMinHomeDirective, RoomServiceFactory}
@@ -38,7 +38,6 @@ object App extends JSApp {
       .directive[RoomNavDirective]
       .directive[SlideLeftDirective]
       .directive[SearchBarDirective]
-      .directive[ContactDirective]
       .directive[RoomMinBeDirective]
       .directive[AgreementBackEndDirective]
       .directive[SmoothScrollDirective]

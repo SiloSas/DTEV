@@ -1,4 +1,5 @@
 package Contact
+
 import com.greencatsoft.angularjs.core.{Scope, RouteParams, Timeout}
 import com.greencatsoft.angularjs.extensions.{ModalService, ModalInstance}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
@@ -13,11 +14,7 @@ import org.scalajs.dom.console
 
 @JSExport
 @injectable("contactController")
-class ContactController(scope: Scope, modalInstance: ModalInstance[Any], contactService: ContactService)
-  extends AbstractController[Scope](scope) {
-
-  @JSExport
-  def close() = modalInstance.close()
+class ContactController(scope: Scope, contactService: ContactService) extends AbstractController[Scope](scope) {
 
   @JSExport
   def post(email: String, message: String) = {

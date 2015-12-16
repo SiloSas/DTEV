@@ -10,7 +10,6 @@ object RoutingConfig extends Config {
   override def initialize() {
 
     routeProvider
-      .when(path = "/Contact", route = Route(templateUrl = "/assets/templates/Contact/contact.html", title = "Contact"))
       .when(
         path = "/",
         route = Route(
@@ -34,6 +33,14 @@ object RoutingConfig extends Config {
           templateUrl = "/assets/templates/BackEnd/main.html",
           title = "Research",
           controller = "bookingController"))
+      .when(
+        path = "/contact",
+        route = Route(
+          templateUrl = "/assets/templates/Contact/contact.html",
+          title = "Contact",
+          controller = "contactController"))
 
   }
 }
+//routing + modify modalController + directive remove function that open the modal and in the html onClick contact remove
+//event and replace it by a href to the home
