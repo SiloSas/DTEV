@@ -44,8 +44,7 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
   }
 
   def displayToast(): Any = {
-    console.log( mdToast.simple("hello"))
-    var toast = mdToast.simple("hello")
+    var toast = mdToast.simple("Votre avis a bien été envoyé")
     toast._options.position = """{
       bottom: false
       top: true
@@ -57,11 +56,16 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
 
   @JSExport
   def post(): Unit = {
-    val comment = Comment(id = UUID.randomUUID().toString, title = scope.newComment.title, comment = scope.newComment.comment,
-      userName = scope.newComment.userName, rate = scope.newComment.rate, date = new Date().toString)
+    val comment = Comment(
+      id = UUID.randomUUID().toString,
+      title = scope.newComment.title,
+      comment = scope.newComment.comment,
+      userName = scope.newComment.userName,
+      rate = scope.newComment.rate,
+      date = new Date().getDay() + "." + new Date().getMonth() + "." + new Date().getFullYear())
+
     commentService.post(comment) onComplete {
       case Success(0) =>
-        println("raté")
         displayToast()
       case Success(1) =>
         displayToast()

@@ -18,7 +18,7 @@ class CommentService(http: HttpService) extends Service {
 
   @JSExport
   var comments = Seq.empty[Comment]
-  def findAll(): Future[Seq[Comment]] = /*flatten*/ {
+  def findAll(): Future[Seq[Comment]] = {
     // Append a timestamp to prevent some old browsers from caching the result.
     if(comments != Seq.empty) Future(comments)
     else {
