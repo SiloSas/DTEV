@@ -1,11 +1,12 @@
-import Agreement.{AgreementController, AgreementServiceFactory, AgreementDirective}
+import Agreement.{AgreementController, AgreementDirective, AgreementServiceFactory}
 import BackEnd.{AgreementBackEndDirective, RoomMinBeDirective}
-import Booking.{BookingModalController, BookingController}
-import Comments.{CommentServiceFactory, CommentsDirective, CommentController}
-import Contact.{ContactServiceFactory, ContactDirective, ContactController}
+import Booking.{BookingController, BookingModalController}
+import Comments.{CommentController, CommentServiceFactory, CommentsDirective}
+import Contact.{ContactController, ContactDirective, ContactServiceFactory}
 import Map.MapDirective
-import Room.{RoomMinHomeDirective, RoomController, RoomMinDirective, RoomServiceFactory}
-import RoomNav.{SlideLeftDirective, RoomNavDirective}
+import Navigation.SmoothScrollDirective
+import Room.{RoomController, RoomMinDirective, RoomMinHomeDirective, RoomServiceFactory}
+import RoomNav.{RoomNavDirective, SlideLeftDirective}
 import SearchBar.SearchBarDirective
 import Slider.{SliderContentDirective, SliderController, SliderDirective}
 import com.greencatsoft.angularjs._

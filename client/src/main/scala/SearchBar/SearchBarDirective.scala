@@ -9,7 +9,9 @@ import scala.scalajs.js.annotation.JSExport
 
 @JSExport
 @injectable("searchBar")
-class SearchBarDirective(mdToastService: MdToastService, location: Location, filterService: FilterService ) extends ElementDirective with TemplatedDirective {
+class SearchBarDirective(mdToastService: MdToastService, location: Location, filterService: FilterService)
+    extends ElementDirective with TemplatedDirective {
+
   override val templateUrl = "assets/templates/SearchBar/searchBar.html"
 
   @JSExport
@@ -17,7 +19,6 @@ class SearchBarDirective(mdToastService: MdToastService, location: Location, fil
     if (!js.isUndefined(start)) {
       val startString = start.getFullYear() + "-" + start.getMonth() + "-" + start.getDay()
       val endString = end.getFullYear() + "-" + end.getMonth() + "-" + end.getDay()
-      println(startString)
       location.path("search/" + startString + "/" + endString)
     }
     else {

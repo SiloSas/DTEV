@@ -28,5 +28,4 @@ class ContactController(scope: Scope, modalInstance: ModalInstance[Any], contact
   private def handleError(t: Throwable) {
     console.error(s"An error has occured: $t")
   }
-
 }

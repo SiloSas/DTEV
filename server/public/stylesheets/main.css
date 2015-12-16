@@ -25489,15 +25489,16 @@ body, html {
   position: relative;
   overflow: hidden;
   width: 100%;
+  scroll-behavior: smooth;
 }
 
-/* line 18, ../scss/main.scss */
+/* line 19, ../scss/main.scss */
 .mainContainer {
   float: left;
   width: 100%;
 }
 
-/* line 24, ../scss/main.scss */
+/* line 25, ../scss/main.scss */
 .parallax {
   perspective: 1px;
   height: 100vh;
