@@ -13,7 +13,7 @@ object RoutingConfig extends Config {
       .when(
         path = "/",
         route = Route(
-          templateUrl = "/assets/templates/main.html",
+          templateUrl = "/assets/templates/home.html",
           title = "Main"))
       .when(
         path = "/rooms/:id",
@@ -30,7 +30,7 @@ object RoutingConfig extends Config {
       .when(
         path = "/admin",
         route = Route(
-          templateUrl = "/assets/templates/BackEnd/main.html",
+          templateUrl = "/assets/templates/BackEnd/home.html",
           title = "Research",
           controller = "bookingController"))
       .when(

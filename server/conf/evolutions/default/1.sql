@@ -31,17 +31,16 @@ CREATE TABLE agreements (
   title                     VARCHAR,
   description               VARCHAR,
   image                     VARCHAR
-
 );
 
 INSERT INTO agreements(id, title, description, image) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Salon de jardin', 'dsdlksdadss', 'assets/images/desToits1.jpg');
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Jardin', 'Profitez d''un accès au salon de jardin', 'assets/images/desToits1.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91b38akjhhe', 'Terrasse', 'dsdlksdads', 'assets/images/terrasse.jpg');
+  ('a4aea509-1002-47d0-b55c-593c91b38akjhhe', 'Terrasse', 'petite description de la terrasse', 'assets/images/terrasse.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
-  ('a4aea509-1002-47d0d-b55c-593c91cb38ajhhe', 'Parking', 'dsdlksdads', 'assets/images/parking.jpg');
+  ('a4aea509-1002-47d0d-b55c-593c91cb38ajhhe', 'Parking', 'une petite description du parking', 'assets/images/parking.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
-  ('a4aea509-1002-47sd0-b55c-593c91cb38akhhe', 'Plateau repas', 'dsdlksdads', 'assets/images/plateau-repas.jpg');
+  ('a4aea509-1002-47sd0-b55c-593c91cb38akhhe', 'Plat du jour', 'Profitez du service plat du jour ', 'assets/images/platDuJour.jpg');
 
 
 CREATE TABLE comments (
