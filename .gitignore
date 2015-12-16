@@ -13,4 +13,4 @@ server/target/
 shared/.js/
 shared/.jvm/
 target/
-
+npm-debug.log

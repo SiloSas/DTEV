@@ -41,6 +41,7 @@ object App extends JSApp {
       .directive[ContactDirective]
       .directive[RoomMinBeDirective]
       .directive[AgreementBackEndDirective]
+      .directive[SmoothScrollDirective]
       .factory[RoomServiceFactory]
       .factory[AgreementServiceFactory]
       .factory[CommentServiceFactory]
