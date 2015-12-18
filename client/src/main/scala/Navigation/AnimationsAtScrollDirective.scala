@@ -36,7 +36,7 @@ class AnimationsAtScrollDirective(modal: ModalService, timeout: Timeout, compile
 
           mainContainer.addEventListener("scroll", addAnimationWhenElementIsVisible())
         }
-        
+
         timeout(() => {
           val images: NodeList = dom.document.getElementsByTagName("img")
           val numberOfImages = images.length

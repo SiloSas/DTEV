@@ -15,29 +15,30 @@ import scala.scalajs.js.annotation.JSExport
 @injectable("smoothScroll")
 class SmoothScrollDirective(modal: ModalService, timeout: Timeout) extends ElementDirective {
 
-    def scrollToAnchor(): Any = {
-        val anchorPositionPlus50: Double = document.getElementById("firstDescriptionText").getBoundingClientRect().top + 50
+  def scrollToAnchor(): Any = {
+    val offset = 80
+    val anchorPositionPlus50: Double = document.getElementById("firstDescriptionText").getBoundingClientRect().top + offset
 
-        val container = document.getElementsByClassName("parallax").item(0).asInstanceOf[Html]
+    val container = document.getElementsByClassName("parallax").item(0).asInstanceOf[Html]
 
-        var actualPosition: Double = 50
+    var actualPosition: Double = offset
 
-        var a: Int = 0
+    var scrollIterationFunction: Int = 0
 
-        a = dom.setInterval(() => {
-            if(actualPosition < anchorPositionPlus50) {
-                container.scrollTop = actualPosition
-              actualPosition += 50
-            } else
-                dom.clearInterval(a)
-        }, 5)
+    scrollIterationFunction = dom.setInterval(() => {
+      if(actualPosition < anchorPositionPlus50) {
+        container.scrollTop = actualPosition
+        actualPosition += offset
+      } else
+        dom.clearInterval(scrollIterationFunction)
+    }, 5)
+  }
+
+  override def link(scope: ScopeType, elems: Seq[Element], attrs: Attributes) {
+    elems.headOption.map(_.asInstanceOf[Html]) foreach { elem =>
+      elem.onclick = (event: MouseEvent) => {
+        scrollToAnchor()
+      }
     }
-
-    override def link(scope: ScopeType, elems: Seq[Element], attrs: Attributes) {
-        elems.headOption.map(_.asInstanceOf[Html]) foreach { elem =>
-            elem.onclick = (event: MouseEvent) => {
-                scrollToAnchor()
-            }
-        }
-    }
+  }
 }
