@@ -14,7 +14,8 @@ import scala.util.{Failure, Success}
 
 @JSExportAll
 @injectable("roomController")
-class RoomController(scope: RoomScope, service: RoomService, $routeParams: RouteParams, location: Location) extends AbstractController[RoomScope](scope) {
+class RoomController(scope: RoomScope, service: RoomService, $routeParams: RouteParams, location: Location)
+    extends AbstractController[RoomScope](scope) {
 
   if(location.path().indexOf("rooms") > -1) findById($routeParams.get("id").toString)
   else findAll()
@@ -25,14 +26,12 @@ class RoomController(scope: RoomScope, service: RoomService, $routeParams: Route
       case Success(rooms) =>
         scope.$apply {
           scope.rooms = rooms.toJSArray
-          console.log("yo", scope.rooms)
         }
       case Failure(t) => handleError(t)
     }
   }
 
   def findById(id: String): Any = {
-    println("yo")
     service.findById(id) onComplete {
       case Success(maybeRoom) =>
         maybeRoom match {
@@ -41,7 +40,6 @@ class RoomController(scope: RoomScope, service: RoomService, $routeParams: Route
               scope.room = room
             }
           case None =>
-            println("none")
         }
       case Failure(t: Throwable) =>
         handleError(t)
@@ -49,9 +47,7 @@ class RoomController(scope: RoomScope, service: RoomService, $routeParams: Route
   }
 
 
-
   private def handleError(t: Throwable) {
     console.error(s"An error has occured: $t")
   }
-
 }

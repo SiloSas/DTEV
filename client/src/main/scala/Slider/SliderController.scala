@@ -1,15 +1,14 @@
 package Slider
 
 import Room.RoomService
-import com.greencatsoft.angularjs.core.{RouteParams, Location, Timeout}
+import com.greencatsoft.angularjs.core.{Location, RouteParams, Timeout}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
-import shared.Room
-import scala.scalajs.js
+import org.scalajs.dom.console
+
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.{Failure, Success}
-import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import org.scalajs.dom.console
-import scala.concurrent.ExecutionContext.Implicits.global
 
 @JSExportAll
 case class ActiveImage(step: Int, url: String, url1: String)
@@ -24,7 +23,6 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
   def findAll(): Any = {
     roomService.findAll() onComplete {
       case Success(rooms) =>
-        println(rooms)
         scope.$apply {
           sliderScope.images = rooms.map(_.images).toJSArray
           scope.activeImage = ActiveImage(step = 0, url = scope.images.head, url1 = scope.images.head)
@@ -36,7 +34,6 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
               invokeApply = true
             )
           } else {
-            println("one image")
           }
         }
       case Failure(t) => handleError(t)
@@ -59,11 +56,9 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
                   invokeApply = true
                 )
               } else {
-                println("only one picture")
               }
             }
           case None =>
-            println("none")
         }
       case Failure(t: Throwable) =>
         handleError(t)

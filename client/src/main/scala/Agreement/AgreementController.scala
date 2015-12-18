@@ -19,7 +19,6 @@ class AgreementController(scope: AgreementScope, agreementService: AgreementServ
   agreementService.findAll() onComplete {
     case Success(agreements) =>
       scope.$apply {
-        println(agreements)
         scope.agreements = agreements.toJSArray
       }
     case Failure(t) => handleError(t)

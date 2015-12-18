@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(../../../client/src/main/scala/Navigation/css3-animate-it-master/css/animations.css);
 /* line 347, ../../../bower_components/foundation/scss/foundation/components/_global.scss */
 meta.foundation-version {
   font-family: "/5.4.7/";
@@ -25482,7 +25483,7 @@ data-search-bar {
   color: white;
 }
 
-/* line 9, ../scss/main.scss */
+/* line 10, ../scss/main.scss */
 body, html {
   background-color: white;
   background-size: 100%;
@@ -25493,13 +25494,13 @@ body, html {
   scroll-behavior: smooth;
 }
 
-/* line 19, ../scss/main.scss */
+/* line 20, ../scss/main.scss */
 .mainContainer {
   float: left;
   width: 100%;
 }
 
-/* line 25, ../scss/main.scss */
+/* line 26, ../scss/main.scss */
 .parallax {
   perspective: 1px;
   height: 100vh;
@@ -25508,7 +25509,7 @@ body, html {
   perspective-origin-x: 100%;
 }
 
-/* line 32, ../scss/main.scss */
+/* line 33, ../scss/main.scss */
 .parallax__layer {
   position: absolute;
   top: 0;
@@ -25518,24 +25519,24 @@ body, html {
   transform-origin-x: 100%;
 }
 
-/* line 40, ../scss/main.scss */
+/* line 41, ../scss/main.scss */
 .parallax__layer--base {
   transform: translateZ(0);
 }
 
-/* line 43, ../scss/main.scss */
+/* line 44, ../scss/main.scss */
 .parallax__layer--back {
   transform: translateZ(-5px) scale(6.1);
 }
 
-/* line 47, ../scss/main.scss */
+/* line 48, ../scss/main.scss */
 .parallax__group {
   position: relative;
   height: 100vh;
   transform-style: preserve-3d;
 }
 
-/* line 53, ../scss/main.scss */
+/* line 54, ../scss/main.scss */
 .homeArrow {
   width: 100%;
   top: 72%;
@@ -25545,7 +25546,7 @@ body, html {
   transform: translateZ(-0.8px) scale(1);
 }
 
-/* line 62, ../scss/main.scss */
+/* line 63, ../scss/main.scss */
 .arrows {
   width: 100px;
   height: 100px;
@@ -25555,11 +25556,11 @@ body, html {
   bottom: 80px;
 }
 
-/* line 71, ../scss/main.scss */
+/* line 72, ../scss/main.scss */
 .arrows path {
   stroke: #581030;
   fill: transparent;
-  stroke-width: 3px;
+  stroke-width: 5px;
   animation: arrow 2s infinite;
   -webkit-animation: arrow 2s infinite;
 }
@@ -25592,28 +25593,28 @@ body, html {
     opacity: 0;
   }
 }
-/* line 95, ../scss/main.scss */
+/* line 96, ../scss/main.scss */
 .arrows path.a1 {
   animation-delay: -1s;
   -webkit-animation-delay: -1s;
   /* Safari 和 Chrome */
 }
 
-/* line 100, ../scss/main.scss */
+/* line 101, ../scss/main.scss */
 .arrows path.a2 {
   animation-delay: -0.5s;
   -webkit-animation-delay: -0.5s;
   /* Safari 和 Chrome */
 }
 
-/* line 105, ../scss/main.scss */
+/* line 106, ../scss/main.scss */
 .arrows path.a3 {
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
   /* Safari 和 Chrome */
 }
 
-/* line 110, ../scss/main.scss */
+/* line 111, ../scss/main.scss */
 .homeRoomTitle, .homeRoomTitle > h1 {
   width: 100%;
   top: 22%;
@@ -25625,13 +25626,13 @@ body, html {
   transform: translateZ(-0.8px) scale(1);
 }
 
-/* line 121, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .homeRoomTitle > p {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
 
-/* line 127, ../scss/main.scss */
+/* line 128, ../scss/main.scss */
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
@@ -25639,7 +25640,7 @@ body, html {
   padding: 80px;
 }
 
-/* line 133, ../scss/main.scss */
+/* line 134, ../scss/main.scss */
 .mainText {
   font-size: 27px;
   padding: 20px 50px;
@@ -25647,7 +25648,7 @@ body, html {
   text-align: center;
 }
 
-/* line 140, ../scss/main.scss */
+/* line 141, ../scss/main.scss */
 .paddingSearchMin {
   padding-bottom: 48px;
   float: left;
@@ -25655,7 +25656,7 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* line 146, ../scss/main.scss */
+  /* line 147, ../scss/main.scss */
   .homeRoomTitle {
     right: auto;
     left: 0;
@@ -25663,17 +25664,64 @@ body, html {
     text-align: center;
   }
 
-  /* line 152, ../scss/main.scss */
+  /* line 153, ../scss/main.scss */
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;
     width: 100%;
   }
 
-  /* line 157, ../scss/main.scss */
+  /* line 158, ../scss/main.scss */
   .bookingModal {
     max-height: 80%;
     overflow: auto;
     padding: 10px;
   }
+}
+/* Underline From Center */
+/* line 167, ../scss/main.scss */
+.hvr-underline-from-center {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 179, ../scss/main.scss */
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  background: #581030;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 1.6s;
+  transition-duration: 1.6s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+/* line 195, ../scss/main.scss */
+.hvr-underline-from-center.animatedAtScroll:before,
+.hvr-underline-from-center:focus:before,
+.hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+
+/* line 203, ../scss/main.scss */
+.underlineHomeTitle {
+  width: 111px;
+  height: 2px;
+  margin-top: -20px;
 }

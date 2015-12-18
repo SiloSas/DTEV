@@ -44,7 +44,6 @@ class RoomService(http: HttpService) extends Service {
         http.get[js.Any]("/room?id=" + id)
           .map(JSON.stringify(_))
           .map { room =>
-            println(room)
             lastRoom = read[Seq[Room]](room).headOption
             lastRoom
           }

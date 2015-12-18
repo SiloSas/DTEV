@@ -4,7 +4,7 @@ import Booking.{BookingController, BookingModalController}
 import Comments.{CommentController, CommentServiceFactory, CommentsDirective}
 import Contact.{ContactController, ContactServiceFactory}
 import Map.MapDirective
-import Navigation.SmoothScrollDirective
+import Navigation.{AnimationsAtScrollDirective, SmoothScrollDirective}
 import Room.{RoomController, RoomMinDirective, RoomMinHomeDirective, RoomServiceFactory}
 import RoomNav.{RoomNavDirective, SlideLeftDirective}
 import SearchBar.SearchBarDirective
@@ -41,6 +41,7 @@ object App extends JSApp {
       .directive[RoomMinBeDirective]
       .directive[AgreementBackEndDirective]
       .directive[SmoothScrollDirective]
+      .directive[AnimationsAtScrollDirective]
       .factory[RoomServiceFactory]
       .factory[AgreementServiceFactory]
       .factory[CommentServiceFactory]

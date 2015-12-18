@@ -14,7 +14,14 @@
 </md-list>
 
 
-<h1 class="column large-12 text-center margin0 textColorWhite mainTitles">N'hésitez pas à poster un avis...</h1>
+
+<div class="column large-12 text-center margin0 mainTitles">
+    <h1 class="textColorWhite marginBottom0">
+        N'hésitez pas à poster un avis...
+    </h1>
+    <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
+    </b>
+</div>
 
 
 <form name="commentsForm" ng-submit="controller.post()" class="column large-12">
@@ -23,7 +30,7 @@
         <label>Veuillez-renseigner votre nom</label>
         <input type="text" ng-model="newComment.userName" required/>
         <div ng-messages="commentsForm.newComment.userName.$error" role="alert">
-            <div ng-message="required" class="my-message">Vous devez renseigner un nom pour povoir poster un avis</div>
+            <div ng-message="required" class="my-message">Vous devez renseigner un nom pour pouvoir poster un avis</div>
         </div>
     </md-input-container>
 

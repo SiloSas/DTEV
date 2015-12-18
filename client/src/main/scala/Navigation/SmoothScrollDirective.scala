@@ -4,11 +4,9 @@ import com.greencatsoft.angularjs.core.Timeout
 import com.greencatsoft.angularjs.extensions.ModalService
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, injectable}
 import org.scalajs.dom
-import org.scalajs.dom.Element
+import org.scalajs.dom.{Element, document}
 import org.scalajs.dom.html._
 import org.scalajs.dom.raw.MouseEvent
-import org.scalajs.dom.document
-import org.scalajs.dom.console
 
 import scala.scalajs.js.annotation.JSExport
 
@@ -17,9 +15,8 @@ import scala.scalajs.js.annotation.JSExport
 @injectable("smoothScroll")
 class SmoothScrollDirective(modal: ModalService, timeout: Timeout) extends ElementDirective {
 
-
     def scrollToAnchor(): Any = {
-        val anchorPosition: Double = document.getElementById("firstDescriptionText").getBoundingClientRect().top
+        val anchorPositionPlus50: Double = document.getElementById("firstDescriptionText").getBoundingClientRect().top + 50
 
         val container = document.getElementsByClassName("parallax").item(0).asInstanceOf[Html]
 
@@ -28,12 +25,12 @@ class SmoothScrollDirective(modal: ModalService, timeout: Timeout) extends Eleme
         var a: Int = 0
 
         a = dom.setInterval(() => {
-            if(actualPosition < anchorPosition) {
+            if(actualPosition < anchorPositionPlus50) {
                 container.scrollTop = actualPosition
               actualPosition += 50
             } else
                 dom.clearInterval(a)
-        }, 50)
+        }, 5)
     }
 
     override def link(scope: ScopeType, elems: Seq[Element], attrs: Attributes) {

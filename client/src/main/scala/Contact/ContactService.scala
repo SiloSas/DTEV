@@ -19,7 +19,6 @@ class ContactService(http: HttpService) extends Service {
   require(http != null, "Missing argument 'http'.")
   @JSExport
   def post(message: Message): Future[String] = {
-    println(message)
     http.post[js.Any]("/Contact")
       .map {JSON.stringify(_)}
   }
