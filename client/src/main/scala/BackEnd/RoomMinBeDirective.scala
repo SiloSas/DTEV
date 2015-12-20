@@ -8,6 +8,7 @@ import org.scalajs.dom.raw.UIEvent
 
 import scala.scalajs.js.annotation.JSExport
 
+
 @JSExport
 @injectable("roomMinBe")
 class RoomMinBeDirective(window: Window, timeout: Timeout) extends ElementDirective with TemplatedDirective {
@@ -21,7 +22,7 @@ class RoomMinBeDirective(window: Window, timeout: Timeout) extends ElementDirect
       }
       timeout (fn = () => {
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
-      }, 100, false)
+      }, 100, invokeApply = false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))

@@ -33,6 +33,8 @@ lazy val server = (project in file("server")).settings(
     "net.codingwell" %% "scala-guice" % "4.0.0",
     "org.postgresql" % "postgresql" % "9.4-1205-jdbc42",
     "com.github.tototoshi" %% "slick-joda-mapper" % "2.0.0",
+    "com.typesafe.play" %% "play-mailer" % "3.0.1",
+    "org.mindrot" % "jbcrypt" % "0.3m",
     specs2 % Test
   )
 ).enablePlugins(PlayScala).

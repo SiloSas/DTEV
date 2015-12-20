@@ -30,9 +30,9 @@ object RoutingConfig extends Config {
       .when(
         path = "/admin",
         route = Route(
-          templateUrl = "/assets/templates/BackEnd/home.html",
-          title = "Research",
-          controller = "bookingController"))
+          templateUrl = "/assets/templates/BackEnd/main.html",
+          title = "Admin",
+          controller = "backEndController"))
       .when(
         path = "/contact",
         route = Route(
@@ -42,5 +42,3 @@ object RoutingConfig extends Config {
 
   }
 }
-//routing + modify modalController + directive remove function that open the modal and in the html onClick contact remove
-//event and replace it by a href to the home

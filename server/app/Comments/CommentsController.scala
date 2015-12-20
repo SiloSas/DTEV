@@ -8,8 +8,9 @@ import upickle.default._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
+
 class CommentsController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, val commentsMethods: CommentsMethods)
-  extends Controller {
+    extends Controller {
   def findAll() = Action.async {
     commentsMethods.findAll.map { comments =>
       Ok(write(comments))

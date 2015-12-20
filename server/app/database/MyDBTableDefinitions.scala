@@ -1,9 +1,9 @@
 package database
 
 
-import org.joda.time.DateTime
-import shared.{Room, Agreement, Comment}
-import MyPostgresDriver.api._
+import administration.UserActor.User
+import database.MyPostgresDriver.api._
+import shared.{Agreement, Comment, Room}
 
 trait MyDBTableDefinitions {
 
@@ -41,4 +41,13 @@ trait MyDBTableDefinitions {
     def * = (id, title, comment, userName, rate, date) <> ((Comment.apply _).tupled, Comment.unapply)
   }
   lazy val comments = TableQuery[Comments]
+
+  class Users(tag: Tag) extends Table[User](tag, "users") {
+    def id = column[Int]("userid", O.PrimaryKey)
+    def login = column[String]("login")
+    def password = column[String]("password")
+
+    def * = login <> (User, User.unapply)
+  }
+  lazy val users = TableQuery[Users]
 }

@@ -8,9 +8,8 @@ CREATE TABLE rooms (
   isAnApartment             BOOLEAN,
   price                     VARCHAR
 );
-
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Passe Simple', 'La chambre, au premier étage de notre maison d’hôtes, calme et spacieuse, bénéficie d’un accès indépendant. Avec lit double en 160 cm, salle de bain avec baignoire et WC privatif indépendant, coin collation, bouilloire et cafetière électrique.',
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Passé Simple', 'La chambre, au premier étage de notre maison d’hôtes, calme et spacieuse, bénéficie d’un accès indépendant. Avec lit double en 160 cm, salle de bain avec baignoire et WC privatif indépendant, coin collation, bouilloire et cafetière électrique.',
    'Vous apprécierez les moments de partage autour d’un généreux petit-déjeuner sur la terrasse ou dans notre salle à manger.',
     'assets/images/passesimple.jpg', false, '65 € / Nuit');
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
@@ -32,13 +31,12 @@ CREATE TABLE agreements (
   description               VARCHAR,
   image                     VARCHAR
 );
-
 INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Jardin', 'Profitez d''un accès au salon de jardin', 'assets/images/desToits1.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47d0-b55c-593c91b38akjhhe', 'Terrasse', 'petite description de la terrasse', 'assets/images/terrasse.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
-  ('a4aea509-1002-47d0d-b55c-593c91cb38ajhhe', 'Parking', 'une petite description du parking', 'assets/images/parking.jpg');
+  ('a4aea509-1002-47d0d-b55c-593c91cb38ajhhe', 'Parking', 'Photo non contractuelle', 'assets/images/parking.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47sd0-b55c-593c91cb38akhhe', 'Plat du jour', 'Profitez du service plat du jour ', 'assets/images/platDuJour.jpg');
 
@@ -52,22 +50,30 @@ CREATE TABLE comments (
   date                      VARCHAR
 
 );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'dsdlksd', 'dsdlksdadss', 'usfsdfsdf', 2, '2012-08-24' );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-593cd1cb32ae', 'dsdlksd', 'dsdlksdadss', 'fsfsdfsdf', 2, '2012-08-24' );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-593cq1cb32ae', 'dsdlksd', 'dsdlksdadss', 'esfsdfsdf', 2, '2012-08-24' );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-53cq1cb32ae', 'dsdlksd', 'dsdlksdadss', 'jsfsdfsdf', 2, '2012-08-24' );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-53cq1cb32e', 'dsdlksd', 'dsdlksdadss', 'gsfsdfsdf', 2, '2012-08-24' );
+INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-4d0-b55c-53cqcb32e', 'dsdlksd', 'dsdlksdadss', 'bgsfsdfsdf', 2, '2012-08-24' );
 
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'dsdlksd', 'dsdlksdadss', 'usfsdfsdf', 2, '2012-08-24 14:00:00' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-593cd1cb32ae', 'dsdlksd', 'dsdlksdadss', 'fsfsdfsdf', 2, '2012-08-24 14:00:00' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-593cq1cb32ae', 'dsdlksd', 'dsdlksdadss', 'esfsdfsdf', 2, '2012-08-24 14:00:00' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-53cq1cb32ae', 'dsdlksd', 'dsdlksdadss', 'jsfsdfsdf', 2, '2012-08-24 14:00:00' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-53cq1cb32e', 'dsdlksd', 'dsdlksdadss', 'gsfsdfsdf', 2, '2012-08-24 14:00:00' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-4d0-b55c-53cqcb32e', 'dsdlksd', 'dsdlksdadss', 'bgsfsdfsdf', 2, '2012-08-24 14:00:00' );
+
+CREATE TABLE users (
+  id                        SERIAL PRIMARY KEY,
+  login                     VARCHAR(50),
+  password                  VARCHAR(100)
+);
+INSERT INTO users(login, password) VALUES('admin', '$2a$07$8SJ.wfjn2IaidQVHfcmrHuWzrknBqJE8f.8BO7fu.W.d5u0W5r3t.');
+
 
 # --- !Downs
-
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS agreements;
 DROP TABLE IF EXISTS comments;
+DROP TABLE IF EXISTS users;

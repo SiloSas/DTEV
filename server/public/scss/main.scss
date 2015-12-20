@@ -6,8 +6,15 @@
 @import "../../../client/src/main/scala/RoomNav/roomNav";
 @import "../../../client/src/main/scala/SearchBar/searchBar";
 @import "../../../client/src/main/scala/Navigation/css3-animate-it-master/css/animations.css";
+//@import "CaviarDreams.ttf";
+
+@font-face {
+  font-family: "CaviarDreams";
+  src: url("fonts/CaviarDreams.ttf");
+}
 
 body, html {
+  font-family: "CaviarDreams", sans-serif!important;
   background-color: white;
   background-size: 100%;
   height: 100%;
@@ -57,7 +64,7 @@ body, html {
   font-weight: 800;
   text-align: center;
   color: $primary-color;
-  transform: translateZ(-0.8px) scale(1);
+  transform: translateZ(-0.8px) scale(1.5);
 }
 
 .arrows {
@@ -113,7 +120,6 @@ body, html {
   top: 22%;
   font-size: 80px;
   text-align: center;
-  font-family: 'feathericons';
   font-weight: 800;
   color: $primary-color;
   transform: translateZ(-0.8px) scale(1);
@@ -128,13 +134,11 @@ body, html {
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
-  font-family: 'feathericons';
   padding: 80px;
 }
 .mainText {
   font-size: 27px;
   padding: 20px 50px;
-  font-family: 'feathericons';
   text-align: center;
 }
 
@@ -204,4 +208,98 @@ body, html {
   width:111px;
   height: 2px;
   margin-top: -20px;
+}
+
+///* Icon Grow Rotate */
+//.hvr-icon-grow-rotate {
+//  display: inline-block;
+//  vertical-align: middle;
+//  -webkit-transform: translateZ(0);
+//  transform: translateZ(0);
+//  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+//  -webkit-backface-visibility: hidden;
+//  backface-visibility: hidden;
+//  -moz-osx-font-smoothing: grayscale;
+//  position: relative;
+//  padding-right: 2.2em;
+//  -webkit-transition-duration: 0.3s;
+//  transition-duration: 0.3s;
+//}
+//.hvr-icon-grow-rotate:before {
+//  content: "\f095";
+//  position: absolute;
+//  right: 1em;
+//  padding: 0 1px;
+//  font-family: FontAwesome;
+//  -webkit-transform: translateZ(0);
+//  transform: translateZ(0);
+//  -webkit-transition-duration: 0.3s;
+//  transition-duration: 0.3s;
+//  -webkit-transition-property: transform;
+//  transition-property: transform;
+//  -webkit-transition-timing-function: ease-out;
+//  transition-timing-function: ease-out;
+//}
+//.hvr-icon-grow-rotate:hover:before, .hvr-icon-grow-rotate:focus:before, .hvr-icon-grow-rotate:active:before {
+//  -webkit-transform: scale(1.5) rotate(12deg);
+//  transform: scale(1.5) rotate(12deg);
+//}
+
+
+/* Bounce In */
+.hvr-bounce-in {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+}
+.hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+  transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+
+
+/* Pop */
+@-webkit-keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes hvr-pop {
+  50% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+
+.hvr-pop {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
+  -webkit-animation-name: hvr-pop;
+  animation-name: hvr-pop;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
 }

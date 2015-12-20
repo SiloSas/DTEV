@@ -1,5 +1,5 @@
 <i class="fa fa-close pointer textPrimColor float-right" data-ng-click="controller.close()"></i>
-<h1>Reserver</h1>
+<h1>Réserver</h1>
 <h2>{{room.name}}</h2>
 <form name="bookingForm">
     <md-subheader class="md-no-sticky">Dates</md-subheader>
@@ -18,7 +18,7 @@
                 type="date"/>
     </md-input-container>
     <md-divider ></md-divider>
-    <md-subheader class="md-no-sticky">Identitée</md-subheader>
+    <md-subheader class="md-no-sticky">Identité</md-subheader>
     <md-input-container>
         <label>Nom</label>
         <input ng-model="name" type="text" required>
@@ -44,7 +44,7 @@
         <label>Numéro de téléphon</label>
         <input ng-model="phoneNumber" type="number" required>
         <div ng-messages="bookingForm.phoneNumber.$error" role="alert">
-            <div ng-message="required" class="my-message">Veuillez entrer un Numéro de téléphon</div>
+            <div ng-message="required" class="my-message">Veuillez entrer un numéro de téléphone</div>
         </div>
     </md-input-container>
     <md-divider ></md-divider>
@@ -52,6 +52,6 @@
     <div class="column">
         {{room.price}} € / Nuit
     </div>
-    <md-button type="submit" class="primCol">Reservez</md-button>
+    <md-button type="submit" class="primCol">Réservez</md-button>
 
 </form>

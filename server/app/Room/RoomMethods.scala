@@ -19,5 +19,4 @@ class RoomMethods @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
   def findById(id: String): Future[Option[Room]] = db.run(rooms.filter(_.id === id).result) map (_.headOption)
 
   def findAvailable(start: String, end: String): Future[Seq[Room]] = db.run(rooms.result) map (_.tail)
-
 }
