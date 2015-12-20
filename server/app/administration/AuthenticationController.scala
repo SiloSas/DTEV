@@ -31,7 +31,11 @@ class AuthenticationController @Inject()(protected val dbConfigProvider: Databas
     }
   }
 
-  def logout = Action { Ok("Correctly logged out").withNewSession }
+  def isConnected = Authenticated { request =>
+    Ok("true")
+  }
+
+  def logout = Action { Ok("Vous êtes bien déconnecté").withNewSession }
 
 //  def sendNotificationMail(content: String, brandUUID: UUID, isClient: Boolean): Unit = {
 //    val mail = use[MailerPlugin].email

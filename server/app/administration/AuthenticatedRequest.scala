@@ -23,8 +23,7 @@ object Authenticated extends ActionBuilder[AuthenticatedRequest] {
       case Some(uuid) =>
         block(new AuthenticatedRequest(request))
       case None =>
-//        block(new AuthenticatedRequest(request = Request[Result](UNAUTHORIZED)))
-        Future.successful(Results.Unauthorized("DTC"))
+        Future.successful(Results.Unauthorized("Vous devez être connecté pour accéder à cette partie du site"))
     }
   }
 }
