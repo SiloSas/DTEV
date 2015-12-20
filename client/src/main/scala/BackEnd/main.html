@@ -1,4 +1,4 @@
-<div ng-if="connected">
+<div ng-if="isConnected">
     <div class="column">
         <h1 class="text-center">Chambres</h1>
         <div class="searchContainer grid" data-ng-controller="roomController">
@@ -34,8 +34,8 @@
     </div>
 </div>
 
-<div ng-if="!connected">
-    Vous devez vous connecter bande de batards !
+<div ng-if="!isConnected" style="margin-top: 150px">
+    <h3 class="center">Vous devez être connecté pour accéder à cette partie du site</h3>
 </div>
 
 <div class="paddingSearchMin white"></div>
