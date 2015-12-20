@@ -3,19 +3,21 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index
-GET	    /rooms						@Room.RoomController.findAll
-GET		/room						@Room.RoomController.findById(id: String)
-GET		/availableRooms				@Room.RoomController.findAvailable(start: String, end: String)
-GET	    /agreements				    @Agreement.AgreementController.findAll
-GET	    /comments				    @Comments.CommentsController.findAll
-POST    /comments                   @Comments.CommentsController.post(comment: String)
+GET     /                         controllers.Application.index
+GET	    /rooms                    @Room.RoomController.findAll
+GET		/room                     @Room.RoomController.findById(id: String)
+POST    /room                     @Room.RoomController.update
+#(id: String, name: String, presentation: String, header: String, images: String, isAnApartment: Boolean, price: String)
+GET		/availableRooms           @Room.RoomController.findAvailable(start: String, end: String)
+GET	    /agreements               @services.ServicesController.findAll
+GET	    /comments                 @Comments.CommentsController.findAll
+POST    /comments                 @Comments.CommentsController.post(comment: String)
 
 # Connection
 #authenticate(login: String, password: String)
-GET     /authenticate               @administration.AuthenticationController.authenticate(login: String, password: String)
-GET     /logout                     @administration.AuthenticationController.logout
-GET     /isConnected                @administration.AuthenticationController.isConnected
+GET     /authenticate             @administration.AuthenticationController.authenticate(login: String, password: String)
+GET     /logout                   @administration.AuthenticationController.logout
+GET     /isConnected              @administration.AuthenticationController.isConnected
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

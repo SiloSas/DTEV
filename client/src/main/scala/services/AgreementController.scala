@@ -1,4 +1,4 @@
-package Agreement
+package services
 
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.console

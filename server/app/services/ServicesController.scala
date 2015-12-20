@@ -1,4 +1,4 @@
-package Agreement
+package services
 
 import javax.inject.Inject
 
@@ -8,8 +8,8 @@ import upickle.default._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-class AgreementController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
-                                    val agreementMethods: AgreementMethods)
+class ServicesController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
+                                   val agreementMethods: ServicesMethods)
     extends Controller {
 
   def findAll() = Action.async {

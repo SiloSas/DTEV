@@ -1,4 +1,4 @@
-package Agreement
+package services
 
 import com.greencatsoft.angularjs.core.Scope
 import shared.Agreement

@@ -82,5 +82,4 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
   private def handleError(t: Throwable) {
     console.error(s"An error has occured: $t")
   }
-
 }

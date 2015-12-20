@@ -57,6 +57,20 @@ class RoomService(http: HttpService) extends Service {
       .map(read[Seq[Room]])
   }
 
+  @JSExport
+  def update(room: js.Any) = {
+    val a = JSON.stringify(room)
+    println(a)
+    val room1: Room = read[Room](a)
+    print("room1 = " + room1)
+
+    http.post[js.Any]("/room", write(room1)) map { resp =>
+      println("bien envoyé")
+    } recover {
+      case e: Exception => print(e)
+    }
+  }
+
   protected def flatten[T](future: Future[Try[T]]): Future[T] = future flatMap {
     case Success(s) => Future.successful(s)
     case Failure(f) => Future.failed(f)

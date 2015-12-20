@@ -1,4 +1,4 @@
-import Agreement.{AgreementController, AgreementDirective, AgreementServiceFactory}
+import services.{AgreementController, AgreementDirective, AgreementServiceFactory}
 import BackEnd.{BackEndController, AgreementBackEndDirective, RoomMinBeDirective}
 import Booking.{BookingController, BookingModalController}
 import Comments.{CommentController, CommentServiceFactory, CommentsDirective}

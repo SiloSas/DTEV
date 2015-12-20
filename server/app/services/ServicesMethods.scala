@@ -1,4 +1,4 @@
-package Agreement
+package services
 
 import javax.inject.Inject
 import database.MyPostgresDriver.api._
@@ -9,10 +9,9 @@ import scala.concurrent.Future
 import scala.language.postfixOps
 
 
-class AgreementMethods @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
-  extends HasDatabaseConfigProvider[MyPostgresDriver]
-  with MyDBTableDefinitions {
+class ServicesMethods @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
+    extends HasDatabaseConfigProvider[MyPostgresDriver]
+    with MyDBTableDefinitions {
 
   def findAll: Future[Seq[shared.Agreement]] = db.run(agreements.result) map (_.toSeq)
-
 }

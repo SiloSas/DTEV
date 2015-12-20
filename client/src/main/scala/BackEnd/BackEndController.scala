@@ -10,8 +10,8 @@ import scala.scalajs.js.annotation.JSExport
 
 @JSExport
 @injectable("backEndController")
-class BackEndController(scope: BackEndScope, $routeParams: RouteParams, http: HttpService)
-    extends AbstractController[BackEndScope](scope) {
+class BackEndController(backEndScope: BackEndScope, $routeParams: RouteParams, http: HttpService)
+    extends AbstractController[BackEndScope](backEndScope) {
 
 
   val eventuallyIsConnected = http.get[String]("/isConnected")
@@ -19,8 +19,8 @@ class BackEndController(scope: BackEndScope, $routeParams: RouteParams, http: Ht
     .recover { case e: Exception => false}
 
   eventuallyIsConnected map { isConnected =>
-    scope.isConnected = isConnected
-    scope.$digest()
+    backEndScope.isConnected = isConnected
+    backEndScope.$digest()
   }
 
   private def handleError(t: Throwable) {

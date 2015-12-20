@@ -11,6 +11,7 @@ import scala.scalajs.js.JSON
 import scala.scalajs.js.annotation.JSExport
 import scala.util.{Failure, Success, Try}
 
+
 @injectable("commentService")
 class CommentService(http: HttpService) extends Service {
   require(http != null, "Missing argument 'http'.")

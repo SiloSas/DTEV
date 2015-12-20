@@ -1,8 +1,8 @@
-package Agreement
+package services
 
 import com.greencatsoft.angularjs.core.{Timeout, Window}
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, TemplatedDirective, injectable}
-import org.scalajs.dom.{Element, document}
+import org.scalajs.dom.Element
 import org.scalajs.dom.html.Html
 import org.scalajs.dom.raw.UIEvent
 
