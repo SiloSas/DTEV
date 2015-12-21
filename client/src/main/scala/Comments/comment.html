@@ -1,5 +1,5 @@
 <md-list>
-    <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5">
+    <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">
         <md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
         <div class="md-list-item-text">
             <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>

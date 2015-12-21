@@ -9,14 +9,18 @@ CREATE TABLE rooms (
   price                     VARCHAR
 );
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Passé Simple', 'La chambre, au premier étage de notre maison d’hôtes, calme et spacieuse, bénéficie d’un accès indépendant. Avec lit double en 160 cm, salle de bain avec baignoire et WC privatif indépendant, coin collation, bouilloire et cafetière électrique.',
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Passé Simple',
+   'La chambre, au premier étage de notre maison d’hôtes, calme et spacieuse, bénéficie d’un accès indépendant. Avec lit double en 160 cm, salle de bain avec baignoire et WC privatif indépendant, coin collation, bouilloire et cafetière électrique.',
    'Vous apprécierez les moments de partage autour d’un généreux petit-déjeuner sur la terrasse ou dans notre salle à manger.',
     'assets/images/passesimple.jpg', false, '65 € / Nuit');
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
-  ('a4aea509-1002-47d0-b5c-593c91cb38ae', 'Pied à Terre', 'Maecenas id mattis ipsum. Quisque dictum dolor dolor, a tincidunt nisl tincidunt id. Pellentesque',
-  'Maecenas id mattis ipsum. Quisque dictum dolor dolor, a tincidunt nisl tincidunt id. Pellentesque', 'assets/images/doubleBed.jpg', true, ' 65 € / Nuit');
+  ('a4aea509-1002-47d0-b5c-593c91cb38ae', 'Pied à Terre',
+   'Maecenas id mattis ipsum. Quisque dictum dolor dolor, a tincidunt nisl tincidunt id. Pellentesque',
+  'Maecenas id mattis ipsum. Quisque dictum dolor dolor, a tincidunt nisl tincidunt id. Pellentesque',
+   'assets/images/doubleBed.jpg', true, ' 65 € / Nuit');
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91b38ae', 'L’Escale', 'Maecenas id mattis ipsum. Quisque dictum dolor dolor, a tincidunt nisl tincidunt id. Pellentesque',
+  ('a4aea509-1002-47d0-b55c-593c91b38ae', 'L’Escale',
+   'Maecenas id mattis ipsum. Quisque dictum dolor dolor, a tincidunt nisl tincidunt id. Pellentesque',
   'Vous apprécierez les moments de partage autour d’un généreux petit-déjeuner sur la terrasse ou dans notre salle à manger.',
   'assets/images/blueBed2.jpg', true, ' 65 € / Nuit');
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
@@ -43,25 +47,22 @@ INSERT INTO agreements(id, title, description, image) VALUES
 
 CREATE TABLE comments (
   id                        VARCHAR PRIMARY KEY,
-  title                     VARCHAR,
   comment                   VARCHAR,
   userName                  VARCHAR,
   rate                      VARCHAR,
-  date                      VARCHAR
-
+  date                      VARCHAR,
+  isValidated               BOOLEAN DEFAULT FALSE
 );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'dsdlksd', 'dsdlksdadss', 'usfsdfsdf', 2, '2012-08-24' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-593cd1cb32ae', 'dsdlksd', 'dsdlksdadss', 'fsfsdfsdf', 2, '2012-08-24' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-593cq1cb32ae', 'dsdlksd', 'dsdlksdadss', 'esfsdfsdf', 2, '2012-08-24' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-53cq1cb32ae', 'dsdlksd', 'dsdlksdadss', 'jsfsdfsdf', 2, '2012-08-24' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-53cq1cb32e', 'dsdlksd', 'dsdlksdadss', 'gsfsdfsdf', 2, '2012-08-24' );
-INSERT INTO comments(id, title, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-4d0-b55c-53cqcb32e', 'dsdlksd', 'dsdlksdadss', 'bgsfsdfsdf', 2, '2012-08-24' );
+INSERT INTO comments(id, comment, userName, rate, date, isValidated) VALUES
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae',  'super', 'usfsdfsdf', 4, '2012-08-24', true);
+INSERT INTO comments(id, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-593cq1cb32a', 'dsdlksdadss', 'esfsdfsdf', 2, '2012-08-24');
+INSERT INTO comments(id, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-47d0-b55c-53cq1cb32ae', 'dsdlksdadss', 'jsfsdfsdf', 5, '2012-08-24');
+INSERT INTO comments(id, comment, userName, rate, date, isValidated) VALUES
+  ('a4aea509-1002-47d0-b55c-53cq1cb32e', 'dsdlksdadss', 'gsfsdfsdf', 5, '2012-08-24', true);
+INSERT INTO comments(id, comment, userName, rate, date) VALUES
+  ('a4aea509-1002-4d0-b55c-53cqcb32e', 'dsdlksdadss', 'bgsfsdfsdf', 2, '2012-08-24');
 
 
 CREATE TABLE users (

@@ -16,17 +16,14 @@ import scala.util.{Failure, Success, Try}
 class CommentService(http: HttpService) extends Service {
   require(http != null, "Missing argument 'http'.")
 
-
   @JSExport
   var comments = Seq.empty[Comment]
   def findAll(): Future[Seq[Comment]] = {
-    // Append a timestamp to prevent some old browsers from caching the result.
-    if(comments != Seq.empty) Future(comments)
+    if(comments != Seq.empty)
+      Future(comments)
     else {
       http.get[js.Any]("/comments")
-        .map {
-          JSON.stringify(_)
-        }
+        .map(JSON.stringify(_))
         .map { foundComments =>
           comments = read[Seq[Comment]](foundComments)
           comments
@@ -36,7 +33,14 @@ class CommentService(http: HttpService) extends Service {
 
   @JSExport
   def post(comment: Comment): Future[Int] = {
-    http.post[js.Any]("/comments?comment=" + write(comment)) map { resp =>
+    http.post[js.Any]("/comments", write[Comment](comment)) map { resp =>
+      read[Int](JSON.stringify(resp))
+    }
+  }
+
+  @JSExport
+  def update(comment: Comment): Future[Int] = {
+    http.put[js.Any]("/comments", write[Comment](comment)) map { resp =>
       read[Int](JSON.stringify(resp))
     }
   }
@@ -57,6 +61,5 @@ class CommentService(http: HttpService) extends Service {
 
 @injectable("commentService")
 class CommentServiceFactory(http: HttpService) extends Factory[CommentService] {
-
   override def apply(): CommentService = new CommentService(http)
 }

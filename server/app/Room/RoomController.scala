@@ -2,6 +2,7 @@ package Room
 
 import javax.inject.Inject
 
+import administration.Authenticated
 import play.api.db.slick.DatabaseConfigProvider
 import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.{Action, _}
@@ -33,7 +34,7 @@ class RoomController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
     }
   }
 
-  def update = Action.async(parse.json) { request =>
+  def update = Authenticated.async(parse.json) { request =>
     val room = read[Room](request.body.as[JsObject].toString)
 
     roomMethods.update(room) map { numberOfRowsUpdated =>

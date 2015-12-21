@@ -32,13 +32,13 @@ trait MyDBTableDefinitions {
 
   class Comments(tag: Tag) extends Table[Comment](tag, "comments") {
     def id = column[String]("id")
-    def title = column[String]("title")
     def comment = column[String]("comment")
     def userName = column[String]("username")
     def rate = column[Int]("rate")
     def date = column[String]("date")
+    def isValidated = column[Boolean]("isvalidated")
 
-    def * = (id, title, comment, userName, rate, date) <> ((Comment.apply _).tupled, Comment.unapply)
+    def * = (id, comment, userName, rate, date, isValidated) <> ((Comment.apply _).tupled, Comment.unapply)
   }
   lazy val comments = TableQuery[Comments]
 

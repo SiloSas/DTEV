@@ -1,19 +1,25 @@
 package BackEnd
 
+import Comments.CommentService
 import Room.RoomService
 import com.greencatsoft.angularjs.core.{Timeout, Window}
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, TemplatedDirective, injectable}
 import org.scalajs.dom.Element
 import org.scalajs.dom.html._
 import org.scalajs.dom.raw.UIEvent
+import shared.{Comment, Room}
+import upickle.default._
 
 import scala.scalajs.js
+import scala.scalajs.js.JSON
 import scala.scalajs.js.annotation.JSExport
 
 
 @JSExport
 @injectable("roomMinBe")
-class RoomMinBeDirective(window: Window, timeout: Timeout, roomService: RoomService) extends ElementDirective with TemplatedDirective {
+class RoomMinBeDirective(window: Window, timeout: Timeout, roomService: RoomService, commentService: CommentService)
+  extends ElementDirective
+    with TemplatedDirective {
 
   override val templateUrl = "assets/templates/BackEnd/roomMinBe.html"
 
@@ -32,9 +38,13 @@ class RoomMinBeDirective(window: Window, timeout: Timeout, roomService: RoomServ
   }
 
   @JSExport
-  def update(room: js.Any) = {
-    println("lkjlkjlkj")
-    org.scalajs.dom.console.log(room)
-    roomService.update(room)
+  def updateRoom(room: js.Any) = {
+//    org.scalajs.dom.console.log(room)
+    roomService.update(read[Room](JSON.stringify(room)))
+  }
+
+  @JSExport
+  def updateComment(comment: js.Any) = {
+    commentService.update(read[Comment](JSON.stringify(comment)))
   }
 }

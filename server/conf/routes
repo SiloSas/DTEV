@@ -11,7 +11,8 @@ POST    /room                     @Room.RoomController.update
 GET		/availableRooms           @Room.RoomController.findAvailable(start: String, end: String)
 GET	    /agreements               @services.ServicesController.findAll
 GET	    /comments                 @Comments.CommentsController.findAll
-POST    /comments                 @Comments.CommentsController.post(comment: String)
+POST    /comments                 @Comments.CommentsController.post
+PUT     /comments                 @Comments.CommentsController.update
 
 # Connection
 #authenticate(login: String, password: String)

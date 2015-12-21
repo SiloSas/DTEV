@@ -24,10 +24,3 @@ class RoomMethods @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
     db.run(rooms.filter(_.id === room.id).update(room))
   }
 }
-//    def getCCParams(cc: AnyRef): Map[String, Any] =
-//      (Map[String, Any]() /: cc.getClass.getDeclaredFields) {(a, f) =>
-//        f.setAccessible(true)
-//        a + (f.getName -> f.get(cc))
-//      }
-//
-//    println(getCCParams(room))

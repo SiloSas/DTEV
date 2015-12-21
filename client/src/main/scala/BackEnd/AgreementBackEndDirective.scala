@@ -26,7 +26,6 @@ class AgreementBackEndDirective(window: Window, timeout: Timeout) extends Elemen
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(Math.ceil(element.clientWidth * 0.66))
-
     }
   }
 }

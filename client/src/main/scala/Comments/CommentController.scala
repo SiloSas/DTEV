@@ -23,12 +23,10 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
   scope.comments = js.Array[shared.Comment]()
 
   cleanNewComment()
-
   scope.newComment = newComment
 
   def cleanNewComment() = {
     newComment.id = UUID.randomUUID().toString
-    newComment.title = ""
     newComment.comment = ""
     newComment.userName = ""
     newComment.rate = 0
@@ -36,20 +34,33 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
 
   commentService.findAll() onComplete {
     case Success(foundComments) =>
+      println("foundComments = " + foundComments)
       scope.$apply {
         scope.comments = foundComments.toJSArray
       }
     case Failure(t: Throwable) =>
+      println("e")
       handleError(t)
   }
 
   def displayToast(): Any = {
     var toast = mdToast.simple("Votre avis a bien été envoyé")
     toast._options.position = """{
-      bottom: false
-      top: true
-      left: false
-      right: true
+        bottom: false
+        top: true
+        left: false
+        right: true
+      }"""
+    mdToast.show(toast)
+  }
+
+  def displayErrorToast(): Any = {
+    var toast = mdToast.simple("Désolé, une erreur s'est produite")
+    toast._options.position = """{
+        bottom: false
+        top: true
+        left: false
+        right: true
       }"""
     mdToast.show(toast)
   }
@@ -58,23 +69,23 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
   def post(): Unit = {
     val comment = Comment(
       id = UUID.randomUUID().toString,
-      title = scope.newComment.title,
       comment = scope.newComment.comment,
       userName = scope.newComment.userName,
       rate = scope.newComment.rate,
-      date = new Date().getDay() + "." + new Date().getMonth() + "." + new Date().getFullYear())
+      date = new Date().getDay() + "." + new Date().getMonth() + "." + new Date().getFullYear(),
+      isValidated = false)
 
     commentService.post(comment) onComplete {
-      case Success(0) =>
-        displayToast()
       case Success(1) =>
         displayToast()
         scope.$apply {
           scope.comments :+= comment
           cleanNewComment()
         }
+      case Success(_) =>
+        displayErrorToast()
       case Failure(t: Throwable) =>
-        displayToast()
+        displayErrorToast()
         handleError(t)
     }
   }

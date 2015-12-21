@@ -19,9 +19,9 @@ class RoomService(http: HttpService) extends Service {
 
   @JSExport
   var rooms = Seq.empty[Room]
-  def findAll(): Future[Seq[Room]] = /*flatten*/ {
-    // Append a timestamp to prevent some old browsers from caching the result.
-    if(rooms != Seq.empty) Future(rooms)
+  def findAll(): Future[Seq[Room]] = {
+    if(rooms != Seq.empty)
+      Future(rooms)
     else {
       http.get[js.Any]("/rooms")
         .map {
@@ -58,13 +58,8 @@ class RoomService(http: HttpService) extends Service {
   }
 
   @JSExport
-  def update(room: js.Any) = {
-    val a = JSON.stringify(room)
-    println(a)
-    val room1: Room = read[Room](a)
-    print("room1 = " + room1)
-
-    http.post[js.Any]("/room", write(room1)) map { resp =>
+  def update(room: Room) = {
+    http.post[js.Any]("/room", write(room)) map { resp =>
       println("bien envoyé")
     } recover {
       case e: Exception => print(e)
