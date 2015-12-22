@@ -303,3 +303,21 @@ body, html {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
+
+
+
+.myTooltip {
+  display: inline;
+  background: #333;
+  background: rgba(0,0,0,.8);
+  border-radius: 5px;
+  bottom: 26px;
+  color: #fff;
+  left: 20%;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
+  @extend .large-2;
+}
+

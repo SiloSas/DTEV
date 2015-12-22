@@ -16,13 +16,14 @@ class SearchBarDirective(mdToastService: MdToastService, location: Location, fil
 
   @JSExport
   def search(start: js.Date, end: js.Date): Any = {
+    println(start)
+    println(end)
     if (!js.isUndefined(start)) {
       val startString = start.getFullYear() + "-" + start.getMonth() + "-" + start.getDay()
       val endString = end.getFullYear() + "-" + end.getMonth() + "-" + end.getDay()
       location.path("search/" + startString + "/" + endString)
-    }
-    else {
-      val missingDateToast = mdToastService.simple("Veuillez-renseigner une date de départ et d'arrivée")
+    } else {
+      val missingDateToast = mdToastService.simple("Veuillez renseigner une date de départ et d'arrivée")
       missingDateToast._options.position = "{right: true}"
       mdToastService.show(missingDateToast)
     }

@@ -1270,7 +1270,7 @@ select {
   }
 
   /* line 172, ../../../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .large-2 {
+  .large-2, .myTooltip {
     width: 16.6666666667%;
   }
 
@@ -11509,7 +11509,7 @@ select {
   }
 
   /* line 172, ../../../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .large-2 {
+  .large-2, .myTooltip {
     width: 16.6666666667%;
   }
 
@@ -15337,7 +15337,7 @@ select {
   }
 
   /* line 172, ../../../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .large-2 {
+  .large-2, .myTooltip {
     width: 16.6666666667%;
   }
 
@@ -17647,7 +17647,7 @@ select {
   }
 
   /* line 172, ../../../bower_components/foundation/scss/foundation/components/_grid.scss */
-  .large-2 {
+  .large-2, .myTooltip {
     width: 16.6666666667%;
   }
 
@@ -25786,4 +25786,19 @@ body, html {
   animation-timing-function: linear;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+}
+
+/* line 309, ../scss/main.scss */
+.myTooltip {
+  display: inline;
+  background: #333;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+  bottom: 26px;
+  color: #fff;
+  left: 20%;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+  position: absolute;
+  z-index: 98;
 }

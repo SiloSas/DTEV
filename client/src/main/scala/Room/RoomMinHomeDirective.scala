@@ -2,7 +2,7 @@ package Room
 
 import com.greencatsoft.angularjs.core.{Timeout, Window}
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, TemplatedDirective, injectable}
-import org.scalajs.dom.{Element, document}
+import org.scalajs.dom.Element
 import org.scalajs.dom.html.Html
 import org.scalajs.dom.raw.UIEvent
 
@@ -21,11 +21,10 @@ class RoomMinHomeDirective(window: Window, timeout: Timeout) extends ElementDire
 
       timeout (fn = () => {
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
-      }, 50, false)
+      }, 50, invokeApply = false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
-
     }
   }
 }

@@ -1,7 +1,11 @@
 <div class="parallax">
     <slider class="parallax__layer parallax__layer--back" ng-controller="sliderController"></slider>
     <div class="absolute zIndex2 homeRoomTitle float-left">
-        <b class="float-left marginTop0 column large-12">{{room.name}}</b>
+        <div class="float-left column large-12" style="margin-bottom: -60px">{{room.name}}</div>
+        <b class="animated hvr-underline-from-center underlineHomeTitle"
+           animations-at-scroll
+           style="transform: translateZ(0px) scale(1.75, 1.8);">
+        </b>
         <p>{{room.header}}</p>
     </div>
     <div class="slider-content width100p float-left parallax__layer parallax__layer--base zIndex3">
@@ -20,7 +24,14 @@
                 <b class="textPrimColor">Animaux acceptés</b>
             </div>
         </div>
-        <h1 class="column large-12 text-center margin0 textColorWhite mainTitles">NOS SERVICES</h1>
+
+        <div class="column large-12 text-center margin0 mainTitles">
+            <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
+                NOS SERVICES
+            </h1>
+            <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
+            </b>
+        </div>
         <div class="width100p white float-left grid column large-12 padding0 margin0" data-ng-controller="agreementController">
             <agreement class="column large-3 medium-6 padding0 margin0 float-left" ng-repeat="agreement in agreements"></agreement>
         </div>

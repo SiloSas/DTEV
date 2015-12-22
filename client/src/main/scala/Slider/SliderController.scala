@@ -30,7 +30,7 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
             timeout(fn = () => {
               changeActiveImage(scope.images.tail)
             },
-              delay = 10000,
+              delay = 6000,
               invokeApply = true
             )
           } else {
@@ -52,7 +52,7 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
                 timeout(fn = () => {
                   changeActiveImage(scope.images.tail)
                 },
-                  delay = 10000,
+                  delay = 6000,
                   invokeApply = true
                 )
               } else {
@@ -86,7 +86,7 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
         timeout(fn = () => {
           changeActiveImage(images.tail)
         },
-          delay = 10000,
+          delay = 6000,
           invokeApply = true
         )
       case _ =>

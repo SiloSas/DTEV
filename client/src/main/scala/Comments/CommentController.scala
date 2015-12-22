@@ -17,8 +17,11 @@ import scala.util.{Failure, Success}
 
 @JSExport
 @injectable("commentController")
-class CommentController(scope: CommentScope, newComment: NewComment, commentService: CommentService, mdToast: MdToastService)
-  extends AbstractController[CommentScope](scope) {
+class CommentController(scope: CommentScope,
+                        newComment: NewComment,
+                        commentService: CommentService,
+                        mdToast: MdToastService)
+    extends AbstractController[CommentScope](scope) {
 
   scope.comments = js.Array[shared.Comment]()
 

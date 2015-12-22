@@ -36,8 +36,9 @@
                 La maison d'hôtes <b class="textPrimColor">Des Toits en Ville</b> est située à 4,4 km de la gare de <b class="textPrimColor">Lyon Part Dieu</b>
                 et à 280 mètres de la station de <b class="textPrimColor">métro Cusset</b>. Vous trouverez un parking privé à proximité,
                 accessible moyennant des frais supplémentaires.
-            </div>
+            </div>1
         </div>
+
 
         <div class="column large-12 text-center margin0 mainTitles">
             <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
@@ -48,7 +49,24 @@
         </div>
 
         <div class="width100p white float-left grid parallax__layer--base" data-ng-controller = "roomController">
-            <room-min-home data-ng-repeat="room in rooms" class="column medium-6 padding0 margin0"></room-min-home>
+            <room-min-home data-ng-repeat="room in rooms | filter: {isAnApartment: false}"
+                           class="column medium-6 padding0 margin0">
+            </room-min-home>
+        </div>
+
+
+        <div class="column large-12 text-center margin0 mainTitles">
+            <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
+                NOS APPARTEMENTS
+            </h1>
+            <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
+            </b>
+        </div>
+
+        <div class="width100p white float-left grid parallax__layer--base" data-ng-controller = "roomController">
+            <room-min-home data-ng-repeat="room in rooms | filter: {isAnApartment: true}"
+                           class="column medium-4 padding0 margin0">
+            </room-min-home>
         </div>
 
 
