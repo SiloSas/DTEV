@@ -5,7 +5,6 @@ import com.greencatsoft.angularjs.extensions.material.BottomSheetHideOrCancel
 import com.greencatsoft.angularjs.injectable
 
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSExportAll
 
 @injectable("$mdToast")
 trait MdToastService extends js.Object {
@@ -13,7 +12,6 @@ trait MdToastService extends js.Object {
   def show(mdToast: MdToast): Promise[BottomSheetHideOrCancel] = js.native
 
   def simple(content: String): MdToast = js.native
-
 }
 
 trait MdToast extends js.Object {

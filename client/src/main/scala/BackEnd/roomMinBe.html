@@ -33,8 +33,12 @@
     </figcaption>
 </figure>
 
-<form name="editRoom" ng-submit="changeRoom = false; directive.update(newRoom); room = newRoom" data-ng-show="changeRoom"
-      class="column large-12 md-whiteframe-z1 padding20" ng-init="newRoom.id = room.id; newRoom.isAnApartment = room.isAnApartment">
+<form name="editRoom"
+      ng-submit="changeRoom = false; directive.updateRoom(newRoom); room = newRoom"
+      data-ng-show="changeRoom"
+      class="column large-12 md-whiteframe-z1 padding20"
+      ng-init="newRoom.id = room.id; newRoom.isAnApartment = room.isAnApartment">
+
     <h1>Modifier la chambre {{room.name}}</h1>
     <md-input-container class="column large-12 ">
         <label><b>Nom</b></label>

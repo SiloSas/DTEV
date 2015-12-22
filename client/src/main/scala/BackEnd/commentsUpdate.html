@@ -1,0 +1,41 @@
+<md-list-item class="md-3-line column large-12 md-whiteframe-z1"
+              ng-repeat="comment in comments | limitTo: limit + 5">
+
+    <form name="editComment"
+          ng-init="updatedComment.id = comment.id;
+                    updatedComment.comment = comment.comment;
+                    updatedComment.userName = comment.userName;
+                    updatedComment.rate = comment.rate;
+                    updatedComment.date = comment.date;
+                    updatedComment.isValidated = comment.isValidated;"
+          class="column large-12">
+        <md-list>
+            <md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
+            <div class="md-list-item-text">
+                <h4>
+                    Par <b class="textPrimColor">{{comment.userName}}</b>
+                    le <b class="textPrimColor">{{comment.date}}</b>
+                </h4>
+                <p>{{comment.comment}}</p>
+            </div>
+
+            <div class="md-secondary">
+                <i data-ng-repeat="star in [1, 2, 3, 4, 5]"
+                   class="fa fa-star"
+                   ng-class="{'textPrimColor': star <= comment.rate}">
+                </i>
+            </div>
+
+            Ce commentaire doit-il être visible par les utilisateurs :
+            <input type="checkbox"
+                   ng-model="updatedComment.isValidated"
+                   ng-change="console.log('lkjkllkj'); directive.updateComment(updatedComment); comment = updatedComment"/>
+
+        </md-list>
+
+    </form>
+</md-list-item>
+
+<md-button class="primCol large-4 large-offset-4" ng-click="limit = limit + 5">
+    <b>Voir plus d'avis</b>
+</md-button>

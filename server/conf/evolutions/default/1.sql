@@ -24,7 +24,8 @@ INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) 
   'Vous apprécierez les moments de partage autour d’un généreux petit-déjeuner sur la terrasse ou dans notre salle à manger.',
   'assets/images/blueBed2.jpg', true, ' 65 € / Nuit');
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb3ae', 'La terrasse', 'Appartement T1bis au 2ème étage d une maison d hôtes comprenant 2 autres appartements et une chambre d hôtes, avec salon et couchage en 140, petite alcove pour accueillir une 3ème personne ou un enfant. Grande terrasse "sur le toit" avec salon de jardin. Cuisine équipée indépendante. Parking en supplément.',
+  ('a4aea509-1002-47d0-b55c-593c91cb3ae', 'La terrasse',
+   'Appartement T1bis au 2ème étage d une maison d hôtes comprenant 2 autres appartements et une chambre d hôtes, avec salon et couchage en 140, petite alcove pour accueillir une 3ème personne ou un enfant. Grande terrasse "sur le toit" avec salon de jardin. Cuisine équipée indépendante. Parking en supplément.',
   'Ce lumineux appartement de 35 m² composé d une chambre spacieuse et confortable vous séduira par sa tranquillité ',
   'assets/images/blueBed.jpg', true, ' 65 € / Nuit - 364 € / Semaine');
 
@@ -36,13 +37,15 @@ CREATE TABLE agreements (
   image                     VARCHAR
 );
 INSERT INTO agreements(id, title, description, image) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Jardin', 'Profitez d''un accès au salon de jardin', 'assets/images/desToits1.jpg');
+  ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Jardin', 'Profitez d''un accès au salon de jardin',
+   'assets/images/desToits1.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47d0-b55c-593c91b38akjhhe', 'Terrasse', 'petite description de la terrasse', 'assets/images/terrasse.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
   ('a4aea509-1002-47d0d-b55c-593c91cb38ajhhe', 'Parking', 'Photo non contractuelle', 'assets/images/parking.jpg');
 INSERT INTO agreements(id, title, description, image) VALUES
-  ('a4aea509-1002-47sd0-b55c-593c91cb38akhhe', 'Plat du jour', 'Profitez du service plat du jour ', 'assets/images/platDuJour.jpg');
+  ('a4aea509-1002-47sd0-b55c-593c91cb38akhhe', 'Plat du jour', 'Profitez du service plat du jour ',
+   'assets/images/platDuJour.jpg');
 
 
 CREATE TABLE comments (
