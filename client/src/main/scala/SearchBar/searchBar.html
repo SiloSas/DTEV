@@ -1,6 +1,9 @@
 <div class="column large-12 paddingLeft0">
 
-    <div ng-if="tooltip" class="myTooltip">Selectionnez une date en cliquant sur l'îcone calendrier<br>ou manuellement au format jj/mm/AAAA</div>
+    <div ng-if="tooltip" class="myTooltip">
+        Selectionnez une date en cliquant sur l'îcone calendrier<br>
+        ou manuellement au format jj/mm/AAAA
+    </div>
 
     <form name="reservationForm">
         <div class = "column large-6 padding0 large-offset-1">
@@ -13,6 +16,7 @@
                     md-placeholder = "Date d'arrivée"
                     class = "transparent textColorWhite margin0 column large-6 float-left padding0">
             </md-datepicker>
+
             <md-datepicker
                     required
                     name = "endDate"
@@ -24,6 +28,7 @@
                     class = "transparent textColorWhite margin0 column large-6 float-left padding0">
             </md-datepicker>
         </div>
+
        <md-button class = "column primCol large-2 float-left large-offset-1"
               ng-click = "directive.search(startDate, endDate)">
             <b>Réserver maintenant !</b>

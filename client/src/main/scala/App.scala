@@ -1,5 +1,4 @@
-import services.{AgreementController, AgreementDirective, AgreementServiceFactory}
-import BackEnd.{UpdateCommentsDirective, BackEndController, AgreementBackEndDirective, RoomMinBeDirective}
+import BackEnd.{AgreementBackEndDirective, BackEndController, RoomMinBeDirective, UpdateCommentsDirective}
 import Booking.{BookingController, BookingModalController}
 import Comments.{CommentController, CommentServiceFactory, CommentsDirective}
 import Contact.{ContactController, ContactServiceFactory}
@@ -10,9 +9,12 @@ import RoomNav.{RoomNavDirective, SlideLeftDirective}
 import SearchBar.SearchBarDirective
 import Slider.{SliderContentDirective, SliderController, SliderDirective}
 import com.greencatsoft.angularjs._
+import materialDesign.MdDateLocaleProviderConfig
+import services.{AgreementController, AgreementDirective, AgreementServiceFactory}
 
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
+
 
 @JSExport
 object App extends JSApp {
@@ -20,8 +22,7 @@ object App extends JSApp {
   override def main() {
     val module = Angular.module("app", Seq("ngAnimate", "ngAria", "ngMaterial", "mm.foundation", "ngRoute", "ngMap"))
 
-    module
-    .controller[RoomController]
+    module.controller[RoomController]
       .controller[SliderController]
       .controller[AgreementController]
       .controller[CommentController]
@@ -49,5 +50,6 @@ object App extends JSApp {
       .factory[CommentServiceFactory]
       .factory[ContactServiceFactory]
       .config(RoutingConfig)
+      .config(MdDateLocaleProviderConfig)
   }
 }

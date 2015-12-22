@@ -23,7 +23,7 @@ class SearchBarDirective(mdToastService: MdToastService, location: Location, fil
       val endString = end.getFullYear() + "-" + end.getMonth() + "-" + end.getDay()
       location.path("search/" + startString + "/" + endString)
     } else {
-      val missingDateToast = mdToastService.simple("Veuillez renseigner une date de départ et d'arrivée")
+      val missingDateToast = mdToastService.simple("Veuillez renseigner une date de départ et d'arrivée au format jj/mm/AAAA")
       missingDateToast._options.position = "{right: true}"
       mdToastService.show(missingDateToast)
     }

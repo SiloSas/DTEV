@@ -20,7 +20,7 @@ class ContactService(http: HttpService) extends Service {
   @JSExport
   def post(message: Message): Future[String] = {
     http.post[js.Any]("/Contact")
-      .map {JSON.stringify(_)}
+      .map(JSON.stringify(_))
   }
 
   protected def flatten[T](future: Future[Try[T]]): Future[T] = future flatMap {
