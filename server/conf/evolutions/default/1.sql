@@ -81,6 +81,13 @@ CREATE TABLE users (
 INSERT INTO users(login, password) VALUES('admin', '$2a$07$8SJ.wfjn2IaidQVHfcmrHuWzrknBqJE8f.8BO7fu.W.d5u0W5r3t.');
 
 
+CREATE TABLE reservations(
+  id                        SERIAL PRIMARY KEY,
+  roomId                    VARCHAR REFERENCES rooms(id),
+  arrivalDate               DATE,
+  departureDate             DATE
+);
+
 # --- !Downs
 DROP TABLE IF EXISTS rooms;
 DROP TABLE IF EXISTS agreements;
