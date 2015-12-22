@@ -8,21 +8,27 @@ import play.api.libs.json.{JsObject, Json}
 import play.api.mvc.{Action, _}
 import shared.Comment
 import upickle.default._
+import util.Utilities
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
 
-class CommentsController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, val commentsMethods: CommentsMethods)
+class CommentsController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
+                                   commentsMethods: CommentsMethods,
+                                   utilities: Utilities)
     extends Controller {
+
   def findAll() = Action.async {
     commentsMethods.findAll.map { comments =>
-      println("writeComms = " + write(comments))
       Ok(write(comments))
     }
   }
 
   def post = Action.async(parse.json) { request =>
     val comment = read[Comment](request.body.as[JsObject].toString)
+
+    import utilities.CommentOrRoom._
+    utilities.sendNotificationMail(CommentNotification)
 
     commentsMethods.post(comment).map { changedLines =>
       Ok(write(changedLines))

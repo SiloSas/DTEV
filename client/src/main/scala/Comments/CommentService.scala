@@ -41,7 +41,6 @@ class CommentService(http: HttpService) extends Service {
   @JSExport
   def update(comment: Comment): Future[Int] = {
     http.put[js.Any]("/comments", write[Comment](comment)) map { resp =>
-      println("okokok")
       read[Int](JSON.stringify(resp))
     }
   }

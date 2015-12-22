@@ -37,37 +37,6 @@ class AuthenticationController @Inject()(protected val dbConfigProvider: Databas
 
   def logout = Action { Ok("Vous êtes bien déconnecté").withNewSession }
 
-//  def sendNotificationMail(content: String, brandUUID: UUID, isClient: Boolean): Unit = {
-//    val mail = use[MailerPlugin].email
-//    mail.setSubject("BO DEA notification")
-//    mail.addFrom("ticketappfrance@gmail.com")
-//    play.api.db.slick.DB.withSession { implicit session =>
-//      isClient match {
-//        case true =>
-//          val loginList = users.filter(_.role === 1).map(_.login).list
-//          Logger info "mails will be send to " + loginList
-//          loginList.foreach { login =>
-//            mail.addRecipient(login)
-//            mail.send(content)
-//          }
-//
-//        case false =>
-//          val userLoginList = userBrand
-//            .filter(_.brandId === brandUUID) rightJoin
-//            users.map(_.login)
-//
-//          userLoginList.map { login =>
-//            val loginList = users.filter(_.role === 2).map(_.login).list
-//            Logger info "mails will be send to " + loginList
-//            loginList.foreach { login =>
-//              mail.addRecipient(login)
-//              mail.send(content)
-//            }
-//          }
-//      }
-//    }
-//  }
-
 //  def uploadImage = Authenticated(parse.multipartFormData) { request =>
 //    request.uuid match {
 //      case None =>

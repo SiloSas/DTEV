@@ -34,12 +34,10 @@ class CommentController(scope: CommentScope, newComment: NewComment, commentServ
 
   commentService.findAll() onComplete {
     case Success(foundComments) =>
-      println("foundComments = " + foundComments)
       scope.$apply {
         scope.comments = foundComments.toJSArray
       }
     case Failure(t: Throwable) =>
-      println("e")
       handleError(t)
   }
 
