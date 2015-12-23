@@ -37,7 +37,7 @@ class BookingController(scope: BookingScope, timeout: Timeout, service: RoomServ
     case Failure(t) => handleError(t)
   }
 
-  def isAvailable(room: Room) : Boolean = {
+  def isAvailable(room: Room): Boolean = {
     scope.availableRooms.filter(_.id == room.id).length == 0
   }
   private def handleError(t: Throwable) {

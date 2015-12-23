@@ -17,10 +17,9 @@ class AnimationsAtScrollDirective(modal: ModalService, timeout: Timeout, compile
 
   val mainContainer: Element = dom.document.getElementsByClassName("parallax").item(0).asInstanceOf[Html]
 
-
   override def link(scope: ScopeType, elems: Seq[Element], attrs: Attributes) = {
       elems foreach { elem =>
-        def applyAnimationWhenVisible: Unit = {
+        def applyAnimationWhenVisible(): Unit = {
           val offsetInPx = window.innerHeight
           val elementPosition: Int = elem.getBoundingClientRect().top.toInt - offsetInPx
 
@@ -45,7 +44,7 @@ class AnimationsAtScrollDirective(modal: ModalService, timeout: Timeout, compile
           def waitForImageToBeCompleted(i: Int): Unit = {
             timeout( () => {
               if(i == numberOfImages)
-                applyAnimationWhenVisible
+                applyAnimationWhenVisible()
               else
                 if(!images(i).asInstanceOf[Image].complete)
                   waitForImageToBeCompleted(i)

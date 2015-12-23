@@ -1,5 +1,6 @@
 <md-list>
-    <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">
+    <md-list-item class="md-3-line"
+                  ng-repeat="comment in filteredComments = (comments | limitTo: limit + 5 | filter: {isValidated: true})">
         <md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
         <div class="md-list-item-text">
             <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>
@@ -10,7 +11,11 @@
         </div>
         <md-divider ng-if="!$last"></md-divider>
     </md-list-item>
-    <md-button class="primCol large-4 large-offset-4" ng-click="limit = limit + 5"><b>Voir plus d'avis</b></md-button>
+    <md-button class="primCol large-4 large-offset-4"
+               ng-click="limit = limit + 5"
+                data-ng-show="filteredComments.length > 1">
+        <b>Voir plus d'avis</b>
+    </md-button>
 </md-list>
 
 

@@ -125,6 +125,12 @@ body, html {
   transform: translateZ(-0.8px) scale(1);
 }
 
+.bookingTitle {
+  text-align: center;
+  color: $primary-color;
+  font-family: "CaviarDreams", sans-serif!important;
+}
+
 .homeRoomTitle > p {
   letter-spacing: 1px;
   font-size: 68.5%;
@@ -137,9 +143,10 @@ body, html {
   padding: 80px;
 }
 .mainText {
-  font-size: 27px;
+  font-size: 29px;
   padding: 20px 50px;
-  text-align: center;
+  text-align: justify;
+  word-spacing: 14px;
 }
 
 .paddingSearchMin {

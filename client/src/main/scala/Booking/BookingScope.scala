@@ -11,4 +11,5 @@ trait BookingScope extends Scope {
   var room: Room = js.native
   var start: js.Date = js.native
   var end: js.Date = js.native
+  var totalPrice: Int = js.native
 }

@@ -25631,26 +25631,34 @@ body, html {
 }
 
 /* line 128, ../scss/main.scss */
+.bookingTitle {
+  text-align: center;
+  color: #581030;
+  font-family: "CaviarDreams", sans-serif !important;
+}
+
+/* line 134, ../scss/main.scss */
 .homeRoomTitle > p {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
 
-/* line 134, ../scss/main.scss */
+/* line 140, ../scss/main.scss */
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
   padding: 80px;
 }
 
-/* line 139, ../scss/main.scss */
+/* line 145, ../scss/main.scss */
 .mainText {
-  font-size: 27px;
+  font-size: 29px;
   padding: 20px 50px;
-  text-align: center;
+  text-align: justify;
+  word-spacing: 14px;
 }
 
-/* line 145, ../scss/main.scss */
+/* line 152, ../scss/main.scss */
 .paddingSearchMin {
   padding-bottom: 48px;
   float: left;
@@ -25658,7 +25666,7 @@ body, html {
 }
 
 @media (max-width: 600px) {
-  /* line 151, ../scss/main.scss */
+  /* line 158, ../scss/main.scss */
   .homeRoomTitle {
     right: auto;
     left: 0;
@@ -25666,14 +25674,14 @@ body, html {
     text-align: center;
   }
 
-  /* line 157, ../scss/main.scss */
+  /* line 164, ../scss/main.scss */
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;
     width: 100%;
   }
 
-  /* line 162, ../scss/main.scss */
+  /* line 169, ../scss/main.scss */
   .bookingModal {
     max-height: 80%;
     overflow: auto;
@@ -25681,7 +25689,7 @@ body, html {
   }
 }
 /* Underline From Center */
-/* line 171, ../scss/main.scss */
+/* line 178, ../scss/main.scss */
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -25695,7 +25703,7 @@ body, html {
   overflow: hidden;
 }
 
-/* line 183, ../scss/main.scss */
+/* line 190, ../scss/main.scss */
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
@@ -25713,7 +25721,7 @@ body, html {
   transition-timing-function: ease-out;
 }
 
-/* line 199, ../scss/main.scss */
+/* line 206, ../scss/main.scss */
 .hvr-underline-from-center.animatedAtScroll:before,
 .hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before {
@@ -25721,7 +25729,7 @@ body, html {
   right: 0;
 }
 
-/* line 207, ../scss/main.scss */
+/* line 214, ../scss/main.scss */
 .underlineHomeTitle {
   width: 111px;
   height: 2px;
@@ -25729,7 +25737,7 @@ body, html {
 }
 
 /* Bounce In */
-/* line 250, ../scss/main.scss */
+/* line 257, ../scss/main.scss */
 .hvr-bounce-in {
   display: inline-block;
   vertical-align: middle;
@@ -25743,7 +25751,7 @@ body, html {
   transition-duration: 0.5s;
 }
 
-/* line 262, ../scss/main.scss */
+/* line 269, ../scss/main.scss */
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
@@ -25764,7 +25772,7 @@ body, html {
     transform: scale(1.2);
   }
 }
-/* line 286, ../scss/main.scss */
+/* line 293, ../scss/main.scss */
 .hvr-pop {
   display: inline-block;
   vertical-align: middle;
@@ -25776,7 +25784,7 @@ body, html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 296, ../scss/main.scss */
+/* line 303, ../scss/main.scss */
 .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
   -webkit-animation-name: hvr-pop;
   animation-name: hvr-pop;
@@ -25788,7 +25796,7 @@ body, html {
   animation-iteration-count: 1;
 }
 
-/* line 309, ../scss/main.scss */
+/* line 316, ../scss/main.scss */
 .myTooltip {
   display: inline;
   background: #333;

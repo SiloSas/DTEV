@@ -19,9 +19,9 @@ class AgreementService(http: HttpService) extends Service {
 
   @JSExport
   var agreements = Seq.empty[Agreement]
-  def findAll(): Future[Seq[Agreement]] = /*flatten*/ {
-    // Append a timestamp to prevent some old browsers from caching the result.
-    if(agreements != Seq.empty) Future(agreements)
+  def findAll(): Future[Seq[Agreement]] = {
+    if(agreements != Seq.empty)
+      Future(agreements)
     else {
       http.get[js.Any]("/agreements")
         .map {

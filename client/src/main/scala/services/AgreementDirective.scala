@@ -11,20 +11,22 @@ import scala.scalajs.js.annotation.JSExport
 @JSExport
 @injectable("agreement")
 class AgreementDirective(window: Window, timeout: Timeout) extends ElementDirective with TemplatedDirective {
-  override val templateUrl = "assets/templates/Agreement/agreement.html"
+  override val templateUrl = "assets/templates/services/agreement.html"
 
   override def link(scope: ScopeType, elements: Seq[Element], attrs: Attributes): Unit = {
     elements.headOption.map(_.asInstanceOf[Html]) foreach { element =>
       def setNewHeight(newHeight: Double): Unit = {
         element.style.height = newHeight + "px"
       }
+
       timeout (fn = () => {
-        setNewHeight(element.clientWidth * 0.66)
-      }, 50, false)
+        setNewHeight(element.clientWidth * 0.59)
+      },
+        50,
+        invokeApply = false)
 
       window.onresize = (event: UIEvent) =>
-        setNewHeight(element.clientWidth * 0.66)
-
+        setNewHeight(element.clientWidth * 0.59)
     }
   }
 }

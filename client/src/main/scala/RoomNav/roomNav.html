@@ -1,4 +1,3 @@
-
 <md-fab-speed-dial md-open="roomsNavIsOpen" md-direction="right"
                    class="md-fling float-left" hide-sm>
     <md-fab-trigger>
@@ -6,11 +5,11 @@
             <md-icon md-svg-src="assets/images/menu.svg"></md-icon>
         </md-button>
     </md-fab-trigger>
-    <md-fab-actions class="absolute">
+    <md-fab-actions class="absolute marginTop50">
         <a data-ng-repeat="room in rooms" ng-click="$parent.roomsNavIsOpen = false" href="#/rooms/{{room.id}}">
             <div class="svg-wrapper" ng-class="{'animated fadeOut': !roomsNavIsOpen, 'animated fadeIn': roomsNavIsOpen}">
                 <svg height="40" width="280" xmlns="http://www.w3.org/2000/svg" class="shadow rounded BlackTrans">
-                    <rect class="shape" height="40" width="280" />
+                    <rect class="shape" height="40" width="280"/>
                 </svg>
                 <div class=" text height100p">{{room.name}}</div>
             </div>
