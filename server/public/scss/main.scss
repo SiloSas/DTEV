@@ -24,6 +24,11 @@ body, html {
   scroll-behavior: smooth;
 }
 
+md-input-container > label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .mainContainer {
   float: left;
   width: 100%;
@@ -169,7 +174,7 @@ body, html {
   .bookingModal {
     max-height: 80%;
     overflow: auto;
-    padding: 10px;
+    padding: 0px! important;
   }
 }
 
@@ -328,3 +333,15 @@ body, html {
   @extend .large-2;
 }
 
+//Hide the spinner on number input
+/* For Firefox */
+input[type='number'] {
+  -moz-appearance:textfield! important;
+}
+
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none!important;
+  margin: 0;
+}

@@ -12,14 +12,17 @@
 .float-right{float:right!important;}
 .float-none{float:none!important;}
 .hiddenBlock{position: absolute; top: -99999px; opacity: 0;}
+
 /*Colors*/
 .primCol {background-color:  $primary-color!important; color : #ffffff!important}
 .primCol > a {color : #ffffff}
+
 /*.primCol:hover {background: #007095}*/
 .white {background: #ffffff}
 .button.active{background: $primary-color; color: #ffffff!important;}
 .BlackTrans{background: $blackTransparent}
 .transparent{background: $transparent!important;}
+
 /*z-index*/
 .zIndex1{z-index:1;}
 .zIndex2{z-index:2;}
@@ -30,6 +33,7 @@
 .shadow { box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); }
 .rounded { border-radius: 3px; }
 .scrollAuto {overflow-y: auto}
+
 /*text*/
 .center{text-align:center!important;}
 .justify{text-align:justify!important;}

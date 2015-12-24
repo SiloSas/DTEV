@@ -42,7 +42,7 @@ room-min {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  background: #3085a3;
+  background: white;
   text-align: center;
   cursor: pointer;
 }
@@ -262,7 +262,8 @@ figure.effect-zoe p.icon-links a {
   position: relative;
   padding: 15px 0 0;
   font-size: 12px;
-
+  padding-left: 54px;
+  text-align:left;
   font-family: 'feathericons';
   speak: none;
   -webkit-font-smoothing: antialiased;
@@ -345,4 +346,11 @@ figure.effect-zoe:hover p.icon-links a:nth-child(2) {
 figure.effect-zoe:hover p.icon-links a:first-child {
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
+}
+
+@media (max-width: 777px) {
+  figure.effect-zoe figcaption {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+  }
 }

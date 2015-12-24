@@ -1,9 +1,8 @@
 package Booking
 
-import com.greencatsoft.angularjs.core.RouteParams
+import com.greencatsoft.angularjs.core.{Timeout, RouteParams}
 import com.greencatsoft.angularjs.extensions.ModalInstance
 import com.greencatsoft.angularjs.{AbstractController, injectable}
-import org.scalajs.dom.console
 import shared.Room
 import upickle.default._
 
@@ -14,31 +13,50 @@ import scala.scalajs.js.annotation.JSExport
 
 @JSExport
 @injectable("bookingModalController")
-class BookingModalController(scope: BookingScope, modalInstance: ModalInstance[Any], room: String, routeParams: RouteParams)
+class BookingModalController(scope: BookingScope,
+                             modalInstance: ModalInstance[Any],
+                             room: String,
+                             routeParams: RouteParams,
+                             timeout: Timeout)
     extends AbstractController[BookingScope](scope) {
 
   scope.room = read[Room](room)
   scope.rooms = js.Array[Room]()
-  scope.start = new Date(routeParams.get("start").asInstanceOf[String])
-  scope.end = new js.Date(routeParams.get("end").asInstanceOf[String])
+  scope.start = routeParams.get("start").asInstanceOf[String]
+  scope.end = routeParams.get("end").asInstanceOf[String]
   scope.totalPrice = 0
+  scope.numberOfNights = calculateNumberOfDaysBetween(scope.start, scope.end)
 
   @JSExport
   def close() = modalInstance.close()
 
   @JSExport
-  def computeInfoValues(startDate: String, endDate: String) = {
-    println("okokkok")
-    val a = new js.Date(startDate)
-    val b = new js.Date(endDate)
+  def computeInfoValues = {
+    val totalNightsPrice = scope.numberOfNights match {
+      case i if i < 7 => i * 65
+      case j if j < 21 => j * 52
+      case k => k * 39
+    }
+    val totalPrice = totalNightsPrice
+    println("totalPrice = " + totalPrice)
 
-    val millisecondsPerDay = 24 * 60 * 60 * 1000
-    val c = b.getMilliseconds() - a.getMilliseconds() / millisecondsPerDay
-
-    scope.$apply(scope.totalPrice = c * 5)//scope.room.price.toInt)
+    timeout(() => scope.totalPrice = totalPrice)
   }
 
-  private def handleError(t: Throwable) {
-    console.error(s"An error has occured: $t")
+  computeInfoValues
+
+  def calculateNumberOfDaysBetween(startDate: String, endDate: String): Int = {
+    val start = new Date(startDate.replaceAll("-", "/"))
+    val end = new Date(endDate.replaceAll("-", "/"))
+    val millisecondsPerDay = 24 * 60 * 60 * 1000
+    println("millisecondsPerDay = " + millisecondsPerDay)
+    println(start.getMilliseconds())
+    println(end.getMilliseconds())
+    println("end = " + end)
+
+    val a = (end.getTime() - start.getTime()) / millisecondsPerDay
+    println("a = " + a)
+    println("aI = " + a.toInt)
+    a.toInt
   }
 }

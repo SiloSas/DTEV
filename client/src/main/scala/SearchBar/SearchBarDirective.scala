@@ -5,6 +5,7 @@ import com.greencatsoft.angularjs.core.Location
 import materialDesign.MdToastService
 
 import scala.scalajs.js
+import scala.scalajs.js.Date
 import scala.scalajs.js.annotation.JSExport
 
 @JSExport
@@ -15,9 +16,10 @@ class SearchBarDirective(mdToastService: MdToastService, location: Location, fil
   override val templateUrl = "assets/templates/SearchBar/searchBar.html"
 
   @JSExport
+  def setEndDate(startDate: Date): Date = new Date(startDate.getTime() + (1000*60*60*24))
+
+  @JSExport
   def search(start: js.Date, end: js.Date): Any = {
-    println(start)
-    println(end)
     if (!js.isUndefined(start)) {
       val startString = start.getFullYear() + "-" + start.getMonth() + "-" + start.getDay()
       val endString = end.getFullYear() + "-" + end.getMonth() + "-" + end.getDay()

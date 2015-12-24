@@ -11,26 +11,32 @@
     </h2>
     <a href="#/rooms/{{room.id}}" class="textColorWhite">
         <p class="description zIndex1">
-            <h3 class="textColorWhite">{{room.header}}</h3>
+            <h3 hide-md hide-sm
+                class="textColorWhite justify column large-10 large-offset-1"
+                style = "font-family: 'CaviarDreams', sans-serif!important;">
+                <b>
+                    {{room.header}}
+                </b>
+            </h3>
         </p>
     </a>
 
     <figcaption>
-        <p class="icon-links padding0">
+        <p class="icon-links padding0 marginTop10">
             <div class="float-left column medium-3 padding0">
-                <md-button class="md-fab md-mini  primCol float-left"><i class="fa fa-eur"></i></md-button>
+                <md-button class="md-fab md-mini primCol float-left absolute left0"><i class="fa fa-eur"></i></md-button>
                 <b class="textPrimColor minRoomInfo">{{room.price}}</b>
             </div>
             <div class="float-left column medium-3 padding0">
-                <md-button class="md-fab md-mini  primCol float-left"><i class="fa fa-subway"></i></md-button>
+                <md-button class="md-fab md-mini primCol float-left absolute left0"><i class="fa fa-subway"></i></md-button>
                 <b class="textPrimColor minRoomInfo">Métro A Cusset</b>
             </div>
             <div class="float-left column medium-3 padding0">
-                <md-button class="md-fab md-mini primCol float-left"><i class="fa fa-car"></i></md-button>
+                <md-button class="md-fab md-mini primCol float-left absolute left0"><i class="fa fa-car"></i></md-button>
                 <b class="textPrimColor minRoomInfo">Parking (4€)</b>
             </div>
             <div class="float-left column medium-3 padding0">
-                <md-button class="md-fab md-mini primCol float-left"><i class="fa fa-paw"></i></md-button>
+                <md-button class="md-fab md-mini primCol float-left absolute left0"><i class="fa fa-paw"></i></md-button>
                 <b class="textPrimColor minRoomInfo">Animaux acceptés</b>
             </div>
         </p>

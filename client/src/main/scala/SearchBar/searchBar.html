@@ -1,6 +1,6 @@
 <div class="column large-12 paddingLeft0">
 
-    <div ng-if="tooltip" class="myTooltip">
+    <div ng-if="tooltip" class="myTooltip" hide-md hide-sm>
         Selectionnez une date en cliquant sur l'îcone calendrier<br>
         ou manuellement au format jj/mm/AAAA
     </div>
@@ -13,6 +13,7 @@
                     ng-mouseleave = "tooltip = false"
                     name = "startDate"
                     required
+                    ng-change = "endDate = directive.setEndDate(startDate)"
                     md-placeholder = "Date d'arrivée"
                     class = "transparent textColorWhite margin0 column large-6 float-left padding0">
             </md-datepicker>
@@ -24,7 +25,7 @@
                     ng-mouseleave = "tooltip = false"
                     ng-model = "endDate"
                     md-placeholder = "Date de départ"
-                    md-min-date="startDate"
+                    md-min-date = "startDate"
                     class = "transparent textColorWhite margin0 column large-6 float-left padding0">
             </md-datepicker>
         </div>
