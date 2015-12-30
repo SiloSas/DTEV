@@ -1,13 +1,15 @@
 <md-list>
     <md-list-item class="md-3-line"
                   ng-repeat="comment in filteredComments = (comments | limitTo: limit + 5 | filter: {isValidated: true})">
-        <md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
+        <md-button class="md-fab primCol" style="margin-left:20px;"><b>{{comment.userName[0]}}</b></md-button>
         <div class="md-list-item-text">
             <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>
             <p>{{comment.comment}}</p>
         </div>
         <div class="md-secondary">
-            <i data-ng-repeat="star in [1, 2, 3, 4, 5]" class="fa fa-star" ng-class="{'textPrimColor': star <= comment.rate}"></i>
+            <i data-ng-repeat="star in [1, 2, 3, 4, 5]"
+               class="fa fa-star"
+               ng-class="{'starColor': star <= comment.rate}"></i>
         </div>
         <md-divider ng-if="!$last"></md-divider>
     </md-list-item>
@@ -53,7 +55,7 @@
            data-ng-click="$parent.newComment.rate = star"
            class="fa fa-star"
            data-ng-mouseover="$parent.newRate = star"
-           ng-class="{'textPrimColor': star <= $parent.newComment.rate || star <= $parent.newRate}"></i>
+           ng-class="{'starColor': star <= $parent.newComment.rate || star <= $parent.newRate}"></i>
         <div data-ng-show="(newComment.rate == 0 || !newComment.rate) && (newComment.userName.length || newComment.comment.length)"
              class="textPrimColor">
             Veuillez-choisir une note en cliquant sur les étoiles

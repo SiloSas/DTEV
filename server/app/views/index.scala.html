@@ -1,12 +1,22 @@
 @(message: String)
 
 @main("Des toits en ville") {
-  <md-toolbar class="absolute transparent zIndex4">
+  <div class = "column large-12 text-center" style="height: 30px; background-color: #CBAC75;" ng-show = "!hideCookie">
+    En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour réaliser des
+    statistiques de visites. <a href="/cookiesNotice.html">En savoir plus</a>
+    <i class="fa fa-times pointer float-right"
+      style="vertical-align: middle; line-height: inherit;"
+      ng-click="hideCookie = true">
+    </i>
+  </div>
+
+
+  <md-toolbar class="absolute transparent zIndex4" ng-class="{'marginTop30': !hideCookie}">
     <div>
       <div class = "float-right margin20 paddingRight20" hide-sm>
         <a href="#/" class = "padding10 hvr-pop">Accueil</a>
         <a href="#/contact" class = "padding10 textPrimColor pointer hvr-pop">Infos pratiques</a>
-        <a href="/mentionsLegales" class = "padding10 hvr-pop">Mentions légales</a>
+        <a href="#/mentionsLegales" class = "padding10 hvr-pop">Mentions légales</a>
         <md-button class="md-fab md-mini primCol hvr-pop" href="https://www.facebook.com/des.toits.en.ville/">
           <a href="https://www.facebook.com/des.toits.en.ville/"
             class="fa fa-facebook textPrimColor hvr-icon-grow-rotate">
@@ -17,31 +27,85 @@
       <room-nav data-ng-controller = "roomController"
         style = "margin-top: 12px; margin-left: 12px;"
         class = "zIndex4 float-left">
-
       </room-nav>
     </div>
   </md-toolbar>
 
-  <md-content flex class="height100p mainContainer absolute" ng-view="" id="mainContainer"></md-content>
+  <md-content flex class="height100p mainContainer" ng-view="" id="mainContainer"></md-content>
 
   <data-search-bar class="zIndex5"></data-search-bar>
 
-  <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" hide-gt-md>
-    <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Nos chambres</h1>
+
+
+  <md-sidenav
+    class="md-sidenav-left md-whiteframe-z2"
+    style="background-color: #CBAC75;"
+    md-component-id="left"
+    hide-gt-md>
+
+    <md-button ng-click="directive.close()" class="md-primary primCol slide-left column small-6" hide-gt-md>
+      <b>Fermer le menu </b>
+    </md-button>
+
+    <md-button ng-click="directive.close()" class="md-primary primCol slide-left column small-6" hide-gt-md>
+      <b>Accueil</b>
+    </md-button>
+    @*<i class="fa fa-arrow-circle-left fa-2x pointer"*@
+      @*ng-click="directive.close()"*@
+      @*style="color:#4F0029; line-height: inherit; vertical-align: middle !important; margin-left: 30px;">*@
+    @*</i>*@
+
+    <md-toolbar style="line-height: 56px; margin-top:22px; background-color: #371439">
+      <h1 class="md-toolbar-tools text-center"
+      style = "display: block; line-height: inherit; vertical-align: middle !important; color: white;">
+        NOS CHAMBRES
+      </h1>
     </md-toolbar>
-    <md-content layout-padding ng-controller = "roomController">
-      <md-button ng-click="directive.close()" class="md-primary slide-left" hide-gt-md>
-        Fermer le menu
-      </md-button>
-      <a href="#/rooms/{{room.id}}" class="column primCol md-button float-left small-10"
-      ng-click="directive.close()" data-ng-repeat="room in rooms">{{room.name}}</a>
-      <a href="#/" class = "column primCol md-button float-left small-10">Accueil</a>
-      <ng-contact class = "padding10 textPrimColor pointer">Contact</ng-contact>
-      <a href="/mentionsLegales" class = "column primCol md-button float-left small-10">Mentions légales</a>
+
+    <md-content layout-padding ng-controller = "roomController" style="background-color: #CBAC75;">
+
+      <a href="#/rooms/{{room.id}}"
+        class="column primCol md-button float-left small-10"
+        style="margin-bottom: -5px;"
+        ng-click="directive.close()"
+        data-ng-repeat="room in rooms | filter: { isAnApartment: false }">
+        <b>{{room.name}}</b>
+      </a>
+
     </md-content>
-    <md-toolbar class="md-theme-indigo">
-      <h1 class="md-toolbar-tools">Nos appartements</h1>
+
+
+    <md-toolbar style="line-height: 56px; background-color: #371439">
+      <h1 class = "md-toolbar-tools text-center"
+        style = "display: block; line-height: inherit; vertical-align: middle !important; color: white;">
+        NOS APPARTEMENTS
+      </h1>
     </md-toolbar>
+
+    <md-content layout-padding ng-controller = "roomController" style="background-color: #CBAC75;">
+
+      <a href="#/rooms/{{room.id}}"
+        class="column primCol md-button float-left small-10"
+        style="margin-bottom: -5px;"
+        ng-click="directive.close()"
+        data-ng-repeat="room in rooms | filter: { isAnApartment: true }">
+        <b>{{room.name}}</b>
+      </a>
+
+
+    </md-content>
+
+    <br>
+
+    <a href="/#/contact" class = "column primCol md-button float-left small-10">
+      <b>Infos pratiques</b>
+    </a>
+
+    <br>
+
+    <a href="/#/mentionsLegales" class = "column primCol md-button float-left small-10">
+      <b>Mentions légales</b>
+    </a>
+
   </md-sidenav>
 }

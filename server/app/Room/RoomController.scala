@@ -10,7 +10,6 @@ import shared.Room
 import upickle.default._
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
 
 
 class RoomController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider, val roomMethods: RoomMethods)

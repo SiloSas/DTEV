@@ -39,6 +39,10 @@ object RoutingConfig extends Config {
           templateUrl = "/assets/templates/Contact/contact.html",
           title = "Contact",
           controller = "contactController"))
-
+      .when(
+        path = "/mentionsLegales",
+        route = Route(
+          templateUrl = "/assets/templates/legalNotice/legalNotice.html",
+          title = "legalNotice"))
   }
 }
