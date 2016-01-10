@@ -18,22 +18,31 @@ class SmoothScrollDirective(window: Window, modal: ModalService, timeout: Timeou
   def scrollToAnchor(): Any = {
     val container = document.getElementsByClassName("parallax").item(0).asInstanceOf[Html]
 
-    val anchorPosition: Double = document.getElementById("firstDescriptionText").getBoundingClientRect().top
-
     val startingPosition = container.scrollTop
+
+    val anchorPosition: Double = document.getElementById("firstDescriptionText").getBoundingClientRect().top
+    println("anchorPosition = " + anchorPosition)
 
     var actualPosition: Double = startingPosition
 
     val offset = 50
 
     val cookieHeadbandHeight = document.getElementById("cookieHeadband").asInstanceOf[Html].clientHeight
+    println(cookieHeadbandHeight)
+
+    val whereScrollShouldStop = anchorPosition + startingPosition - cookieHeadbandHeight
+    println(whereScrollShouldStop)
 
     var scrollIterationFunction: Int = 0
 
     scrollIterationFunction = dom.setInterval(() => {
-      if(actualPosition < anchorPosition + startingPosition + cookieHeadbandHeight) {
+      if(actualPosition < whereScrollShouldStop - offset) {
+        println("actualPosition = " + actualPosition)
         container.scrollTop = actualPosition + offset
         actualPosition += offset
+      } else if(actualPosition < whereScrollShouldStop) {
+        container.scrollTop = whereScrollShouldStop
+        actualPosition += whereScrollShouldStop
       } else
         dom.clearInterval(scrollIterationFunction)
     }, 2)

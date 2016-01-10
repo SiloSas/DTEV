@@ -14,14 +14,22 @@
                 {{room.presentation}}
             </div>
             <div class="column large-12 mainText">
-                <md-button class="md-fab primCol"><i class="fa fa-eur"></i></md-button>
-                <b class="textPrimColor">{{room.price}}</b>
-                <md-button class="md-fab primCol"><i class="fa fa-subway"></i></md-button>
-                <b class="textPrimColor">Métro A Cusset</b>
-                <md-button class="md-fab primCol"><i class="fa fa-car"></i></md-button>
-                <b class="textPrimColor">Parking (4€)</b>
-                <md-button class="md-fab primCol"><i class="fa fa-paw"></i></md-button>
-                <b class="textPrimColor">Animaux acceptés</b>
+                <div class="column medium-6 small-12">
+                    <md-button class="md-fab primCol"><i class="fa fa-eur"></i></md-button>
+                    <b class="textPrimColor">{{room.price}}</b>
+                </div>
+                <div class="column medium-6 small-12">
+                    <md-button class="md-fab primCol"><i class="fa fa-subway"></i></md-button>
+                    <b class="textPrimColor">Métro A Cusset</b>
+                </div>
+                <div class="column medium-6 small-12">
+                    <md-button class="md-fab primCol"><i class="fa fa-car"></i></md-button>
+                    <b class="textPrimColor">Parking (4€)</b>
+                </div>
+                <div class="column medium-6 small-12">
+                    <md-button class="md-fab primCol"><i class="fa fa-paw"></i></md-button>
+                    <b class="textPrimColor">Animaux acceptés</b>
+                </div>
             </div>
         </div>
 
@@ -35,6 +43,7 @@
         <div class="width100p white float-left grid column large-12 padding0 margin0" data-ng-controller="agreementController">
             <agreement class="column large-3 medium-6 padding0 margin0 float-left" ng-repeat="agreement in agreements"></agreement>
         </div>
-        <div class = "paddingSearchMin white"></div>
+
+        <div class="white" style="margin-bottom:48px"> s </div>
     </div>
 </div>
