@@ -1,7 +1,10 @@
 @(message: String)
 
 @main("Des toits en ville") {
-  <div class = "column large-12 text-center" style="height: 30px; background-color: #CBAC75;" ng-show = "!hideCookie">
+  <div id = "cookieHeadband"
+    class = "column large-12 text-center"
+    style=" background-color: #CBAC75;"
+    ng-show = "!hideCookie">
     En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour réaliser des
     statistiques de visites. <a href="/#/cookiesNotice.html">En savoir plus</a>
     <i class="fa fa-times pointer float-right"
@@ -33,21 +36,21 @@
 
   <md-content flex class="height100p mainContainer" ng-view="" id="mainContainer"></md-content>
 
-  <data-search-bar class="zIndex5"></data-search-bar>
+  <data-search-bar class="zIndex5 left0"></data-search-bar>
 
 
 
   <md-sidenav
-    class="md-sidenav-left md-whiteframe-z2"
+    class="md-sidenav-left md-whiteframe-z2 slide-left "
     style="background-color: #CBAC75;"
+    slide-left
     md-component-id="left"
     hide-gt-md>
-
-    <md-button ng-click="directive.close()" class="md-primary primCol slide-left column small-6" hide-gt-md>
+    <md-button ng-click="directive.close()" class="md-primary primCol column small-6" hide-gt-md>
       <b>Fermer le menu </b>
     </md-button>
 
-    <md-button ng-click="directive.close()" class="md-primary primCol slide-left column small-6" hide-gt-md>
+    <md-button ng-click="directive.close()" class="md-primary primCol column small-6" hide-gt-md>
       <b>Accueil</b>
     </md-button>
     @*<i class="fa fa-arrow-circle-left fa-2x pointer"*@

@@ -11,7 +11,7 @@ import scala.scalajs.js.annotation.JSExport
 @JSExport
 @injectable("searchBar")
 class SearchBarDirective(mdToastService: MdToastService, location: Location, filterService: FilterService)
-    extends ElementDirective with TemplatedDirective {
+    extends ElementDirective with TemplatedDirective with IsolatedScope{
 
   override val templateUrl = "assets/templates/SearchBar/searchBar.html"
 

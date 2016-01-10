@@ -14,4 +14,6 @@ class RoomNavDirective(sidenav: Sidenav) extends ElementDirective with Templated
   def toggleLeft(): Any = {
     sidenav("left").toggle()
   }
+
+
 }

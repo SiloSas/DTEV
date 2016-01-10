@@ -26,10 +26,12 @@ class SmoothScrollDirective(window: Window, modal: ModalService, timeout: Timeou
 
     val offset = 50
 
+    val cookieHeadbandHeight = document.getElementById("cookieHeadband").asInstanceOf[Html].clientHeight
+
     var scrollIterationFunction: Int = 0
 
     scrollIterationFunction = dom.setInterval(() => {
-      if(actualPosition < anchorPosition + startingPosition) {
+      if(actualPosition < anchorPosition + startingPosition + cookieHeadbandHeight) {
         container.scrollTop = actualPosition + offset
         actualPosition += offset
       } else
