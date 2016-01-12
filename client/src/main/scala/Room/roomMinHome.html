@@ -1,5 +1,7 @@
 <figure class="effect-layla column roomImage padding0 margin0">
-    <img src="{{room.images}}" alt="{{room.name}}"/>
+    <span ng-repeat="img in room.images.split(',')" ng-if="$first">
+        <img src="{{img}}" alt="{{room.name}}"/>
+    </span>
     <figcaption>
         <h2><span class="textColorWhite">{{room.name}}</span></h2>
         <p>{{room.header}}</p>

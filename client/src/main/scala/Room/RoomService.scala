@@ -12,6 +12,7 @@ import scala.scalajs.js.JSON
 import scala.scalajs.js.annotation.JSExport
 import scala.util.{Failure, Success, Try}
 
+
 @injectable("roomService")
 class RoomService(http: HttpService) extends Service {
   require(http != null, "Missing argument 'http'.")
@@ -24,9 +25,7 @@ class RoomService(http: HttpService) extends Service {
       Future(rooms)
     else {
       http.get[js.Any]("/rooms")
-        .map {
-          JSON.stringify(_)
-        }
+        .map { JSON.stringify(_) }
         .map { foundRooms =>
           rooms = read[Seq[Room]](foundRooms)
           rooms
@@ -51,7 +50,7 @@ class RoomService(http: HttpService) extends Service {
   }
 
   @JSExport
-  def findAvailable(start: String, end: String): Future[Seq[Room]] = {
+  def findAvailable(start: Long, end: Long): Future[Seq[Room]] = {
     http.get[js.Any]("/availableRooms?start=" + start + "&end=" + end)
       .map(JSON.stringify(_))
       .map(read[Seq[Room]])
@@ -60,7 +59,6 @@ class RoomService(http: HttpService) extends Service {
   @JSExport
   def update(room: Room) = {
     http.post[js.Any]("/room", write(room)) map { resp =>
-      println("bien envoyé")
     } recover {
       case e: Exception => print(e)
     }

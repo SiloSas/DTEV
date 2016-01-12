@@ -45,7 +45,7 @@ class CommentController(scope: CommentScope,
   }
 
   def displayToast(): Any = {
-    var toast = mdToast.simple("Votre avis a bien été envoyé")
+    var toast = mdToast.simple("Merci, votre avis a bien été posté, il va être soumis à modération.")
     toast._options.position = """{
         bottom: false
         top: true
@@ -56,7 +56,7 @@ class CommentController(scope: CommentScope,
   }
 
   def displayErrorToast(): Any = {
-    var toast = mdToast.simple("Désolé, une erreur s'est produite")
+    var toast = mdToast.simple("Désolé, une erreur s'est produite.")
     toast._options.position = """{
         bottom: false
         top: true

@@ -1,5 +1,14 @@
-<div class="searchContainer grid">
+<div class="searchContainer grid" ng-if = "controller.isWaitingAvailableRooms$2 != true">
     <room-min ng-repeat="room in availableRooms" class="column large-6 float-left padding0"></room-min>
     <room-min ng-repeat="room in rooms" ng-init="isDisable = true" class="column large-6 float-left padding0"></room-min>
+</div>
+<div ng-show = "controller.isWaitingAvailableRooms$2">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h5 class="column large-12 center"><i class="column large-12 center">Nous recherchons les chambres disponibles.</i></h5>
+    <md-progress-linear class = "column large-12" md-mode="indeterminate"></md-progress-linear>
 </div>
 <div class="paddingSearchMin"></div>

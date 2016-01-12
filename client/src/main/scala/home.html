@@ -65,7 +65,8 @@
 
         <div class="width100p white float-left grid parallax__layer--base" data-ng-controller = "roomController">
             <room-min-home data-ng-repeat="room in rooms | filter: {isAnApartment: true}"
-                           class="column medium-4 padding0 margin0">
+                           data-ng-class="{'medium-6': $index % 3 != 2, 'medium-12': $index % 3 == 2}"
+                           class="column xlarge-4 padding0 margin0">
             </room-min-home>
         </div>
 
@@ -79,7 +80,7 @@
         </div>
 
         <div class="width100p white float-left grid column large-12 padding0 margin0" data-ng-controller="agreementController">
-            <agreement class="column large-3 medium-6 padding0 margin0 float-left" ng-repeat="agreement in agreements">
+            <agreement class="column large-6 padding0 margin0 float-left" ng-repeat="agreement in agreements">
             </agreement>
         </div>
 
@@ -94,7 +95,7 @@
 
 
         <ng-comments class="column large-12 float-left white padding0" ng-controller="commentController"></ng-comments>
-        <div class="paddingSearchMin white">
+        <div class="paddingSearchMin white">s
         </div>
     </div>
 </div>

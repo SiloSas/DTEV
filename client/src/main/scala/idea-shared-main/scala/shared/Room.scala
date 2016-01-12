@@ -7,6 +7,6 @@ case class Room(id: String,
                 name: String,
                 presentation: String,
                 header: String,
-                images: String,
+                var images: String,
                 isAnApartment: Boolean,
                 price: String)

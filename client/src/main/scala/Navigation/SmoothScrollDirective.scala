@@ -21,17 +21,14 @@ class SmoothScrollDirective(window: Window, modal: ModalService, timeout: Timeou
     val startingPosition = container.scrollTop
 
     val anchorPosition: Double = document.getElementById("firstDescriptionText").getBoundingClientRect().top
-    println("anchorPosition = " + anchorPosition)
 
     var actualPosition: Double = startingPosition
 
     val offset = 50
 
     val cookieHeadbandHeight = document.getElementById("cookieHeadband").asInstanceOf[Html].clientHeight
-    println(cookieHeadbandHeight)
 
     val whereScrollShouldStop = anchorPosition + startingPosition - cookieHeadbandHeight
-    println(whereScrollShouldStop)
 
     var scrollIterationFunction: Int = 0
 

@@ -28,12 +28,6 @@ object RoutingConfig extends Config {
           title = "Research",
           controller = "bookingController"))
       .when(
-        path = "/admin",
-        route = Route(
-          templateUrl = "/assets/templates/BackEnd/main.html",
-          title = "Admin",
-          controller = "backEndController"))
-      .when(
         path = "/contact",
         route = Route(
           templateUrl = "/assets/templates/Contact/contact.html",
@@ -44,5 +38,16 @@ object RoutingConfig extends Config {
         route = Route(
           templateUrl = "/assets/templates/legalNotice/legalNotice.html",
           title = "legalNotice"))
+      .when(
+        path = "/cookies",
+        route = Route(
+          templateUrl = "/assets/templates/legalNotice/cookiesNotice.html",
+          title = "cookiesNotice"))
+//      .when(
+//        path = "/admin",
+//        route = Route(
+//          templateUrl = "/assets/templates/BackEnd/main.html",
+//          title = "Admin",
+//          controller = "backEndController"))
   }
 }

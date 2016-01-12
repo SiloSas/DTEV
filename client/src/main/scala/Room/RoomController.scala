@@ -1,6 +1,5 @@
 package Room
 
-
 import com.greencatsoft.angularjs.core.{Location, RouteParams}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.console
@@ -23,10 +22,7 @@ class RoomController(scope: RoomScope, service: RoomService, $routeParams: Route
   def findAll(): Any = {
     scope.rooms = js.Array[Room]()
     service.findAll() onComplete {
-      case Success(rooms) =>
-        scope.$apply {
-          scope.rooms = rooms.toJSArray
-        }
+      case Success(rooms) => scope.$apply { scope.rooms = rooms.toJSArray }
       case Failure(t) => handleError(t)
     }
   }
@@ -35,17 +31,13 @@ class RoomController(scope: RoomScope, service: RoomService, $routeParams: Route
     service.findById(id) onComplete {
       case Success(maybeRoom) =>
         maybeRoom match {
-          case Some(room) =>
-            scope.$apply {
-              scope.room = room
-            }
+          case Some(room) => scope.$apply { scope.room = room }
           case None =>
         }
       case Failure(t: Throwable) =>
         handleError(t)
     }
   }
-
 
   private def handleError(t: Throwable) {
     console.error(s"An error has occured: $t")

@@ -35,6 +35,8 @@ lazy val server = (project in file("server")).settings(
     "com.github.tototoshi" %% "slick-joda-mapper" % "2.0.0",
     "com.typesafe.play" %% "play-mailer" % "3.0.1",
     "org.mindrot" % "jbcrypt" % "0.3m",
+    "org.scalatest" %% "scalatest" % "2.2.1" % "test",
+    "org.scalatestplus" %% "play" % "1.4.0-M3" % "test",
     specs2 % Test
   )
 ).enablePlugins(PlayScala).

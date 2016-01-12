@@ -1,5 +1,5 @@
 # --- !Ups
-CREATE TABLE rooms (
+CREATE TABLE rooms(
   id                        VARCHAR PRIMARY KEY,
   name                      VARCHAR,
   presentation              VARCHAR,
@@ -12,7 +12,7 @@ INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) 
   ('a4aea509-1002-47d0-b55c-593c91cb32ae', 'Passé Simple',
    'La chambre, au premier étage de notre maison d’hôtes, calme et spacieuse, bénéficie d’un accès indépendant. Avec lit double en 160 cm, salle de bain avec baignoire et WC privatif indépendant, coin collation, bouilloire et cafetière électrique.',
    'Vous apprécierez les moments de partage autour d’un généreux petit-déjeuner sur la terrasse ou dans notre salle à manger.',
-    'assets/images/passesimple.jpg', false, '65 € / Nuit');
+    'assets/images/passesimple.jpg,assets/images/passesimple2.jpg', false, '65 € / Nuit');
 INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) VALUES
   ('b5aea509-1002-47d0-b55c-593c91cb32ae', 'Lempicka',
    'La chambre, au premier étage de notre maison d’hôtes, calme et spacieuse, bénéficie d’un accès indépendant. Avec lit double en 160 cm, salle de bain avec baignoire et WC privatif indépendant, coin collation, bouilloire et cafetière électrique.',
@@ -32,7 +32,7 @@ INSERT INTO rooms(id, name, presentation, header, images, isAnApartment, price) 
   ('a4aea509-1002-47d0-b55c-593c91cb3ae', 'La terrasse',
    'Appartement T1bis au 2ème étage d une maison d hôtes comprenant 2 autres appartements et une chambre d hôtes, avec salon et couchage en 140, petite alcove pour accueillir une 3ème personne ou un enfant. Grande terrasse "sur le toit" avec salon de jardin. Cuisine équipée indépendante. Parking en supplément.',
   'Ce lumineux appartement de 35 m² composé d une chambre spacieuse et confortable vous séduira par sa tranquillité ',
-  'assets/images/IMG_5410.jpg', true, '65 € / Nuit - 364 € / Semaine');
+  'assets/images/IMG_5410.jpg', true, '65 € / Nuit');
 
 
 CREATE TABLE agreements (
@@ -54,7 +54,7 @@ INSERT INTO agreements(id, title, description, image) VALUES
    'assets/images/platDuJour.jpg');
 
 
-CREATE TABLE comments (
+CREATE TABLE comments(
   id                        VARCHAR PRIMARY KEY,
   comment                   VARCHAR,
   userName                  VARCHAR,
@@ -74,19 +74,25 @@ INSERT INTO comments(id, comment, userName, rate, date) VALUES
   ('a4aea509-1002-4d0-b55c-53cqcb32e', 'dsdlksdadss', 'bgsfsdfsdf', 2, '2012-08-24');
 
 
-CREATE TABLE users (
+CREATE TABLE users(
   id                        SERIAL PRIMARY KEY,
-  login                     VARCHAR(50),
-  password                  VARCHAR(100)
+  login                     VARCHAR(50) NOT NULL,
+  password                  VARCHAR(100) NOT NULL
 );
 INSERT INTO users(login, password) VALUES('admin', '$2a$07$8SJ.wfjn2IaidQVHfcmrHuWzrknBqJE8f.8BO7fu.W.d5u0W5r3t.');
 
 
 CREATE TABLE reservations(
   id                        SERIAL PRIMARY KEY,
-  roomId                    VARCHAR REFERENCES rooms(id),
-  arrivalDate               DATE,
-  departureDate             DATE
+  roomId                    VARCHAR REFERENCES rooms(id) NOT NULL,
+  arrivalDate               DATE NOT NULL,
+  departureDate             DATE NOT NULL,
+  numberOfPersons           INT NOT NULL,
+  firstName                 VARCHAR NOT NULL,
+  name                      VARCHAR NOT NULL,
+  email                     VARCHAR NOT NULL,
+  phoneNumber               VARCHAR NOT NULL,
+  extraBed                  BOOLEAN NOT NULL
 );
 
 

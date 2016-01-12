@@ -1,0 +1,14 @@
+@(message: String)
+@main("Connexion à la partie administration") {
+  <form action="/authenticate" method="get">
+    <md-input-container>
+      <label>Identifiant</label>
+      <input name="login" type="text" ng-model="username" />
+    </md-input-container>
+    <md-input-container>
+      <label>Mot de passe</label>
+      <input type="password" name="password" ng-model="password" />
+    </md-input-container>
+    <input type="submit" value="Connexion">
+  </form>
+}

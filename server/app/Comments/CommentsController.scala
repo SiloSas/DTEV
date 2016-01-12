@@ -16,7 +16,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class CommentsController @Inject()(protected val dbConfigProvider: DatabaseConfigProvider,
                                    commentsMethods: CommentsMethods,
                                    utilities: Utilities)
-    extends Controller {
+  extends Controller {
 
   def findAll() = Action.async {
     commentsMethods.findAll.map { comments =>

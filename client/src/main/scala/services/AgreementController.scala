@@ -14,7 +14,6 @@ import scala.util.{Failure, Success}
 @injectable("agreementController")
 class AgreementController(scope: AgreementScope, agreementService: AgreementService) extends AbstractController[AgreementScope](scope) {
 
-
   scope.agreements = js.Array[Agreement]()
   agreementService.findAll() onComplete {
     case Success(agreements) =>
@@ -27,5 +26,4 @@ class AgreementController(scope: AgreementScope, agreementService: AgreementServ
   private def handleError(t: Throwable) {
     console.error(s"An error has occured: $t")
   }
-
 }

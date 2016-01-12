@@ -1,12 +1,12 @@
 package database
 
-
 import java.sql.Date
 
-import Room.Reservation
+import Room.ReservationDB
 import administration.UserActor.User
 import database.MyPostgresDriver.api._
 import shared.{Agreement, Comment, Room}
+
 
 trait MyDBTableDefinitions {
 
@@ -54,13 +54,20 @@ trait MyDBTableDefinitions {
   }
   lazy val users = TableQuery[Users]
 
-  class Reservations(tag: Tag) extends Table[Reservation](tag, "reservations") {
-    def id = column[Long]("id")
+  class Reservations(tag: Tag) extends Table[ReservationDB](tag, "reservations") {
+    def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
     def roomId = column[String]("roomid")
     def arrivalDate = column[Date]("arrivaldate")
     def departureDate = column[Date]("departuredate")
+    def numberOfPersons = column[Int]("numberofpersons")
+    def firstName = column[String]("firstname")
+    def name = column[String]("name")
+    def email = column[String]("email")
+    def phoneNumber = column[String]("phonenumber")
+    def extraBed = column[Boolean]("extrabed")
 
-    def * = (id, roomId, arrivalDate, departureDate) <> ((Reservation.apply _).tupled, Reservation.unapply)
+    def * = (id.?, roomId, arrivalDate, departureDate, numberOfPersons, firstName, name, email, phoneNumber, extraBed) <>
+      ((ReservationDB.apply _).tupled, ReservationDB.unapply)
   }
   lazy val reservations = TableQuery[Reservations]
 }

@@ -4,15 +4,21 @@
 
 # Home page
 GET     /                         controllers.Application.index
+GET     /admin                    controllers.Application.admin
+POST    /contact                  @util.Utilities.contact
 GET	    /rooms                    @Room.RoomController.findAll
 GET		/room                     @Room.RoomController.findById(id: String)
 POST    /room                     @Room.RoomController.update
+POST    /reservation              @Room.RoomController.postReservation
 #(id: String, name: String, presentation: String, header: String, images: String, isAnApartment: Boolean, price: String)
-GET		/availableRooms           @Room.RoomController.findAvailable(start: String, end: String)
+GET		/availableRooms           @Room.RoomController.findAvailable(start: Long, end: Long)
 GET	    /agreements               @services.ServicesController.findAll
 GET	    /comments                 @Comments.CommentsController.findAll
 POST    /comments                 @Comments.CommentsController.post
 PUT     /comments                 @Comments.CommentsController.update
+
+POST    /upload                   images.Images.uploadImage
+GET     /images/:fileName         images.Images.getImage(fileName: String)
 
 # Connection
 #authenticate(login: String, password: String)
@@ -21,4 +27,4 @@ GET     /logout                   @administration.AuthenticationController.logou
 GET     /isConnected              @administration.AuthenticationController.isConnected
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file             controllers.Assets.at(path="/public", file)

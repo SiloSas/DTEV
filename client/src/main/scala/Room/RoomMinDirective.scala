@@ -33,6 +33,7 @@ class RoomMinDirective(modal: ModalService, window: Window, timeout: Timeout) ex
   @JSExport
   def openModal(room: Room): Unit = {
     val newModal: ModalOptions = new js.Object().asInstanceOf[ModalOptions]
+
     newModal.templateUrl = "assets/templates/Booking/bookingModal.html"
     newModal.controller = "bookingModalController"
     newModal.windowClass = "bookingModal"

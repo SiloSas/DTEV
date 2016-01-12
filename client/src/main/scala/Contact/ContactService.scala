@@ -2,25 +2,53 @@ package Contact
 
 import com.greencatsoft.angularjs.core.HttpService
 import com.greencatsoft.angularjs.{Factory, Service, injectable}
+import materialDesign.MdToastService
 import shared.Message
-
-import scala.scalajs.js
-import scala.scalajs.js.JSON
-
-import scala.scalajs.js.annotation.JSExport
+import upickle.default._
 
 import scala.concurrent.Future
 import scala.scalajs.concurrent.JSExecutionContext.Implicits.runNow
+import scala.scalajs.js
+import scala.scalajs.js.annotation.JSExport
 import scala.util.{Failure, Success, Try}
 
 
 @injectable("contactService")
-class ContactService(http: HttpService) extends Service {
+class ContactService(http: HttpService,
+                     mdToast: MdToastService) extends Service {
   require(http != null, "Missing argument 'http'.")
+
+  def displaySuccessToast(): Any = {
+    var toast = mdToast.simple("Votre message nous a bien été envoyé.")
+    toast._options.position = """{
+        bottom: false
+        top: true
+        left: false
+        right: true
+      }"""
+    mdToast.show(toast)
+  }
+
+  def displayErrorToast(): Any = {
+    var toast = mdToast.simple("Désolé, une erreur s'est produite.")
+    toast._options.position = """{
+        bottom: false
+        top: true
+        left: false
+        right: true
+      }"""
+    mdToast.show(toast)
+  }
+
   @JSExport
-  def post(message: Message): Future[String] = {
-    http.post[js.Any]("/Contact")
-      .map(JSON.stringify(_))
+  def post(message: Message): Unit = {
+    println(message)
+
+    http.post[js.Any]("/contact", write(message)) map { _ =>
+      displaySuccessToast()
+    } recover {
+      case _ => displayErrorToast()
+    }
   }
 
   protected def flatten[T](future: Future[Try[T]]): Future[T] = future flatMap {
@@ -38,7 +66,7 @@ class ContactService(http: HttpService) extends Service {
 
 
 @injectable("contactService")
-class ContactServiceFactory(http: HttpService) extends Factory[ContactService] {
+class ContactServiceFactory(http: HttpService, mdToastService: MdToastService) extends Factory[ContactService] {
 
-  override def apply(): ContactService = new ContactService(http)
+  override def apply(): ContactService = new ContactService(http, mdToastService)
 }

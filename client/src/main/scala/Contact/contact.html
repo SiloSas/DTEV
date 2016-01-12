@@ -1,12 +1,11 @@
-<form
-        name="contactForm"
-        ng-submit="controller.post(email, message);
-        controller.close()"
-        class="marginBottom50"
-        style="margin-top: 100px">
+<form name="contactForm"
+      ng-submit="controller.post(email, message);
+      controller.close()"
+      class="marginBottom50"
+      style="margin-top: 100px">
     <md-input-container class="width100p">
         <label>Email</label>
-        <input ng-model="email" type="text" required>
+        <input ng-model="email" type="email" required>
     </md-input-container>
     <md-input-container class="width100p">
         <label>Message</label>
@@ -17,7 +16,6 @@
     </div>
 </form>
 
-<!--<md-subheader>Ou contactez nous par email ou téléphone</md-subheader>-->
 <div class="column large-12 marginTop50 marginBottom30">
     <div class="column large-4 text-center">
         <md-button class="md-fab md-mini primCol"><i class="fa fa-phone"></i></md-button>
@@ -46,3 +44,7 @@
 <div class="width100p float-left" style="height: 800px">
     <home-map></home-map>
 </div>
+
+
+<!--<div class="paddingSearchMin white">s-->
+<!--</div>-->

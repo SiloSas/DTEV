@@ -21,8 +21,7 @@ class RoomMethods @Inject()(protected val dbConfigProvider: DatabaseConfigProvid
 
   def findById(id: String): Future[Option[Room]] = db.run(rooms.filter(_.id === id).result) map (_.headOption)
 
-  def findAvailable(start: String, end: String): Future[Seq[Room]] = {
-
+  def findAvailable(start: Long, end: Long): Future[Seq[Room]] = {
     reservationMethods.findReservationsInInterval(start, end) flatMap { reservations =>
       val nonAvailableIds = reservations.map(_.roomId).distinct
       db.run(rooms.filterNot(r => r.id.inSet(nonAvailableIds)).result)

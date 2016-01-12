@@ -13,6 +13,11 @@ resolvers += Resolver.url("scala-js-snapshots",
 
 // Use the Play sbt plugin for Play projects
 
+resolvers := ("Atlassian Releases" at "https://maven.atlassian.com/public/") +: resolvers.value
+
+resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
+
+resolvers += Resolver.sonatypeRepo("snapshots")
 
 
 // Sbt plugins

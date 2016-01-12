@@ -46,7 +46,7 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
         maybeRoom match {
           case Some(room) =>
             scope.$apply {
-              sliderScope.images = Seq(room.images).toJSArray
+              sliderScope.images = room.images.split(",").toSeq.toJSArray
               scope.activeImage = ActiveImage(step = 0, url = scope.images.head, url1 = scope.images.head)
               if (sliderScope.images.length > 1) {
                 timeout(fn = () => {

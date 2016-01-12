@@ -1,14 +1,29 @@
 package Booking
 
-import com.greencatsoft.angularjs.core.{Timeout, RouteParams}
+import com.greencatsoft.angularjs.core.{HttpService, RouteParams, Timeout}
 import com.greencatsoft.angularjs.extensions.ModalInstance
 import com.greencatsoft.angularjs.{AbstractController, injectable}
+import materialDesign.MdToastService
 import shared.Room
 import upickle.default._
 
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
-import scala.scalajs.js.Date
+import scala.scalajs.js.JSON
 import scala.scalajs.js.annotation.JSExport
+
+
+case class ReservationForm(firstName: String,
+                           name: String,
+                           email: String,
+                           phoneNumber: String,
+                           numberOfPersons: Int,
+                           extraBed: Boolean)
+
+case class Reservation(room: Room,
+                       start: Long,
+                       end: Long,
+                       reservationForm: ReservationForm)
 
 
 @JSExport
@@ -17,13 +32,15 @@ class BookingModalController(scope: BookingScope,
                              modalInstance: ModalInstance[Any],
                              room: String,
                              routeParams: RouteParams,
-                             timeout: Timeout)
-    extends AbstractController[BookingScope](scope) {
+                             timeout: Timeout,
+                             httpService: HttpService,
+                             mdToast: MdToastService)
+  extends AbstractController[BookingScope](scope) {
 
   scope.room = read[Room](room)
   scope.rooms = js.Array[Room]()
-  scope.start = routeParams.get("start").asInstanceOf[String]
-  scope.end = routeParams.get("end").asInstanceOf[String]
+  scope.start = routeParams.get("start").toString.toLong
+  scope.end = routeParams.get("end").toString.toLong
   scope.totalPrice = 0
   scope.numberOfNights = calculateNumberOfDaysBetween(scope.start, scope.end)
 
@@ -31,32 +48,59 @@ class BookingModalController(scope: BookingScope,
   def close() = modalInstance.close()
 
   @JSExport
-  def computeInfoValues = {
+  def book(reservationForm: js.Any) = {
+
+    val reservationFormTyped = read[ReservationForm](JSON.stringify(reservationForm))
+
+    val reservation = Reservation(
+      room = scope.room,
+      start = scope.start,
+      end = scope.end,
+      reservationForm = reservationFormTyped)
+
+    httpService.post[js.Any]("/reservation", write(reservation)) map { a =>
+
+      val toast = mdToast.simple("Merci, votre réservation a bien été enregistrée.")
+      toast._options.position = "{right: true}"
+      mdToast.show(toast)
+
+      modalInstance.close()
+    } recover {
+      case e: Exception =>
+        val toast = mdToast.simple("Désolé, une erreur s'est produite.")
+        toast._options.position = "{right: true}"
+        mdToast.show(toast)
+    }
+  }
+
+  @JSExport
+  def addOrRemoveExtraBedToTotalPrice(extraBed: Boolean) = {
+    val newPrice = extraBed match {
+      case false => scope.totalPrice - 15
+      case true => scope.totalPrice + 15
+    }
+
+    scope.$apply { scope.totalPrice = newPrice }
+  }
+
+  @JSExport
+  def computeTotalPrice = {
     val totalNightsPrice = scope.numberOfNights match {
       case i if i < 7 => i * 65
       case j if j < 21 => j * 52
       case k => k * 39
     }
+
     val totalPrice = totalNightsPrice
-    println("totalPrice = " + totalPrice)
 
     timeout(() => scope.totalPrice = totalPrice)
   }
 
-  computeInfoValues
+  computeTotalPrice
 
-  def calculateNumberOfDaysBetween(startDate: String, endDate: String): Int = {
-    val start = new Date(startDate.replaceAll("-", "/"))
-    val end = new Date(endDate.replaceAll("-", "/"))
+  def calculateNumberOfDaysBetween(startDate: Long, endDate: Long): Int = {
     val millisecondsPerDay = 24 * 60 * 60 * 1000
-    println("millisecondsPerDay = " + millisecondsPerDay)
-    println(start.getMilliseconds())
-    println(end.getMilliseconds())
-    println("end = " + end)
 
-    val a = (end.getTime() - start.getTime()) / millisecondsPerDay
-    println("a = " + a)
-    println("aI = " + a.toInt)
-    a.toInt
+    ((endDate - startDate) / millisecondsPerDay).toInt
   }
 }

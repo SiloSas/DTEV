@@ -12,10 +12,10 @@ import scala.scalajs.js.JSON
 import scala.scalajs.js.annotation.JSExport
 import scala.util.{Failure, Success, Try}
 
+
 @injectable("agreementService")
 class AgreementService(http: HttpService) extends Service {
   require(http != null, "Missing argument 'http'.")
-
 
   @JSExport
   var agreements = Seq.empty[Agreement]
@@ -24,9 +24,7 @@ class AgreementService(http: HttpService) extends Service {
       Future(agreements)
     else {
       http.get[js.Any]("/agreements")
-        .map {
-          JSON.stringify(_)
-        }
+        .map { JSON.stringify(_) }
         .map { foundAgreements =>
           agreements = read[Seq[Agreement]](foundAgreements)
           agreements
