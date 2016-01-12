@@ -25509,18 +25509,23 @@ body, html {
 }
 
 /* line 27, ../scss/main.scss */
+h2, h3 {
+  font-family: "CaviarDreams", sans-serif !important;
+}
+
+/* line 31, ../scss/main.scss */
 md-input-container > label {
   font-size: 18px;
   font-weight: bold;
 }
 
-/* line 32, ../scss/main.scss */
+/* line 36, ../scss/main.scss */
 .mainContainer {
   float: left;
   width: 100%;
 }
 
-/* line 38, ../scss/main.scss */
+/* line 42, ../scss/main.scss */
 .parallax {
   perspective: 1px;
   height: 100vh;
@@ -25529,7 +25534,7 @@ md-input-container > label {
   perspective-origin-x: 100%;
 }
 
-/* line 45, ../scss/main.scss */
+/* line 49, ../scss/main.scss */
 .parallax__layer {
   position: absolute;
   top: 0;
@@ -25539,24 +25544,24 @@ md-input-container > label {
   transform-origin-x: 100%;
 }
 
-/* line 53, ../scss/main.scss */
+/* line 57, ../scss/main.scss */
 .parallax__layer--base {
   transform: translateZ(0);
 }
 
-/* line 56, ../scss/main.scss */
+/* line 60, ../scss/main.scss */
 .parallax__layer--back {
   transform: translateZ(-5px) scale(6.1);
 }
 
-/* line 60, ../scss/main.scss */
+/* line 64, ../scss/main.scss */
 .parallax__group {
   position: relative;
   height: 100vh;
   transform-style: preserve-3d;
 }
 
-/* line 66, ../scss/main.scss */
+/* line 70, ../scss/main.scss */
 .homeArrow {
   width: 100%;
   top: 72%;
@@ -25566,7 +25571,7 @@ md-input-container > label {
   transform: translateZ(-0.8px) scale(1.5);
 }
 
-/* line 75, ../scss/main.scss */
+/* line 79, ../scss/main.scss */
 .arrows {
   width: 100px;
   height: 100px;
@@ -25576,7 +25581,7 @@ md-input-container > label {
   bottom: 80px;
 }
 
-/* line 84, ../scss/main.scss */
+/* line 88, ../scss/main.scss */
 .arrows path {
   stroke: #581030;
   fill: transparent;
@@ -25613,28 +25618,28 @@ md-input-container > label {
     opacity: 0;
   }
 }
-/* line 108, ../scss/main.scss */
+/* line 112, ../scss/main.scss */
 .arrows path.a1 {
   animation-delay: -1s;
   -webkit-animation-delay: -1s;
   /* Safari 和 Chrome */
 }
 
-/* line 113, ../scss/main.scss */
+/* line 117, ../scss/main.scss */
 .arrows path.a2 {
   animation-delay: -0.5s;
   -webkit-animation-delay: -0.5s;
   /* Safari 和 Chrome */
 }
 
-/* line 118, ../scss/main.scss */
+/* line 122, ../scss/main.scss */
 .arrows path.a3 {
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
   /* Safari 和 Chrome */
 }
 
-/* line 123, ../scss/main.scss */
+/* line 127, ../scss/main.scss */
 .homeRoomTitle, .homeRoomTitle > h1 {
   width: 100%;
   top: 22%;
@@ -25645,27 +25650,27 @@ md-input-container > label {
   transform: translateZ(-0.8px) scale(1);
 }
 
-/* line 133, ../scss/main.scss */
+/* line 137, ../scss/main.scss */
 .bookingTitle {
   text-align: center;
   color: #4F0029;
   font-family: "CaviarDreams", sans-serif !important;
 }
 
-/* line 139, ../scss/main.scss */
+/* line 143, ../scss/main.scss */
 .homeRoomTitle > p {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
 
-/* line 145, ../scss/main.scss */
+/* line 149, ../scss/main.scss */
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
   padding: 80px;
 }
 
-/* line 150, ../scss/main.scss */
+/* line 154, ../scss/main.scss */
 .mainText {
   font-size: 29px;
   padding: 20px 50px;
@@ -25673,7 +25678,7 @@ md-input-container > label {
   word-spacing: 14px;
 }
 
-/* line 157, ../scss/main.scss */
+/* line 161, ../scss/main.scss */
 .paddingSearchMin {
   padding-bottom: 48px;
   float: left;
@@ -25681,7 +25686,7 @@ md-input-container > label {
 }
 
 @media (max-width: 600px) {
-  /* line 163, ../scss/main.scss */
+  /* line 167, ../scss/main.scss */
   .homeRoomTitle {
     right: auto;
     left: 0;
@@ -25689,14 +25694,14 @@ md-input-container > label {
     text-align: center;
   }
 
-  /* line 169, ../scss/main.scss */
+  /* line 173, ../scss/main.scss */
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;
     width: 100%;
   }
 
-  /* line 174, ../scss/main.scss */
+  /* line 178, ../scss/main.scss */
   .bookingModal {
     max-height: 80%;
     overflow: auto;
@@ -25704,7 +25709,7 @@ md-input-container > label {
   }
 }
 /* Underline From Center */
-/* line 183, ../scss/main.scss */
+/* line 187, ../scss/main.scss */
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -25718,7 +25723,7 @@ md-input-container > label {
   overflow: hidden;
 }
 
-/* line 195, ../scss/main.scss */
+/* line 199, ../scss/main.scss */
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
@@ -25736,7 +25741,7 @@ md-input-container > label {
   transition-timing-function: ease-out;
 }
 
-/* line 211, ../scss/main.scss */
+/* line 215, ../scss/main.scss */
 .hvr-underline-from-center.animatedAtScroll:before,
 .hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before {
@@ -25744,7 +25749,7 @@ md-input-container > label {
   right: 0;
 }
 
-/* line 219, ../scss/main.scss */
+/* line 223, ../scss/main.scss */
 .underlineHomeTitle {
   width: 111px;
   height: 2px;
@@ -25752,7 +25757,7 @@ md-input-container > label {
 }
 
 /* Bounce In */
-/* line 262, ../scss/main.scss */
+/* line 266, ../scss/main.scss */
 .hvr-bounce-in {
   display: inline-block;
   vertical-align: middle;
@@ -25766,7 +25771,7 @@ md-input-container > label {
   transition-duration: 0.5s;
 }
 
-/* line 274, ../scss/main.scss */
+/* line 278, ../scss/main.scss */
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
@@ -25787,7 +25792,7 @@ md-input-container > label {
     transform: scale(1.2);
   }
 }
-/* line 298, ../scss/main.scss */
+/* line 302, ../scss/main.scss */
 .hvr-pop {
   display: inline-block;
   vertical-align: middle;
@@ -25799,7 +25804,7 @@ md-input-container > label {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 308, ../scss/main.scss */
+/* line 312, ../scss/main.scss */
 .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
   -webkit-animation-name: hvr-pop;
   animation-name: hvr-pop;
@@ -25811,7 +25816,7 @@ md-input-container > label {
   animation-iteration-count: 1;
 }
 
-/* line 321, ../scss/main.scss */
+/* line 325, ../scss/main.scss */
 .myTooltip {
   display: inline;
   background: #333;
@@ -25827,20 +25832,20 @@ md-input-container > label {
 }
 
 /* For Firefox */
-/* line 338, ../scss/main.scss */
+/* line 342, ../scss/main.scss */
 input[type='number'] {
   -moz-appearance: textfield !important;
 }
 
 /* Webkit browsers like Safari and Chrome */
-/* line 343, ../scss/main.scss */
+/* line 347, ../scss/main.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0;
 }
 
-/* line 350, ../scss/main.scss */
+/* line 354, ../scss/main.scss */
 .starColor {
   color: #f08a24;
 }
