@@ -1,6 +1,8 @@
 <figure class="effect-zoe column roomMinHome roomImage padding0 margin0">
     <a href="#/rooms/{{room.id}}">
-        <img src="{{room.images}}" alt="{{room.name}}"/>
+        <span ng-repeat="img in room.images.split(',')" ng-if="$first">
+            <img src="{{img}}" alt="{{room.name}}"/>
+        </span>
     </a>
     <h2 class="textColorWhite textColorWhite zIndex2">
         <a href="#/rooms/{{room.id}}" class="width100p float-left">{{room.name}}</a>

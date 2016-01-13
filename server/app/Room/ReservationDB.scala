@@ -30,6 +30,8 @@ class ReservationMethods @Inject()(protected val dbConfigProvider: DatabaseConfi
 
   def delete(reservationId: Long): Future[Int] = db.run(reservations.filter(_.id === reservationId).delete)
 
+  def findAll(): Future[Seq[ReservationDB]] = db.run(reservations.result)
+
   def findReservationsInInterval(start: Long, end: Long): Future[Seq[ReservationDB]] = {
     val arrivalSqlDate = new Date(start)
     val departureSqlDate = new Date(end)

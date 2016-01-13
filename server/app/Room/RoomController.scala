@@ -57,6 +57,17 @@ class RoomController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
     roomMethods.update(room) map { numberOfRowsUpdated => Ok(Json.toJson(numberOfRowsUpdated)) }
   }
 
+//  implicit object DateWrites extends AnyRef with Writes[Date] {
+//    def writes(date: Date): JsString = JsString(date.toString)
+//  }
+  implicit val reservationDBWrites = Json.writes[ReservationDB]
+
+  def findAllReservations = Authenticated.async {
+    reservationMethods.findAll() map { r =>
+      Ok(Json.toJson(r))
+    }
+  }
+
   def postReservation = Action.async(parse.json) { request =>
     val reservation = read[Reservation](request.body.as[JsObject].toString)
 

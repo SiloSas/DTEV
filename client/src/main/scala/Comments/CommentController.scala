@@ -68,12 +68,15 @@ class CommentController(scope: CommentScope,
 
   @JSExport
   def post(): Unit = {
+    val a = new Date().getDay() + "." + new Date().getMonth() + "." + new Date().getFullYear()
+    println("a = " + a)
+
     val comment = Comment(
       id = UUID.randomUUID().toString,
       comment = scope.newComment.comment,
       userName = scope.newComment.userName,
       rate = scope.newComment.rate,
-      date = new Date().getDay() + "." + new Date().getMonth() + "." + new Date().getFullYear(),
+      date = new Date().toString,
       isValidated = false)
 
     commentService.post(comment) onComplete {

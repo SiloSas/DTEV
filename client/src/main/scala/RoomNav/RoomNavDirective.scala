@@ -5,6 +5,7 @@ import com.greencatsoft.angularjs.{TemplatedDirective, ElementDirective, injecta
 
 import scala.scalajs.js.annotation.JSExport
 
+
 @JSExport
 @injectable("roomNav")
 class RoomNavDirective(sidenav: Sidenav) extends ElementDirective with TemplatedDirective  {
@@ -14,6 +15,4 @@ class RoomNavDirective(sidenav: Sidenav) extends ElementDirective with Templated
   def toggleLeft(): Any = {
     sidenav("left").toggle()
   }
-
-
 }

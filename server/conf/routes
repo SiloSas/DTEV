@@ -10,6 +10,7 @@ GET	    /rooms                    @Room.RoomController.findAll
 GET		/room                     @Room.RoomController.findById(id: String)
 POST    /room                     @Room.RoomController.update
 POST    /reservation              @Room.RoomController.postReservation
+GET     /reservations             @Room.RoomController.findAllReservations
 #(id: String, name: String, presentation: String, header: String, images: String, isAnApartment: Boolean, price: String)
 GET		/availableRooms           @Room.RoomController.findAvailable(start: Long, end: Long)
 GET	    /agreements               @services.ServicesController.findAll

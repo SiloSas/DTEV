@@ -20,7 +20,6 @@ class UpdateCommentsDirective(commentService: CommentService)
 
   @JSExport
   def updateComment(comment: js.Any) = {
-    println("ahbeh quand mm ")
     commentService.update(read[Comment](JSON.stringify(comment)))
   }
 }

@@ -11,7 +11,6 @@ class SlideLeftDirective(sidenav: Sidenav) extends AttributeDirective {
 
   @JSExport
   def close(): Any = {
-    println("lkjlkjlkjlkjlkjljk")
     sidenav("left").close()
   }
 
