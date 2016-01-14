@@ -73,9 +73,12 @@
       <md-button type="submit" class="primCol">Valider</md-button>
     </form>
 
-
-    <div ng-repeat="r in controller.reservations">
-      {{r}}
+    <div data-ng-controller="backEndController">
+      <ul>
+        <li ng-repeat="r in reservations">
+          {{r}}
+        </li>
+      </ul>
     </div>
 
   </md-content>

@@ -60,11 +60,13 @@ class BookingModalController(scope: BookingScope,
 
     httpService.post[js.Any]("/reservation", write(reservation)) map { a =>
 
-      val toast = mdToast.simple("Merci, votre réservation a bien été enregistrée.")
-      toast._options.position = "{right: true}"
-      mdToast.show(toast)
+      timeout(() => {
+        val toast = mdToast.simple("Merci, votre réservation a bien été enregistrée.")
+        toast._options.position = "{right: true}"
+        mdToast.show(toast)
 
-      modalInstance.close()
+        modalInstance.close()
+      })
     } recover {
       case e: Exception =>
         val toast = mdToast.simple("Désolé, une erreur s'est produite.")

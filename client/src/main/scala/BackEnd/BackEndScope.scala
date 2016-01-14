@@ -13,5 +13,5 @@ trait BackEndScope extends Scope {
 
   var room: Room = js.native
 
-  var reservations: Seq[ClientReservationDB] = js.native
+  var reservations: js.Array[ClientReservationDB] = js.native
 }
