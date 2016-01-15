@@ -46,17 +46,15 @@
     slide-left
     md-component-id="left"
     hide-gt-md>
-    <md-button ng-click="directive.close()" class="md-primary primCol column small-6" hide-gt-md>
+    <md-button ng-click="directive.close()" class="md-primary primCol column small-8 small-offset-2" hide-gt-md>
       <b>Fermer le menu </b>
     </md-button>
 
-    <md-button ng-click="directive.close()" class="md-primary primCol column small-6" hide-gt-md>
-      <b>Accueil</b>
-    </md-button>
-    @*<i class="fa fa-arrow-circle-left fa-2x pointer"*@
-      @*ng-click="directive.close()"*@
-      @*style="color:#4F0029; line-height: inherit; vertical-align: middle !important; margin-left: 30px;">*@
-    @*</i>*@
+    <a href="#/">
+      <md-button ng-click="directive.close()" class="md-primary primCol column small-8 small-offset-2" hide-gt-md>
+        <b>Accueil</b>
+      </md-button>
+    </a>
 
     <md-toolbar style="line-height: 56px; margin-top:22px; background-color: #371439">
       <h1 class="md-toolbar-tools text-center"
@@ -68,7 +66,7 @@
     <md-content layout-padding ng-controller = "roomController" style="background-color: #CBAC75;">
 
       <a href="#/rooms/{{room.id}}"
-        class="column primCol md-button float-left small-10"
+        class="column primCol md-button float-left small-10 small-offset-1"
         style="margin-bottom: -5px;"
         ng-click="directive.close()"
         data-ng-repeat="room in rooms | filter: { isAnApartment: false }">
@@ -88,7 +86,7 @@
     <md-content layout-padding ng-controller = "roomController" style="background-color: #CBAC75;">
 
       <a href="#/rooms/{{room.id}}"
-        class="column primCol md-button float-left small-10"
+        class="column primCol md-button float-left small-10 small-offset-1"
         style="margin-bottom: -5px;"
         ng-click="directive.close()"
         data-ng-repeat="room in rooms | filter: { isAnApartment: true }">
@@ -99,13 +97,13 @@
 
     <br>
 
-    <a href="/#/contact" class = "column primCol md-button float-left small-10">
+    <a href="/#/contact" class = "column primCol md-button float-left small-8 small-offset-2">
       <b>Infos pratiques</b>
     </a>
 
     <br>
 
-    <a href="/#/mentionsLegales" class = "column primCol md-button float-left small-10">
+    <a href="/#/mentionsLegales" class = "column primCol md-button float-left small-8 small-offset-2">
       <b>Mentions légales</b>
     </a>
 

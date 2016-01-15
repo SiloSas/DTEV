@@ -1,7 +1,9 @@
 <md-list ng-init="limit = 5">
     <md-list-item class="md-3-line"
                   ng-repeat="comment in filteredComments = (comments | filter: {isValidated: true}) | limitTo: limit">
-        <md-button class="md-fab primCol" style="margin-left:20px;"><b>{{comment.userName[0]}}</b></md-button>
+        <md-button class="md-fab primCol" style="margin-left:20px; pointer-events: none;">
+            <b>{{comment.userName[0]}}</b>
+        </md-button>
         <div class="md-list-item-text">
             <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le
                 <b class="textPrimColor">{{comment.date | date: 'dd.MM.yyyy'}}</b></h4>
@@ -63,5 +65,8 @@
         </div>
     </div>
 
-    <md-button type="submit" class="primCol column large-4 large-offset-4"><b>Poster</b></md-button>
+    <md-button type="submit"
+               class="primCol column large-4 large-offset-4 small-10 small-offset-1 md-button md-ink-ripple">
+        <b>Poster</b>
+    </md-button>
 </form>
