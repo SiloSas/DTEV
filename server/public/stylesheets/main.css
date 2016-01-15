@@ -25459,35 +25459,34 @@ data-search-bar {
   background-color: rgba(0, 0, 0, 0.66);
   float: left;
   bottom: 0;
-  position: absolute;
   width: 100%;
 }
 
-/* line 8, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 7, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * md-datepicker {
   background: transparent !important;
 }
-/* line 12, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 11, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-calendar-scroll-mask {
   margin-top: -20px;
 }
-/* line 16, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 15, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-input {
   font-weight: bold;
   font-size: 17px !important;
   width: 100%;
 }
-/* line 23, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 22, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-input-container {
   width: 75% !important;
   margin-left: 0;
 }
-/* line 28, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 27, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-expand-triangle {
   border-top-color: white !important;
 }
 
-/* line 33, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 32, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 .md-datepicker-calendar-icon {
   color: white;
 }
@@ -25519,13 +25518,31 @@ md-input-container > label {
   font-weight: bold;
 }
 
-/* line 36, ../scss/main.scss */
+/* line 37, ../scss/main.scss */
+.mainWrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* line 51, ../scss/main.scss */
+.mainWrapper > * {
+  flex: 1 100%;
+}
+
+/* line 55, ../scss/main.scss */
 .mainContainer {
   float: left;
   width: 100%;
 }
 
-/* line 42, ../scss/main.scss */
+/* line 61, ../scss/main.scss */
 .parallax {
   perspective: 1px;
   height: 100vh;
@@ -25534,7 +25551,7 @@ md-input-container > label {
   perspective-origin-x: 100%;
 }
 
-/* line 49, ../scss/main.scss */
+/* line 68, ../scss/main.scss */
 .parallax__layer {
   position: absolute;
   top: 0;
@@ -25544,24 +25561,24 @@ md-input-container > label {
   transform-origin-x: 100%;
 }
 
-/* line 57, ../scss/main.scss */
+/* line 76, ../scss/main.scss */
 .parallax__layer--base {
   transform: translateZ(0);
 }
 
-/* line 60, ../scss/main.scss */
+/* line 79, ../scss/main.scss */
 .parallax__layer--back {
   transform: translateZ(-5px) scale(6.1);
 }
 
-/* line 64, ../scss/main.scss */
+/* line 83, ../scss/main.scss */
 .parallax__group {
   position: relative;
   height: 100vh;
   transform-style: preserve-3d;
 }
 
-/* line 70, ../scss/main.scss */
+/* line 89, ../scss/main.scss */
 .homeArrow {
   width: 100%;
   top: 72%;
@@ -25571,7 +25588,7 @@ md-input-container > label {
   transform: translateZ(-0.8px) scale(1.5);
 }
 
-/* line 79, ../scss/main.scss */
+/* line 98, ../scss/main.scss */
 .arrows {
   width: 100px;
   height: 100px;
@@ -25581,7 +25598,7 @@ md-input-container > label {
   bottom: 80px;
 }
 
-/* line 88, ../scss/main.scss */
+/* line 107, ../scss/main.scss */
 .arrows path {
   stroke: #581030;
   fill: transparent;
@@ -25618,28 +25635,28 @@ md-input-container > label {
     opacity: 0;
   }
 }
-/* line 112, ../scss/main.scss */
+/* line 131, ../scss/main.scss */
 .arrows path.a1 {
   animation-delay: -1s;
   -webkit-animation-delay: -1s;
   /* Safari 和 Chrome */
 }
 
-/* line 117, ../scss/main.scss */
+/* line 136, ../scss/main.scss */
 .arrows path.a2 {
   animation-delay: -0.5s;
   -webkit-animation-delay: -0.5s;
   /* Safari 和 Chrome */
 }
 
-/* line 122, ../scss/main.scss */
+/* line 141, ../scss/main.scss */
 .arrows path.a3 {
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
   /* Safari 和 Chrome */
 }
 
-/* line 127, ../scss/main.scss */
+/* line 146, ../scss/main.scss */
 .homeRoomTitle, .homeRoomTitle > h1 {
   width: 100%;
   top: 22%;
@@ -25650,27 +25667,27 @@ md-input-container > label {
   transform: translateZ(-0.8px) scale(1);
 }
 
-/* line 137, ../scss/main.scss */
+/* line 156, ../scss/main.scss */
 .bookingTitle {
   text-align: center;
   color: #4F0029;
   font-family: "CaviarDreams", sans-serif !important;
 }
 
-/* line 143, ../scss/main.scss */
+/* line 162, ../scss/main.scss */
 .homeRoomTitle > p {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
 
-/* line 149, ../scss/main.scss */
+/* line 168, ../scss/main.scss */
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
   padding: 80px;
 }
 
-/* line 154, ../scss/main.scss */
+/* line 173, ../scss/main.scss */
 .mainText {
   font-size: 29px;
   padding: 20px 50px;
@@ -25678,7 +25695,7 @@ md-input-container > label {
   word-spacing: 14px;
 }
 
-/* line 161, ../scss/main.scss */
+/* line 180, ../scss/main.scss */
 .paddingSearchMin {
   margin-bottom: 48px;
   float: left;
@@ -25686,7 +25703,7 @@ md-input-container > label {
 }
 
 @media (max-width: 600px) {
-  /* line 168, ../scss/main.scss */
+  /* line 187, ../scss/main.scss */
   .homeRoomTitle {
     right: auto;
     left: 0;
@@ -25694,32 +25711,28 @@ md-input-container > label {
     text-align: center;
   }
 
-  /* line 174, ../scss/main.scss */
+  /* line 193, ../scss/main.scss */
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;
     width: 100%;
   }
 
-  /* line 179, ../scss/main.scss */
+  /* line 198, ../scss/main.scss */
   .bookingModal {
     max-height: 80%;
     overflow: auto;
     padding: 0px !important;
   }
-
-  /* line 185, ../scss/main.scss */
+}
+@media (max-width: 900px) {
+  /* line 207, ../scss/main.scss */
   .parallax__layer--back {
     transform: translateZ(0) scale(1);
   }
-
-  /* line 188, ../scss/main.scss */
-  .grid {
-    margin-bottom: 95px !important;
-  }
 }
 /* Underline From Center */
-/* line 195, ../scss/main.scss */
+/* line 213, ../scss/main.scss */
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -25733,7 +25746,7 @@ md-input-container > label {
   overflow: hidden;
 }
 
-/* line 207, ../scss/main.scss */
+/* line 225, ../scss/main.scss */
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
@@ -25751,7 +25764,7 @@ md-input-container > label {
   transition-timing-function: ease-out;
 }
 
-/* line 223, ../scss/main.scss */
+/* line 241, ../scss/main.scss */
 .hvr-underline-from-center.animatedAtScroll:before,
 .hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before {
@@ -25759,7 +25772,7 @@ md-input-container > label {
   right: 0;
 }
 
-/* line 231, ../scss/main.scss */
+/* line 249, ../scss/main.scss */
 .underlineHomeTitle {
   width: 111px;
   height: 2px;
@@ -25767,7 +25780,7 @@ md-input-container > label {
 }
 
 /* Bounce In */
-/* line 274, ../scss/main.scss */
+/* line 292, ../scss/main.scss */
 .hvr-bounce-in {
   display: inline-block;
   vertical-align: middle;
@@ -25781,7 +25794,7 @@ md-input-container > label {
   transition-duration: 0.5s;
 }
 
-/* line 286, ../scss/main.scss */
+/* line 304, ../scss/main.scss */
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
@@ -25802,7 +25815,7 @@ md-input-container > label {
     transform: scale(1.2);
   }
 }
-/* line 310, ../scss/main.scss */
+/* line 328, ../scss/main.scss */
 .hvr-pop {
   display: inline-block;
   vertical-align: middle;
@@ -25814,7 +25827,7 @@ md-input-container > label {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 320, ../scss/main.scss */
+/* line 338, ../scss/main.scss */
 .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
   -webkit-animation-name: hvr-pop;
   animation-name: hvr-pop;
@@ -25826,7 +25839,7 @@ md-input-container > label {
   animation-iteration-count: 1;
 }
 
-/* line 333, ../scss/main.scss */
+/* line 351, ../scss/main.scss */
 .myTooltip {
   display: inline;
   background: #333;
@@ -25842,20 +25855,20 @@ md-input-container > label {
 }
 
 /* For Firefox */
-/* line 350, ../scss/main.scss */
+/* line 368, ../scss/main.scss */
 input[type='number'] {
   -moz-appearance: textfield !important;
 }
 
 /* Webkit browsers like Safari and Chrome */
-/* line 355, ../scss/main.scss */
+/* line 373, ../scss/main.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0;
 }
 
-/* line 361, ../scss/main.scss */
+/* line 379, ../scss/main.scss */
 .starColor {
   color: #f08a24;
 }

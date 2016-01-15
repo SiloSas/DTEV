@@ -2,6 +2,7 @@ import BackEnd.{AgreementBackEndDirective, BackEndController, RoomMinBeDirective
 import Booking.{BookingController, BookingModalController}
 import Comments.{CommentController, CommentServiceFactory, CommentsDirective}
 import Contact.{ContactController, ContactServiceFactory}
+import Cookies.CookiesDirective
 import Map.MapDirective
 import Navigation.{AnimationsAtScrollDirective, SmoothScrollDirective}
 import Room.{RoomController, RoomMinDirective, RoomMinHomeDirective, RoomServiceFactory}
@@ -46,6 +47,7 @@ object App extends JSApp {
       .directive[AgreementBackEndDirective]
       .directive[SmoothScrollDirective]
       .directive[AnimationsAtScrollDirective]
+      .directive[CookiesDirective]
       .factory[RoomServiceFactory]
       .factory[AgreementServiceFactory]
       .factory[CommentServiceFactory]

@@ -1,6 +1,7 @@
 @(message: String)
 
 @main("Des toits en ville") {
+<<<<<<< HEAD
   <div id = "cookieHeadband"
     class = "column large-12 text-center"
     style=" background-color: #CBAC75;"
@@ -55,6 +56,53 @@
         <b>Accueil</b>
       </md-button>
     </a>
+=======
+ <div class=" height100p">
+
+   <div id = "cookieHeadband"
+   class = "column large-12 text-center"
+   style=" background-color: #CBAC75;"
+   ng-show = "!hideCookie">
+       En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour réaliser des statistiques de visites.
+           <a href="#/cookies">En savoir plus</a>
+           <i class="fa fa-times pointer marginLeft10 absolute float-right"
+           style="vertical-align: middle; line-height: inherit; z-index: 99"
+           ng-click="hideCookie = true"> </i> </div>
+     <md-toolbar
+     class="absolute transparent zIndex4"
+     ng-class="{'marginTop30': !hideCookie}">
+         <div>
+             <div class = "float-right margin20 paddingRight20" hide-sm>
+                 <a href="#/" class = "padding10 hvr-pop">Accueil</a>
+                 <a href="#/contact" class = "padding10 textPrimColor pointer hvr-pop">Infos pratiques</a>
+                 <a href="#/mentionsLegales" class = "padding10 hvr-pop">Mentions légales</a>
+                 <md-button class="md-fab md-mini primCol hvr-pop" href="https://www.facebook.com/des.toits.en.ville/">
+                     <a href="https://www.facebook.com/des.toits.en.ville/" class="fa fa-facebook textPrimColor hvr-icon-grow-rotate">
+
+                     </a>
+                 </md-button>
+             </div>
+             <room-nav data-ng-controller = "roomController"
+             style = "margin-top: 12px; margin-left: 12px;"
+             class = "zIndex4 float-left"> </room-nav>
+         </div>
+     </md-toolbar>
+     <md-content   class="mainContainer parallax"  style="height: 400px"
+     cookies="{{hideCookie}}"
+     ng-view="" id="mainContainer"></md-content>
+     <data-search-bar  id="searchBar" class="zIndex5 left0">
+
+     </data-search-bar>
+     <md-sidenav class="md-sidenav-left md-whiteframe-z2 slide-left " style="background-color: #CBAC75;" slide-left md-component-id="left" hide-gt-md>
+         <md-button ng-click="directive.close()" class="md-primary primCol column small-6" hide-gt-md>
+             <b> Fermer le menu </b>
+         </md-button>
+         <md-button ng-click="directive.close()" class="md-primary primCol column small-6" hide-gt-md>
+             <b> Accueil</b>
+         </md-button>
+         @*<i class="fa fa-arrow-circle-left fa-2x pointer"*@
+         @*ng-click="directive.close()"*@ @*style="color:#4F0029; line-height: inherit; vertical-align: middle !important; margin-left: 30px;">*@ @*</i>*@
+>>>>>>> 87eba66... margin ok
 
     <md-toolbar style="line-height: 56px; margin-top:22px; background-color: #371439">
       <h1 class="md-toolbar-tools text-center"
@@ -107,5 +155,5 @@
       <b>Mentions légales</b>
     </a>
 
-  </md-sidenav>
+  </md-sidenav></div>
 }

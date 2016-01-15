@@ -33,6 +33,25 @@ md-input-container > label {
   font-weight: bold;
 }
 
+
+.mainWrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  font-weight: bold;
+  text-align: center;
+}
+
+.mainWrapper > * {
+  flex: 1 100%;
+}
+
 .mainContainer {
   float: left;
   width: 100%;
@@ -182,14 +201,13 @@ md-input-container > label {
     padding: 0px! important;
   }
 
-  .parallax__layer--back {
-    transform: translateZ(0) scale(1);
-  }
-  .grid {
-    margin-bottom: 95px!important;
-  }
 }
+ @media (max-width: 900px) {
 
+   .parallax__layer--back {
+     transform: translateZ(0) scale(1);
+   }
+ }
 
 /* Underline From Center */
 .hvr-underline-from-center {

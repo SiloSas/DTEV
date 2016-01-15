@@ -5,7 +5,9 @@ import com.greencatsoft.angularjs.extensions.{ModalOptions, ModalService}
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, TemplatedDirective, injectable}
 import org.scalajs.dom.Element
 import org.scalajs.dom.html._
-import org.scalajs.dom.raw.UIEvent
+import org.scalajs.dom.console
+import org.scalajs.dom.document
+import org.scalajs.dom.raw.{Event, UIEvent}
 import shared.Room
 import upickle.default._
 import scala.scalajs.js
@@ -18,12 +20,17 @@ class RoomMinDirective(modal: ModalService, window: Window, timeout: Timeout) ex
 
   override def link(scope: ScopeType, elements: Seq[Element], attrs: Attributes): Unit = {
     elements.headOption.map(_.asInstanceOf[Html]) foreach { element =>
+      var elementWidth = element.getBoundingClientRect().width
       def setNewHeight(newHeight: Double): Unit = {
-        element.style.height = newHeight + "px"
+        val roomsLength = element.parentElement.getElementsByTagName("roomMin").length
+        val rooms =  element.parentElement.getElementsByTagName("roomMin")
+        for(i <- 0 until roomsLength -1) {
+          rooms.item(i).asInstanceOf[Html].style.height = newHeight + "px"
+        }
       }
       timeout (fn = () => {
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
-      }, 50, invokeApply = false)
+      }, 150, invokeApply = false)
 
       window.onresize = (event: UIEvent) =>
         setNewHeight(Math.ceil(element.clientWidth * 0.62893081761))
