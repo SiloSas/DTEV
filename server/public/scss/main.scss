@@ -181,6 +181,13 @@ md-input-container > label {
     overflow: auto;
     padding: 0px! important;
   }
+
+  .parallax__layer--back {
+    transform: translateZ(0) scale(1);
+  }
+  .grid {
+    margin-bottom: 95px!important;
+  }
 }
 
 
