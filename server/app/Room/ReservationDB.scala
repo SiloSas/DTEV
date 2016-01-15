@@ -12,6 +12,7 @@ import scala.concurrent.Future
 
 case class ReservationDB(id: Option[Long],
                          roomId: String,
+                         roomName: String,
                          arrivalDate: Date,
                          departureDate: Date,
                          numberOfPersons: Int,
@@ -30,7 +31,12 @@ class ReservationMethods @Inject()(protected val dbConfigProvider: DatabaseConfi
 
   def delete(reservationId: Long): Future[Int] = db.run(reservations.filter(_.id === reservationId).delete)
 
-  def findAll(): Future[Seq[ReservationDB]] = db.run(reservations.result)
+  def findAll(): Future[Seq[ReservationDB]] = {
+    val nowLong = new java.util.Date().getTime
+    val now = new Date(nowLong)
+
+    db.run(reservations.filter(_.arrivalDate > now).result)
+  }
 
   def findReservationsInInterval(start: Long, end: Long): Future[Seq[ReservationDB]] = {
     val arrivalSqlDate = new Date(start)

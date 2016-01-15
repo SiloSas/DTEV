@@ -17,11 +17,11 @@ side-left
 
 + notes manuscrites
 
-pas cliquable initiale pseudos : pointer-events: none;
+pas cliquable initiale pseudos et services sur chambres : pointer-events: none;
 
 page récapitulatif résas
 
-tester réservations
+tester réservations (regarder si réservations apssées n'arrivent plus)
 
 boutton reserver petit : class="primCol column large-4 large-offset-4 small-10 small-offset-1 md-button md-ink-ripple"
 

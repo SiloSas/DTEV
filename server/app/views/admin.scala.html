@@ -73,6 +73,14 @@
       <md-button type="submit" class="primCol">Valider</md-button>
     </form>
 
+
+    <div>
+      @*<h2><a download="content.txt" ng-href="{{ url }}">Télécharger les réservations à venir au format .ics</a></h2>*@
+      <h2><a download="content.txt" ng-href="{{ url }}">Télécharger les réservations à venir au format .ics</a></h2>
+    </div>
+
+    <a download="content.txt" ng-href="{{ url }}" ng-controller="fileDownloader">download</a>
+
     <div data-ng-controller="backEndController">
       <ul>
         <li ng-repeat="r in reservations">

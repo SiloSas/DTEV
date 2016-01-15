@@ -57,6 +57,7 @@ trait MyDBTableDefinitions {
   class Reservations(tag: Tag) extends Table[ReservationDB](tag, "reservations") {
     def id = column[Long]("id", O.PrimaryKey, O.AutoInc)
     def roomId = column[String]("roomid")
+    def roomName = column[String]("roomname")
     def arrivalDate = column[Date]("arrivaldate")
     def departureDate = column[Date]("departuredate")
     def numberOfPersons = column[Int]("numberofpersons")
@@ -66,8 +67,8 @@ trait MyDBTableDefinitions {
     def phoneNumber = column[String]("phonenumber")
     def extraBed = column[Boolean]("extrabed")
 
-    def * = (id.?, roomId, arrivalDate, departureDate, numberOfPersons, firstName, name, email, phoneNumber, extraBed) <>
-      ((ReservationDB.apply _).tupled, ReservationDB.unapply)
+    def * = (id.?, roomId, roomName, arrivalDate, departureDate, numberOfPersons, firstName, name, email, phoneNumber,
+      extraBed) <> ((ReservationDB.apply _).tupled, ReservationDB.unapply)
   }
   lazy val reservations = TableQuery[Reservations]
 }

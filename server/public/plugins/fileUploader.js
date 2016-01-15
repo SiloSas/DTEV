@@ -33,4 +33,20 @@ angular.module('uploader', []).directive('appFilereader', function ($q, $parse, 
             return deferred.promise
         }
     }
+}).config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|tel|file|blob):/);
+}]).controller("fileDownloader", function($scope, $http) {
+    $http.get("/reservationsString").success(function(data) {
+
+        var a = JSON.stringify(data);//angular.fromJson(data);
+
+        var b = a.substring(1, a.length - 1);
+        b = b.replace(/\\n/g, "\n").replace(/\\t/g, "\t");
+        console.log("b= " + b)
+
+        //var content = data.map(function(e) { return e.toString });
+        var blob = new Blob([ b ], { type : 'text/plain' });
+        $scope.url = (window.URL || window.webkitURL).createObjectURL( blob );
+    });
+
 });

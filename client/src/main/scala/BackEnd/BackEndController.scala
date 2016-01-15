@@ -1,6 +1,6 @@
 package BackEnd
 
-import com.greencatsoft.angularjs.core.{HttpService, RouteParams, Timeout}
+import com.greencatsoft.angularjs.core._
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import upickle.default._
 
@@ -23,12 +23,10 @@ case class ClientReservationDB(roomId: String,
 
 @JSExport
 @injectable("backEndController")
-class BackEndController(backEndScope: BackEndScope, $routeParams: RouteParams, http: HttpService, timeout: Timeout)
+class BackEndController(backEndScope: BackEndScope, $routeParams: RouteParams, http: HttpService, timeout: Timeout,
+                        location: Location)
   extends AbstractController[BackEndScope](backEndScope) {
 
-//  backEndScope.reservations = Seq.empty
-
-  val a = "bonqsd"
 
   val eventuallyIsConnected = http.get[String]("/isConnected")
     .map(isConnected => isConnected.toBoolean)

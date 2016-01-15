@@ -85,6 +85,7 @@ INSERT INTO users(login, password) VALUES('admin', '$2a$07$8SJ.wfjn2IaidQVHfcmrH
 CREATE TABLE reservations(
   id                        SERIAL PRIMARY KEY,
   roomId                    VARCHAR REFERENCES rooms(id) NOT NULL,
+  roomName                  VARCHAR NOT NULL,
   arrivalDate               DATE NOT NULL,
   departureDate             DATE NOT NULL,
   numberOfPersons           INT NOT NULL,

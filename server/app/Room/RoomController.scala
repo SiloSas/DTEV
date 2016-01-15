@@ -1,5 +1,6 @@
 package Room
 
+import java.util.UUID
 import javax.inject.Inject
 
 import administration.Authenticated
@@ -57,10 +58,8 @@ class RoomController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
     roomMethods.update(room) map { numberOfRowsUpdated => Ok(Json.toJson(numberOfRowsUpdated)) }
   }
 
-//  implicit object DateWrites extends AnyRef with Writes[Date] {
-//    def writes(date: Date): JsString = JsString(date.toString)
-//  }
 case class ReservationDBWithStringDate(roomId: String,
+                         roomName: String,
                          arrivalDate: String,
                          departureDate: String,
                          numberOfPersons: Int,
@@ -75,12 +74,68 @@ case class ReservationDBWithStringDate(roomId: String,
   def findAllReservations = Authenticated.async {
     reservationMethods.findAll() map { rs => val goodRS = rs map { r =>
 
-      ReservationDBWithStringDate(r.roomId, r.arrivalDate.toString, r.departureDate.toString, r.numberOfPersons,
-        r.firstName, r.name, r.email, r.phoneNumber, r.extraBed)
+      ReservationDBWithStringDate(r.roomId, r.roomName, r.arrivalDate.toString, r.departureDate.toString,
+        r.numberOfPersons, r.firstName, r.name, r.email, r.phoneNumber, r.extraBed)
     }
 
       Ok(Json.toJson(goodRS))
     }
+  }
+
+  def findAllReservationsString = Authenticated.async {
+    val goodRS = reservationMethods.findAll() map { rs =>
+      rs map { r =>
+
+        ReservationDBWithStringDate(r.roomId, r.roomName, r.arrivalDate.toString, r.departureDate.toString,
+          r.numberOfPersons, r.firstName, r.name, r.email, r.phoneNumber, r.extraBed)
+      }
+    }
+
+
+//      BEGIN:VEVENT
+//      UID:19970610T17qsd2345Z-AF23B2@examqssqddplllqsde.com
+//      DTSTART:20160115T160000Z
+//        DTEND:20160116T120000Z
+//        SU^CARY:Bastille Day sParty
+//      DESCRIPTION:Steve and John tso review newest proposal material
+//        CLASS:PRIVATE
+//      END:VEVENT
+//      END:VCALENDAR"
+
+    goodRS map { println }
+
+    val aaa = goodRS map {
+      case emptyy if emptyy.isEmpty => ""
+      case ee =>
+
+        val events =  ee.map { aa =>
+          val extraBedString = aa.extraBed match { case true => "oui"; case _ => "non" }
+          "BEGIN:VEVENT" + "\n" +
+            "UID:" + UUID.randomUUID() + "\n" +
+            "DTSTART:" + aa.arrivalDate.toString.replaceAll("-", "") + "T160000Z" + "\n" +
+            "DTEND:" + aa.departureDate.toString.replaceAll("-", "") + "T120000Z" + "\n" +
+            "SUMMARY:" + aa.roomName + "\n" +
+             "DESCRIPTION:" + aa.firstName + "\t" + aa.name + "\t" + aa.phoneNumber + "\t" + aa.email + "\t" +
+            "nombre de personnes : " + aa.numberOfPersons + "\t" +
+            "lit d'appoint: " + extraBedString + "\n" +
+            "CLASS:PRIVATE" + "\n" +
+            "END:VEVENT" + "\n"
+        }.mkString("\n")
+
+      val icsCalendar =
+        """BEGIN:VCALENDAR""" + "\n" +
+        """VERSION:2.0""" + "\n" +
+        """PRODID:-//hacksw/handcal//NONSGML v1.0//EN""" + "\n" +
+        events +
+        "END:VCALENDAR"
+
+        println("icsCalendar = " + icsCalendar)
+
+      icsCalendar
+    }
+
+     aaa map { u => Ok(Json.toJson(u)) }
+
   }
 
   def postReservation = Action.async(parse.json) { request =>
@@ -105,6 +160,7 @@ case class ReservationDBWithStringDate(roomId: String,
     ReservationDB(
       None,
       reservation.room.id,
+      reservation.room.name,
       start,
       end,
       reservation.reservationForm.numberOfPersons,
