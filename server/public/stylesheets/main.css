@@ -25707,9 +25707,19 @@ md-input-container > label {
     overflow: auto;
     padding: 0px !important;
   }
+
+  /* line 185, ../scss/main.scss */
+  .parallax__layer--back {
+    transform: translateZ(0) scale(1);
+  }
+
+  /* line 188, ../scss/main.scss */
+  .grid {
+    margin-bottom: 95px !important;
+  }
 }
 /* Underline From Center */
-/* line 188, ../scss/main.scss */
+/* line 195, ../scss/main.scss */
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -25723,7 +25733,7 @@ md-input-container > label {
   overflow: hidden;
 }
 
-/* line 200, ../scss/main.scss */
+/* line 207, ../scss/main.scss */
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
@@ -25741,7 +25751,7 @@ md-input-container > label {
   transition-timing-function: ease-out;
 }
 
-/* line 216, ../scss/main.scss */
+/* line 223, ../scss/main.scss */
 .hvr-underline-from-center.animatedAtScroll:before,
 .hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before {
@@ -25749,7 +25759,7 @@ md-input-container > label {
   right: 0;
 }
 
-/* line 224, ../scss/main.scss */
+/* line 231, ../scss/main.scss */
 .underlineHomeTitle {
   width: 111px;
   height: 2px;
@@ -25757,7 +25767,7 @@ md-input-container > label {
 }
 
 /* Bounce In */
-/* line 267, ../scss/main.scss */
+/* line 274, ../scss/main.scss */
 .hvr-bounce-in {
   display: inline-block;
   vertical-align: middle;
@@ -25771,7 +25781,7 @@ md-input-container > label {
   transition-duration: 0.5s;
 }
 
-/* line 279, ../scss/main.scss */
+/* line 286, ../scss/main.scss */
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
@@ -25792,7 +25802,7 @@ md-input-container > label {
     transform: scale(1.2);
   }
 }
-/* line 303, ../scss/main.scss */
+/* line 310, ../scss/main.scss */
 .hvr-pop {
   display: inline-block;
   vertical-align: middle;
@@ -25804,7 +25814,7 @@ md-input-container > label {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 313, ../scss/main.scss */
+/* line 320, ../scss/main.scss */
 .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
   -webkit-animation-name: hvr-pop;
   animation-name: hvr-pop;
@@ -25816,7 +25826,7 @@ md-input-container > label {
   animation-iteration-count: 1;
 }
 
-/* line 326, ../scss/main.scss */
+/* line 333, ../scss/main.scss */
 .myTooltip {
   display: inline;
   background: #333;
@@ -25832,20 +25842,20 @@ md-input-container > label {
 }
 
 /* For Firefox */
-/* line 343, ../scss/main.scss */
+/* line 350, ../scss/main.scss */
 input[type='number'] {
   -moz-appearance: textfield !important;
 }
 
 /* Webkit browsers like Safari and Chrome */
-/* line 348, ../scss/main.scss */
+/* line 355, ../scss/main.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0;
 }
 
-/* line 354, ../scss/main.scss */
+/* line 361, ../scss/main.scss */
 .starColor {
   color: #f08a24;
 }
