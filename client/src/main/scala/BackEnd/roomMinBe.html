@@ -11,11 +11,11 @@
             Modifier
         </md-button>
     </h2>
-    <a href="#/rooms/{{room.id}}" class="textColorWhite">
+    <div class="textColorWhite">
         <p class="description zIndex1">
         <h3 class="textColorWhite">{{room.header}}</h3>
         </p>
-    </a>
+    </div>
     <figcaption>
         <p class="icon-links padding0">
         <div class="float-left column medium-3 padding0">
@@ -57,14 +57,9 @@
         <label><b>Description</b></label>
         <input ng-model="newRoom.presentation" ng-init="newRoom.presentation = room.presentation"/>
     </md-input-container>
-    <md-input-container class="column large-12">
-        <label><b>Prix</b></label>
-        <input ng-model="newRoom.price" ng-init="newRoom.price = room.price"/>
-    </md-input-container>
 
 
     <div class="column">
-
         <h1>Images</h1>
         <div class="column large-3">
 

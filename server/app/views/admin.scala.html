@@ -2,6 +2,50 @@
 
 @main("Des toits en ville") {
   <md-content class="height100p">
+
+    <div ng-controller="fileDownloader">
+      <h2>
+        <a download="calendar.ics" ng-href="{{url}}" class="column small-12">
+          Télécharger les réservations à venir au format .ics
+          <i class="fa fa-download"></i>
+        </a>
+      </h2>
+    </div>
+
+    <div data-ng-controller="backEndController" class="column small-12">
+      <ul>
+        <li ng-repeat="r in reservations">
+          <h4>{{r.roomName$1}} du {{r.arrivalDate$1}} au {{r.departureDate$1}}</h4>
+          Nombre de personnes : {{r.numberOfPersons$1}} <br>
+          Lit d'appoint : <span ng-if="r.extraBed$1 == true">oui</span><span ng-if="r.extraBed$1 != true">non</span> <br>
+          {{r.firstName$1}} {{r.name$1}}  {{r.phoneNumber$1}} {{r.email$1}}
+        </li>
+      </ul>
+    </div>
+
+
+    <div data-ng-controller="commentController">
+
+      <h1 class="text-center">Commentaires</h1>
+      <update-comments></update-comments>
+
+    </div>
+
+    <md-list>
+      <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">
+        <md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
+        <div class="md-list-item-text">
+          <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>
+          <p>{{comment.comment}}</p>
+        </div>
+        <div class="md-secondary">
+          <i data-ng-repeat="star in [1, 2, 3, 4, 5]" class="fa fa-star" ng-class="{'textPrimColor': star <= comment.rate}"></i>
+        </div>
+        <md-divider ng-if="!$last"></md-divider>
+      </md-list-item>
+    </md-list>
+
+
     <div class="column">
       <h1 class="text-center">Chambres</h1>
       <div class="searchContainer grid" data-ng-controller="roomController">
@@ -19,30 +63,6 @@
                     class="column medium-6 float-left padding0">
       </agreement-be>
     </div>
-
-
-    <div data-ng-controller="commentController">
-
-      <h1 class="text-center">Commentaires</h1>
-      <update-comments></update-comments>
-
-    </div>
-
-
-    <md-list>
-      <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">
-      <md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
-      <div class="md-list-item-text">
-      <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>
-      <p>{{comment.comment}}</p>
-      </div>
-      <div class="md-secondary">
-      <i data-ng-repeat="star in [1, 2, 3, 4, 5]" class="fa fa-star" ng-class="{'textPrimColor': star <= comment.rate}"></i>
-      </div>
-      <md-divider ng-if="!$last"></md-divider>
-      </md-list-item>
-    </md-list>
-
 
     <form name="editRoom"
           ng-submit="changeRoom = false; directive.update(newRoom); room = newRoom" data-ng-show="changeRoom"
@@ -72,22 +92,6 @@
       </div>
       <md-button type="submit" class="primCol">Valider</md-button>
     </form>
-
-
-    <div>
-      @*<h2><a download="content.txt" ng-href="{{ url }}">Télécharger les réservations à venir au format .ics</a></h2>*@
-      <h2><a download="content.txt" ng-href="{{ url }}">Télécharger les réservations à venir au format .ics</a></h2>
-    </div>
-
-    <a download="content.txt" ng-href="{{ url }}" ng-controller="fileDownloader">download</a>
-
-    <div data-ng-controller="backEndController">
-      <ul>
-        <li ng-repeat="r in reservations">
-          {{r}}
-        </li>
-      </ul>
-    </div>
 
   </md-content>
 }

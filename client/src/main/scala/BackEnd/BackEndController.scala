@@ -12,6 +12,7 @@ import scala.scalajs.js.annotation.JSExport
 
 @JSExport
 case class ClientReservationDB(roomId: String,
+                              roomName: String,
                                arrivalDate: String,
                                departureDate: String,
                                numberOfPersons: Int,
