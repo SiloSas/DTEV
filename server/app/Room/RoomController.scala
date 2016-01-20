@@ -89,6 +89,8 @@ case class ReservationDBWithStringDate(roomId: String,
     val goodRS = reservationMethods.findAll() map { rs =>
       rs map { r =>
 
+        println(r.arrivalDate.toString, r.departureDate.toString)
+
         ReservationDBWithStringDate(r.roomId, r.roomName, r.arrivalDate.toString, r.departureDate.toString,
           r.numberOfPersons, r.firstName, r.name, r.email, r.phoneNumber, r.extraBed, r.extraBreakfast)
       }
@@ -116,8 +118,8 @@ case class ReservationDBWithStringDate(roomId: String,
           val extraBreakfastString = aa.extraBreakfast match { case true => "oui"; case _ => "non" }
           "BEGIN:VEVENT" + "\n" +
             "UID:" + UUID.randomUUID() + "\n" +
-            "DTSTART:" + aa.arrivalDate.toString.replaceAll("-", "") + "T160000Z" + "\n" +
-            "DTEND:" + aa.departureDate.toString.replaceAll("-", "") + "T120000Z" + "\n" +
+            "DTSTART:" + aa.arrivalDate.replaceAll("-", "") + "T160000Z" + "\n" +
+            "DTEND:" + aa.departureDate.replaceAll("-", "") + "T120000Z" + "\n" +
             "SUMMARY:" + aa.roomName + "\n" +
              "DESCRIPTION:" + aa.firstName + "\t" + aa.name + "\t" + aa.phoneNumber + "\t" + aa.email + "\t" +
             "nombre de personnes : " + aa.numberOfPersons + "\t" +
