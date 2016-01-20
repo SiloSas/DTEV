@@ -25459,34 +25459,35 @@ data-search-bar {
   background-color: rgba(0, 0, 0, 0.66);
   float: left;
   bottom: 0;
+  position: absolute;
   width: 100%;
 }
 
-/* line 7, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 8, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * md-datepicker {
   background: transparent !important;
 }
-/* line 11, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 12, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-calendar-scroll-mask {
   margin-top: -20px;
 }
-/* line 15, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 16, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-input {
   font-weight: bold;
   font-size: 17px !important;
   width: 100%;
 }
-/* line 22, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 23, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-input-container {
   width: 75% !important;
   margin-left: 0;
 }
-/* line 27, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 28, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 * .md-datepicker-expand-triangle {
   border-top-color: white !important;
 }
 
-/* line 32, ../../../client/src/main/scala/SearchBar/searchBar.scss */
+/* line 33, ../../../client/src/main/scala/SearchBar/searchBar.scss */
 .md-datepicker-calendar-icon {
   color: white;
 }
@@ -25687,15 +25688,14 @@ md-input-container > label {
   padding: 80px;
 }
 
-/* line 173, ../scss/main.scss */
+/* line 174, ../scss/main.scss */
 .mainText {
-  font-size: 29px;
+  font-size: 26px;
   padding: 20px 50px;
   text-align: justify;
-  word-spacing: 14px;
 }
 
-/* line 180, ../scss/main.scss */
+/* line 181, ../scss/main.scss */
 .paddingSearchMin {
   margin-bottom: 48px;
   float: left;
@@ -25703,7 +25703,7 @@ md-input-container > label {
 }
 
 @media (max-width: 600px) {
-  /* line 187, ../scss/main.scss */
+  /* line 188, ../scss/main.scss */
   .homeRoomTitle {
     right: auto;
     left: 0;
@@ -25711,14 +25711,14 @@ md-input-container > label {
     text-align: center;
   }
 
-  /* line 193, ../scss/main.scss */
+  /* line 194, ../scss/main.scss */
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;
     width: 100%;
   }
 
-  /* line 198, ../scss/main.scss */
+  /* line 199, ../scss/main.scss */
   .bookingModal {
     max-height: 80%;
     overflow: auto;
@@ -25726,13 +25726,13 @@ md-input-container > label {
   }
 }
 @media (max-width: 900px) {
-  /* line 207, ../scss/main.scss */
+  /* line 208, ../scss/main.scss */
   .parallax__layer--back {
     transform: translateZ(0) scale(1);
   }
 }
 /* Underline From Center */
-/* line 213, ../scss/main.scss */
+/* line 214, ../scss/main.scss */
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -25746,7 +25746,7 @@ md-input-container > label {
   overflow: hidden;
 }
 
-/* line 225, ../scss/main.scss */
+/* line 226, ../scss/main.scss */
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
@@ -25764,7 +25764,7 @@ md-input-container > label {
   transition-timing-function: ease-out;
 }
 
-/* line 241, ../scss/main.scss */
+/* line 242, ../scss/main.scss */
 .hvr-underline-from-center.animatedAtScroll:before,
 .hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before {
@@ -25772,7 +25772,7 @@ md-input-container > label {
   right: 0;
 }
 
-/* line 249, ../scss/main.scss */
+/* line 250, ../scss/main.scss */
 .underlineHomeTitle {
   width: 111px;
   height: 2px;
@@ -25780,7 +25780,7 @@ md-input-container > label {
 }
 
 /* Bounce In */
-/* line 292, ../scss/main.scss */
+/* line 293, ../scss/main.scss */
 .hvr-bounce-in {
   display: inline-block;
   vertical-align: middle;
@@ -25794,7 +25794,7 @@ md-input-container > label {
   transition-duration: 0.5s;
 }
 
-/* line 304, ../scss/main.scss */
+/* line 305, ../scss/main.scss */
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
@@ -25815,7 +25815,7 @@ md-input-container > label {
     transform: scale(1.2);
   }
 }
-/* line 328, ../scss/main.scss */
+/* line 329, ../scss/main.scss */
 .hvr-pop {
   display: inline-block;
   vertical-align: middle;
@@ -25827,7 +25827,7 @@ md-input-container > label {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 338, ../scss/main.scss */
+/* line 339, ../scss/main.scss */
 .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
   -webkit-animation-name: hvr-pop;
   animation-name: hvr-pop;
@@ -25839,7 +25839,7 @@ md-input-container > label {
   animation-iteration-count: 1;
 }
 
-/* line 351, ../scss/main.scss */
+/* line 352, ../scss/main.scss */
 .myTooltip {
   display: inline;
   background: #333;
@@ -25855,20 +25855,20 @@ md-input-container > label {
 }
 
 /* For Firefox */
-/* line 368, ../scss/main.scss */
+/* line 369, ../scss/main.scss */
 input[type='number'] {
   -moz-appearance: textfield !important;
 }
 
 /* Webkit browsers like Safari and Chrome */
-/* line 373, ../scss/main.scss */
+/* line 374, ../scss/main.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0;
 }
 
-/* line 379, ../scss/main.scss */
+/* line 380, ../scss/main.scss */
 .starColor {
   color: #f08a24;
 }

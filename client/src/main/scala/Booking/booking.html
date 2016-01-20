@@ -1,7 +1,7 @@
 <div class="searchContainer grid float-left"
      ng-if = "controller.isWaitingAvailableRooms$2 != true"
-     style="background-color: #CBAC75">
-    <room-min ng-repeat="room in availableRooms" class="column large-6 float-left padding0">
+     style="min-height: 110%; background-color: #CBAC75">
+    <room-min ng-repeat="room in availableRooms" style="height: 500px" class="column large-6 float-left padding0">
     </room-min>
 
     <room-min ng-repeat="room in rooms" ng-init="isDisable = true"

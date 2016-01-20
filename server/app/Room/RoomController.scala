@@ -21,7 +21,8 @@ case class ReservationForm(firstName: String,
                            email: String,
                            phoneNumber: String,
                            numberOfPersons: Int,
-                           extraBed: Boolean)
+                           extraBed: Boolean,
+                           extraBreakfast: Boolean)
 
 case class Reservation(room: Room,
                        start: Long,
@@ -67,7 +68,9 @@ case class ReservationDBWithStringDate(roomId: String,
                          name: String,
                          email: String,
                          phoneNumber: String,
-                         extraBed: Boolean)
+                         extraBed: Boolean,
+                         extraBreakfast: Boolean)
+
   implicit val reservationDBWrites = Json.writes[ReservationDB]
   implicit val reservationDBWithStringDate = Json.writes[ReservationDBWithStringDate]
 
@@ -75,7 +78,7 @@ case class ReservationDBWithStringDate(roomId: String,
     reservationMethods.findAll() map { rs => val goodRS = rs map { r =>
 
       ReservationDBWithStringDate(r.roomId, r.roomName, r.arrivalDate.toString, r.departureDate.toString,
-        r.numberOfPersons, r.firstName, r.name, r.email, r.phoneNumber, r.extraBed)
+        r.numberOfPersons, r.firstName, r.name, r.email, r.phoneNumber, r.extraBed, r.extraBreakfast)
     }
 
       Ok(Json.toJson(goodRS))
@@ -87,7 +90,7 @@ case class ReservationDBWithStringDate(roomId: String,
       rs map { r =>
 
         ReservationDBWithStringDate(r.roomId, r.roomName, r.arrivalDate.toString, r.departureDate.toString,
-          r.numberOfPersons, r.firstName, r.name, r.email, r.phoneNumber, r.extraBed)
+          r.numberOfPersons, r.firstName, r.name, r.email, r.phoneNumber, r.extraBed, r.extraBreakfast)
       }
     }
 
@@ -110,6 +113,7 @@ case class ReservationDBWithStringDate(roomId: String,
 
         val events =  ee.map { aa =>
           val extraBedString = aa.extraBed match { case true => "oui"; case _ => "non" }
+          val extraBreakfastString = aa.extraBreakfast match { case true => "oui"; case _ => "non" }
           "BEGIN:VEVENT" + "\n" +
             "UID:" + UUID.randomUUID() + "\n" +
             "DTSTART:" + aa.arrivalDate.toString.replaceAll("-", "") + "T160000Z" + "\n" +
@@ -117,7 +121,8 @@ case class ReservationDBWithStringDate(roomId: String,
             "SUMMARY:" + aa.roomName + "\n" +
              "DESCRIPTION:" + aa.firstName + "\t" + aa.name + "\t" + aa.phoneNumber + "\t" + aa.email + "\t" +
             "nombre de personnes : " + aa.numberOfPersons + "\t" +
-            "lit d'appoint: " + extraBedString + "\n" +
+            "lit d'appoint: " + extraBedString + "\t" +
+            "petit déjeuner: " + extraBreakfastString + "\n" +
             "CLASS:PRIVATE" + "\n" +
             "END:VEVENT" + "\n"
         }.mkString("\n")
@@ -168,6 +173,7 @@ case class ReservationDBWithStringDate(roomId: String,
       reservation.reservationForm.name,
       reservation.reservationForm.email,
       reservation.reservationForm.phoneNumber,
-      reservation.reservationForm.extraBed)
+      reservation.reservationForm.extraBed,
+      reservation.reservationForm.extraBreakfast)
   }
 }

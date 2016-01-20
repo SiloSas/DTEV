@@ -20,7 +20,8 @@ case class ReservationDB(id: Option[Long],
                          name: String,
                          email: String,
                          phoneNumber: String,
-                         extraBed: Boolean)
+                         extraBed: Boolean,
+                         extraBreakfast: Boolean)
 
 
 class ReservationMethods @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
@@ -35,7 +36,7 @@ class ReservationMethods @Inject()(protected val dbConfigProvider: DatabaseConfi
     val nowLong = new java.util.Date().getTime
     val now = new Date(nowLong)
 
-    db.run(reservations.filter(_.arrivalDate > now).result)
+    db.run(reservations.filter(_.departureDate > now).result)
   }
 
   def findReservationsInInterval(start: Long, end: Long): Future[Seq[ReservationDB]] = {

@@ -20,7 +20,8 @@ case class ClientReservationDB(roomId: String,
                                name: String,
                                email: String,
                                phoneNumber: String,
-                               extraBed: Boolean)
+                               extraBed: Boolean,
+                               extraBreakfast: Boolean)
 
 @JSExport
 @injectable("backEndController")

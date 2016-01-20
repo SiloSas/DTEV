@@ -18,7 +18,8 @@ case class ReservationForm(firstName: String,
                            email: String,
                            phoneNumber: String,
                            numberOfPersons: Int,
-                           extraBed: Boolean)
+                           extraBed: Boolean,
+                           extraBreakfast: Boolean)
 
 case class Reservation(room: Room,
                        start: Long,
@@ -43,12 +44,14 @@ class BookingModalController(scope: BookingScope,
   scope.end = routeParams.get("end").toString.toLong
   scope.totalPrice = 0
   scope.numberOfNights = calculateNumberOfDaysBetween(scope.start, scope.end)
+  var loader = false
 
   @JSExport
   def close() = modalInstance.close()
 
   @JSExport
   def book(reservationForm: js.Any) = {
+    loader = true
 
     val reservationFormTyped = read[ReservationForm](JSON.stringify(reservationForm))
 
@@ -65,10 +68,14 @@ class BookingModalController(scope: BookingScope,
         toast._options.position = "{right: true}"
         mdToast.show(toast)
 
+        loader = false
+
         modalInstance.close()
       })
     } recover {
       case e: Exception =>
+        loader = false
+
         val toast = mdToast.simple("Désolé, une erreur s'est produite.")
         toast._options.position = "{right: true}"
         mdToast.show(toast)
@@ -76,13 +83,23 @@ class BookingModalController(scope: BookingScope,
   }
 
   @JSExport
-  def addOrRemoveExtraBedToTotalPrice(extraBed: Boolean) = {
-    val newPrice = extraBed match {
-      case false => scope.totalPrice - 15
-      case true => scope.totalPrice + 15
+  def addOrRemoveExtraBreakfastToTotalPrice(extraBreakfast: Boolean) = {
+    val newPrice = extraBreakfast match {
+      case false => scope.totalPrice - 8 * scope.numberOfNights
+      case true => scope.totalPrice + 8 * scope.numberOfNights
     }
 
-    scope.$apply { scope.totalPrice = newPrice }
+    timeout(() =>  scope.totalPrice = newPrice)
+  }
+
+  @JSExport
+  def addOrRemoveExtraBedToTotalPrice(extraBed: Boolean) = {
+    val newPrice = extraBed match {
+      case false => scope.totalPrice - 15 * scope.numberOfNights
+      case true => scope.totalPrice + 15 * scope.numberOfNights
+    }
+
+    timeout(() =>  scope.totalPrice = newPrice)
   }
 
   @JSExport

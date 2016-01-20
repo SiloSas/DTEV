@@ -93,7 +93,8 @@ CREATE TABLE reservations(
   name                      VARCHAR NOT NULL,
   email                     VARCHAR NOT NULL,
   phoneNumber               VARCHAR NOT NULL,
-  extraBed                  BOOLEAN NOT NULL
+  extraBed                  BOOLEAN NOT NULL,
+  extraBreakfast            BOOLEAN NOT NULL
 );
 
 

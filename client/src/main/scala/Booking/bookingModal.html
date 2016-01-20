@@ -8,7 +8,7 @@
 
 <h2 class="bookingTitle" style="margin-top: -20px;">Réserver la chambre {{room.name}}</h2>
 
-<form name="bookingForm">
+<form name="bookingForm" ng-submit="controller.book(reservationForm)">
 
     <div class = "column large-12 float-left">
         <md-input-container class = "column large-6  float-left">
@@ -59,36 +59,49 @@
         </md-input-container>
 
         <div class = "column large-6 float-left">
-            <br>
-            Souhaitez vous un lit d'appoint supplémentaire ? (15€)
+            Souhaitez vous un lit d'appoint supplémentaire ? (15€/nuit)
             <md-checkbox ng-model="reservationForm.extraBed"
                          class="md-primary"
                          ng-init="reservationForm.extraBed = false"
                          ng-change="controller.addOrRemoveExtraBedToTotalPrice(reservationForm.extraBed)">
             </md-checkbox>
+
+            <div ng-show="room.isAnApartment">
+                Souhaitez vous un petit déjeuner ? (8€/nuit)
+                <md-checkbox ng-model="reservationForm.extraBreakfast"
+                             class="md-primary"
+                             ng-init="reservationForm.extraBreakfast= false"
+                             ng-change="controller.addOrRemoveExtraBreakfastToTotalPrice(reservationForm.extraBreakfast)">
+                </md-checkbox>
+            </div>
         </div>
+
     </div>
 
     <div class="marginLeft30">
         Récapitulatif : vous souhaitez réserver pour {{numberOfNights}} nuit<span ng-if="numberOfNights > 1">s</span>
         <span ng-if="reservationForm.extraBed == true">avec un lit d'appoint supplémentaire</span>
         soit un total de {{numberOfNights}}*65€
-        <span ng-if="reservationForm.extraBed == true">+ 15€ pour le lit d'appoint</span> = {{totalPrice}}€
+        <span ng-if="reservationForm.extraBed == true">+ {{numberOfNights}}*15€  pour le lit d'appoint</span> = {{totalPrice}}€
         <br>
         (Le paiement s'effectuera sur place après validation de votre réservation.)
-        <div ng-if="room.isAnApartment">
-            Supplément de 8 euros pour le petit déjeuner.
-        </div>
+
         <div ng-if="!room.isAnApartment">
             Vous bénéficierez d'un petit-déjeuner offert.
         </div>
     </div>
 
 
-    <md-button type="submit"
-               class="primCol column large-2 float-right"
-               ng-click="controller.book(reservationForm)">
-        Réserver
-    </md-button>
+    <div ng-show="controller.loader$2 == false">
+        <md-button type="submit"
+                   class="primCol column large-2 float-right"
+                   ng-click="">
+            Réserver
+        </md-button>
+    </div>
+
+    <div ng-show="controller.loader$2 == true">
+        <md-progress-linear class = "column large-12 md-primary" md-mode="indeterminate"></md-progress-linear>
+    </div>
 
 </form>

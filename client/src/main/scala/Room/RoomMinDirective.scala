@@ -5,11 +5,10 @@ import com.greencatsoft.angularjs.extensions.{ModalOptions, ModalService}
 import com.greencatsoft.angularjs.{Attributes, ElementDirective, TemplatedDirective, injectable}
 import org.scalajs.dom.Element
 import org.scalajs.dom.html._
-import org.scalajs.dom.console
-import org.scalajs.dom.document
-import org.scalajs.dom.raw.{Event, UIEvent}
+import org.scalajs.dom.raw.UIEvent
 import shared.Room
 import upickle.default._
+
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSExport
 
@@ -22,9 +21,9 @@ class RoomMinDirective(modal: ModalService, window: Window, timeout: Timeout) ex
     elements.headOption.map(_.asInstanceOf[Html]) foreach { element =>
       var elementWidth = element.getBoundingClientRect().width
       def setNewHeight(newHeight: Double): Unit = {
-        val roomsLength = element.parentElement.getElementsByTagName("roomMin").length
-        val rooms =  element.parentElement.getElementsByTagName("roomMin")
-        for(i <- 0 until roomsLength -1) {
+        val roomsLength = element.parentElement.getElementsByTagName("room-min").length
+        val rooms =  element.parentElement.getElementsByTagName("room-min")
+        for(i <- 0 until roomsLength) {
           rooms.item(i).asInstanceOf[Html].style.height = newHeight + "px"
         }
       }

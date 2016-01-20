@@ -14,10 +14,23 @@
 
     <div data-ng-controller="backEndController" class="column small-12">
       <ul>
-        <li ng-repeat="r in reservations">
-          <h4>{{r.roomName$1}} du {{r.arrivalDate$1}} au {{r.departureDate$1}}</h4>
+        <li ng-repeat="r in reservations  | orderBy : 'arrivalDate$1'">
+
+          <h4>
+            {{r.roomName$1}} du {{r.arrivalDate$1 | date: 'dd.MM.yyyy'}} au {{r.departureDate$1 | date: 'dd.MM.yyyy'}}
+          </h4>
+
           Nombre de personnes : {{r.numberOfPersons$1}} <br>
-          Lit d'appoint : <span ng-if="r.extraBed$1 == true">oui</span><span ng-if="r.extraBed$1 != true">non</span> <br>
+
+          Lit d'appoint :
+          <span ng-if="r.extraBed$1 == true">oui</span>
+          <span ng-if="r.extraBed$1 != true">non</span> <br>
+
+          Petit déjeuner :
+          <span ng-if="r.extraBreakfast$1 == true">oui</span>
+          <span ng-if="r.extraBreakfast$1 != true">non</span> <br>
+
+
           {{r.firstName$1}} {{r.name$1}}  {{r.phoneNumber$1}} {{r.email$1}}
         </li>
       </ul>

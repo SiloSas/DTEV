@@ -66,9 +66,10 @@ trait MyDBTableDefinitions {
     def email = column[String]("email")
     def phoneNumber = column[String]("phonenumber")
     def extraBed = column[Boolean]("extrabed")
+    def extraBreakfast = column[Boolean]("extrabreakfast")
 
     def * = (id.?, roomId, roomName, arrivalDate, departureDate, numberOfPersons, firstName, name, email, phoneNumber,
-      extraBed) <> ((ReservationDB.apply _).tupled, ReservationDB.unapply)
+      extraBed, extraBreakfast) <> ((ReservationDB.apply _).tupled, ReservationDB.unapply)
   }
   lazy val reservations = TableQuery[Reservations]
 }
