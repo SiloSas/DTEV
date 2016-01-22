@@ -1,6 +1,11 @@
-<div id="component" class="component component-fullwidth">
+<div id="component" class="component component-fullwidth" style="background-color: white;">
     <ul>
-        <li class="current roomsImagesSlider" ng-show="activeImage.step == 0"><img ng-src="{{activeImage.url}}" alt="desToitsEnVille"/></li>
-        <li class="current roomsImagesSlider" ng-show="activeImage.step == 1"><img ng-src="{{activeImage.url1}}" alt="desToitsEnVille"/></li>
+        <li class="current roomsImagesSlider" ng-show="activeImage.step == 0">
+            <img ng-src="{{activeImage.url}}" alt="desToitsEnVille"/>
+        </li>
+
+        <li class="current roomsImagesSlider" ng-show="activeImage.step == 1">
+            <img ng-src="{{activeImage.url1}}" alt="desToitsEnVille"/>
+        </li>
     </ul>
 </div>
