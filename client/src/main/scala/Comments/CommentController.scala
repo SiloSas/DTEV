@@ -21,7 +21,7 @@ class CommentController(scope: CommentScope,
                         newComment: NewComment,
                         commentService: CommentService,
                         mdToast: MdToastService)
-    extends AbstractController[CommentScope](scope) {
+  extends AbstractController[CommentScope](scope) {
 
   scope.comments = js.Array[shared.Comment]()
 

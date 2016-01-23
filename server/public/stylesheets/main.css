@@ -25588,8 +25588,14 @@ md-input-container > label {
   color: #4F0029;
   transform: translateZ(-0.8px) scale(1.5);
 }
+@media (min-width: 600px) {
+  /* line 97, ../scss/main.scss */
+  .homeArrow .orbit-caption {
+    display: none;
+  }
+}
 
-/* line 98, ../scss/main.scss */
+/* line 103, ../scss/main.scss */
 .arrows {
   width: 100px;
   height: 100px;
@@ -25599,7 +25605,7 @@ md-input-container > label {
   bottom: 80px;
 }
 
-/* line 107, ../scss/main.scss */
+/* line 112, ../scss/main.scss */
 .arrows path {
   stroke: #581030;
   fill: transparent;
@@ -25636,28 +25642,28 @@ md-input-container > label {
     opacity: 0;
   }
 }
-/* line 131, ../scss/main.scss */
+/* line 136, ../scss/main.scss */
 .arrows path.a1 {
   animation-delay: -1s;
   -webkit-animation-delay: -1s;
   /* Safari 和 Chrome */
 }
 
-/* line 136, ../scss/main.scss */
+/* line 141, ../scss/main.scss */
 .arrows path.a2 {
   animation-delay: -0.5s;
   -webkit-animation-delay: -0.5s;
   /* Safari 和 Chrome */
 }
 
-/* line 141, ../scss/main.scss */
+/* line 146, ../scss/main.scss */
 .arrows path.a3 {
   animation-delay: 0s;
   -webkit-animation-delay: 0s;
   /* Safari 和 Chrome */
 }
 
-/* line 146, ../scss/main.scss */
+/* line 151, ../scss/main.scss */
 .homeRoomTitle, .homeRoomTitle > h1 {
   width: 100%;
   top: 22%;
@@ -25668,34 +25674,34 @@ md-input-container > label {
   transform: translateZ(-0.8px) scale(1);
 }
 
-/* line 156, ../scss/main.scss */
+/* line 161, ../scss/main.scss */
 .bookingTitle {
   text-align: center;
   color: #4F0029;
   font-family: "CaviarDreams", sans-serif !important;
 }
 
-/* line 162, ../scss/main.scss */
+/* line 167, ../scss/main.scss */
 .homeRoomTitle > p {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
 
-/* line 168, ../scss/main.scss */
+/* line 173, ../scss/main.scss */
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
   padding: 80px;
 }
 
-/* line 174, ../scss/main.scss */
+/* line 179, ../scss/main.scss */
 .mainText {
   font-size: 26px;
   padding: 20px 50px;
   text-align: justify;
 }
 
-/* line 181, ../scss/main.scss */
+/* line 186, ../scss/main.scss */
 .paddingSearchMin {
   margin-bottom: 48px;
   float: left;
@@ -25703,7 +25709,7 @@ md-input-container > label {
 }
 
 @media (max-width: 600px) {
-  /* line 188, ../scss/main.scss */
+  /* line 193, ../scss/main.scss */
   .homeRoomTitle {
     right: auto;
     left: 0;
@@ -25711,14 +25717,14 @@ md-input-container > label {
     text-align: center;
   }
 
-  /* line 194, ../scss/main.scss */
+  /* line 199, ../scss/main.scss */
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;
     width: 100%;
   }
 
-  /* line 199, ../scss/main.scss */
+  /* line 204, ../scss/main.scss */
   .bookingModal {
     max-height: 80%;
     overflow: auto;
@@ -25726,13 +25732,13 @@ md-input-container > label {
   }
 }
 @media (max-width: 900px) {
-  /* line 208, ../scss/main.scss */
+  /* line 213, ../scss/main.scss */
   .parallax__layer--back {
     transform: translateZ(0) scale(1);
   }
 }
 /* Underline From Center */
-/* line 214, ../scss/main.scss */
+/* line 219, ../scss/main.scss */
 .hvr-underline-from-center {
   display: inline-block;
   vertical-align: middle;
@@ -25746,7 +25752,7 @@ md-input-container > label {
   overflow: hidden;
 }
 
-/* line 226, ../scss/main.scss */
+/* line 231, ../scss/main.scss */
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
@@ -25764,7 +25770,7 @@ md-input-container > label {
   transition-timing-function: ease-out;
 }
 
-/* line 242, ../scss/main.scss */
+/* line 247, ../scss/main.scss */
 .hvr-underline-from-center.animatedAtScroll:before,
 .hvr-underline-from-center:focus:before,
 .hvr-underline-from-center:active:before {
@@ -25772,7 +25778,7 @@ md-input-container > label {
   right: 0;
 }
 
-/* line 250, ../scss/main.scss */
+/* line 255, ../scss/main.scss */
 .underlineHomeTitle {
   width: 111px;
   height: 2px;
@@ -25780,7 +25786,7 @@ md-input-container > label {
 }
 
 /* Bounce In */
-/* line 293, ../scss/main.scss */
+/* line 298, ../scss/main.scss */
 .hvr-bounce-in {
   display: inline-block;
   vertical-align: middle;
@@ -25794,7 +25800,7 @@ md-input-container > label {
   transition-duration: 0.5s;
 }
 
-/* line 305, ../scss/main.scss */
+/* line 310, ../scss/main.scss */
 .hvr-bounce-in:hover, .hvr-bounce-in:focus, .hvr-bounce-in:active {
   -webkit-transform: scale(1.2);
   transform: scale(1.2);
@@ -25815,7 +25821,7 @@ md-input-container > label {
     transform: scale(1.2);
   }
 }
-/* line 329, ../scss/main.scss */
+/* line 334, ../scss/main.scss */
 .hvr-pop {
   display: inline-block;
   vertical-align: middle;
@@ -25827,7 +25833,7 @@ md-input-container > label {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 339, ../scss/main.scss */
+/* line 344, ../scss/main.scss */
 .hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {
   -webkit-animation-name: hvr-pop;
   animation-name: hvr-pop;
@@ -25839,7 +25845,7 @@ md-input-container > label {
   animation-iteration-count: 1;
 }
 
-/* line 352, ../scss/main.scss */
+/* line 357, ../scss/main.scss */
 .myTooltip {
   display: inline;
   background: #333;
@@ -25855,20 +25861,20 @@ md-input-container > label {
 }
 
 /* For Firefox */
-/* line 369, ../scss/main.scss */
+/* line 374, ../scss/main.scss */
 input[type='number'] {
   -moz-appearance: textfield !important;
 }
 
 /* Webkit browsers like Safari and Chrome */
-/* line 374, ../scss/main.scss */
+/* line 379, ../scss/main.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0;
 }
 
-/* line 380, ../scss/main.scss */
+/* line 385, ../scss/main.scss */
 .starColor {
   color: #f08a24;
 }
