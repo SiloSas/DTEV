@@ -12,6 +12,7 @@ import scala.util.{Failure, Success}
 
 @JSExportAll
 case class ActiveImage(step: Int, url: String, url1: String)
+
 @injectable("sliderController")
 class SliderController(sliderScope: SliderScope, roomService: RoomService, timeout: Timeout, location: Location, $routeParams: RouteParams)
   extends AbstractController[SliderScope](sliderScope) {
@@ -24,7 +25,7 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
     roomService.findAll() onComplete {
       case Success(rooms) =>
         scope.$apply {
-          sliderScope.images = rooms.map(_.images).toJSArray
+          sliderScope.images = rooms.flatMap(_.images.split(",").toSeq).toJSArray
           scope.activeImage = ActiveImage(step = 0, url = scope.images.head, url1 = scope.images.head)
           if(sliderScope.images.length > 1) {
             timeout(fn = () => {
@@ -69,6 +70,7 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
   def changeActiveImage(images: Seq[String]): Any = {
     images.headOption match {
       case Some(image) =>
+
         val step =
           if (scope.activeImage.step == 0) 1
           else 0
