@@ -32,6 +32,15 @@ class AgreementService(http: HttpService) extends Service {
     }
   }
 
+  @JSExport
+  def update(agreement: Agreement) = {
+    http.post[js.Any]("/agreement", write(agreement)) map { resp =>
+    } recover {
+      case e: Exception => print(e)
+    }
+  }
+  
+
   protected def flatten[T](future: Future[Try[T]]): Future[T] = future flatMap {
     case Success(s) => Future.successful(s)
     case Failure(f) => Future.failed(f)

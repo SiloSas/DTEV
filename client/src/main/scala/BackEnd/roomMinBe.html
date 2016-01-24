@@ -38,11 +38,13 @@
     </figcaption>
 </figure>
 
+
+
 <form name="editRoom"
-      ng-submit="changeRoom = false; ; newRoom.images = images.join();directive.updateRoom(newRoom); room = newRoom"
+      ng-submit="changeRoom = false; newRoom.images = images.join(); directive.updateRoom(newRoom); room = newRoom"
       data-ng-show="changeRoom"
       class="column large-12 md-whiteframe-z1 padding20"
-      ng-init="newRoom.id = room.id; newRoom.isAnApartment = room.isAnApartment; images = (room.images.split(','))">
+      ng-init="newRoom.id = room.id; newRoom.price = '65 € / Nuit'; newRoom.isAnApartment = room.isAnApartment; images = (room.images.split(','))">
 
     <h1>Modifier la chambre {{room.name}}</h1>
     <md-input-container class="column large-12 ">

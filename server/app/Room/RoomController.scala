@@ -33,7 +33,7 @@ class RoomController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
                                val roomMethods: RoomMethods,
                                val reservationMethods: ReservationMethods,
                                utilities: Utilities)
-    extends Controller {
+  extends Controller {
 
   def findAll() = Action.async {
     roomMethods.findAll.map { rooms =>
@@ -59,17 +59,17 @@ class RoomController @Inject()(protected val dbConfigProvider: DatabaseConfigPro
     roomMethods.update(room) map { numberOfRowsUpdated => Ok(Json.toJson(numberOfRowsUpdated)) }
   }
 
-case class ReservationDBWithStringDate(roomId: String,
-                         roomName: String,
-                         arrivalDate: String,
-                         departureDate: String,
-                         numberOfPersons: Int,
-                         firstName: String,
-                         name: String,
-                         email: String,
-                         phoneNumber: String,
-                         extraBed: Boolean,
-                         extraBreakfast: Boolean)
+  case class ReservationDBWithStringDate(roomId: String,
+                                         roomName: String,
+                                         arrivalDate: String,
+                                         departureDate: String,
+                                         numberOfPersons: Int,
+                                         firstName: String,
+                                         name: String,
+                                         email: String,
+                                         phoneNumber: String,
+                                         extraBed: Boolean,
+                                         extraBreakfast: Boolean)
 
   implicit val reservationDBWrites = Json.writes[ReservationDB]
   implicit val reservationDBWithStringDate = Json.writes[ReservationDBWithStringDate]
@@ -96,18 +96,7 @@ case class ReservationDBWithStringDate(roomId: String,
       }
     }
 
-
-//      BEGIN:VEVENT
-//      UID:19970610T17qsd2345Z-AF23B2@examqssqddplllqsde.com
-//      DTSTART:20160115T160000Z
-//        DTEND:20160116T120000Z
-//        SU^CARY:Bastille Day sParty
-//      DESCRIPTION:Steve and John tso review newest proposal material
-//        CLASS:PRIVATE
-//      END:VEVENT
-//      END:VCALENDAR"
-
-    goodRS map { println }
+//    goodRS map { println }
 
     val aaa = goodRS map {
       case emptyy if emptyy.isEmpty => ""
@@ -136,7 +125,7 @@ case class ReservationDBWithStringDate(roomId: String,
         events +
         "END:VCALENDAR"
 
-        println("icsCalendar = " + icsCalendar)
+//        println("icsCalendar = " + icsCalendar)
 
       icsCalendar
     }

@@ -81,34 +81,37 @@
       </agreement-be>
     </div>
 
-    <form name="editRoom"
-          ng-submit="changeRoom = false; directive.update(newRoom); room = newRoom" data-ng-show="changeRoom"
-          class="column large-12 md-whiteframe-z1 padding20" ng-init="newRoom.id = room.id; newRoom.isAnApartment = room.isAnApartment">
-      <h1>Modifier la chambre {{room.name}}</h1>
-      <md-input-container class="column large-12 ">
-      <label><b>Nom</b></label>
-      <input ng-model="newRoom.name" ng-init="newRoom.name = room.name"/>
-      </md-input-container>
-      <md-input-container class="column large-12">
-      <label><b>En-tête</b></label>
-      <input ng-model="newRoom.header" ng-init="newRoom.header = room.header"/>
-      </md-input-container>
-      <md-input-container class="column large-12">
-      <label><b>Description</b></label>
-      <input ng-model="newRoom.presentation" ng-init="newRoom.presentation = room.presentation"/>
-      </md-input-container>
-      <md-input-container class="column large-12">
-      <label><b>Prix</b></label>
-      <input ng-model="newRoom.price" ng-init="newRoom.price = room.price"/>
-      </md-input-container>
-      <div class="column">
-      <h1>Images</h1>
-      <div class="column large-3">
-      <img src="{{newRoom.images}}" ng-init="newRoom.images = room.images">
-      </div>
-      </div>
-      <md-button type="submit" class="primCol">Valider</md-button>
-    </form>
+    @*<form name="editRoom"*@
+          @*ng-submit="changeRoom = false; controller.update(newRoom); room = newRoom" data-ng-show="changeRoom"*@
+          @*class="column large-12 md-whiteframe-z1 padding20" ng-init="newRoom.id = room.id; newRoom.isAnApartment = room.isAnApartment">*@
+
+
+
+      @*<h1>Modifier la chambre {{room.name}}</h1>*@
+      @*<md-input-container class="column large-12 ">*@
+      @*<label><b>Nom</b></label>*@
+      @*<input ng-model="newRoom.name" ng-init="newRoom.name = room.name"/>*@
+      @*</md-input-container>*@
+      @*<md-input-container class="column large-12">*@
+      @*<label><b>En-tête</b></label>*@
+      @*<input ng-model="newRoom.header" ng-init="newRoom.header = room.header"/>*@
+      @*</md-input-container>*@
+      @*<md-input-container class="column large-12">*@
+      @*<label><b>Description</b></label>*@
+      @*<input ng-model="newRoom.presentation" ng-init="newRoom.presentation = room.presentation"/>*@
+      @*</md-input-container>*@
+      @*<md-input-container class="column large-12">*@
+      @*<label><b>Prix</b></label>*@
+      @*<input ng-model="newRoom.price" ng-init="newRoom.price = room.price"/>*@
+      @*</md-input-container>*@
+      @*<div class="column">*@
+      @*<h1>Images</h1>*@
+      @*<div class="column large-3">*@
+      @*<img src="{{newRoom.images}}" ng-init="newRoom.images = room.images">*@
+      @*</div>*@
+      @*</div>*@
+      @*<md-button type="submit" class="primCol">Valider</md-button>*@
+    @*</form>*@
 
   </md-content>
 }

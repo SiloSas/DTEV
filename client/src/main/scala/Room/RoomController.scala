@@ -1,19 +1,24 @@
 package Room
 
-import com.greencatsoft.angularjs.core.{Location, RouteParams}
+import com.greencatsoft.angularjs.core.{HttpService, Location, RouteParams}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
 import org.scalajs.dom.console
 import shared.Room
+import upickle.default._
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
 import scala.scalajs.js.JSConverters.JSRichGenTraversableOnce
-import scala.scalajs.js.annotation.JSExportAll
+import scala.scalajs.js.annotation.{JSExport, JSExportAll}
 import scala.util.{Failure, Success}
 
 
 @JSExportAll
 @injectable("roomController")
-class RoomController(scope: RoomScope, service: RoomService, $routeParams: RouteParams, location: Location)
+class RoomController(scope: RoomScope,
+                     service: RoomService,
+                     $routeParams: RouteParams,
+                     location: Location,
+                     http: HttpService)
     extends AbstractController[RoomScope](scope) {
 
   if(location.path().indexOf("rooms") > -1) findById($routeParams.get("id").toString)
@@ -36,6 +41,14 @@ class RoomController(scope: RoomScope, service: RoomService, $routeParams: Route
         }
       case Failure(t: Throwable) =>
         handleError(t)
+    }
+  }
+
+  @JSExport
+  def update(room: Room) = {
+    http.post[js.Any]("/room", write(room)) map { resp =>
+    } recover {
+      case e: Exception => print(e)
     }
   }
 
