@@ -44,14 +44,14 @@ class BookingModalController(scope: BookingScope,
   scope.end = routeParams.get("end").toString.toLong
   scope.totalPrice = 0
   scope.numberOfNights = calculateNumberOfDaysBetween(scope.start, scope.end)
-  var loader = false
+  scope.loader = false
 
   @JSExport
   def close() = modalInstance.close()
 
   @JSExport
   def book(reservationForm: js.Any) = {
-    loader = true
+    scope.loader = true
 
     val reservationFormTyped = read[ReservationForm](JSON.stringify(reservationForm))
 
@@ -68,13 +68,13 @@ class BookingModalController(scope: BookingScope,
         toast._options.position = "{right: true}"
         mdToast.show(toast)
 
-        loader = false
+        scope.loader  = false
 
         modalInstance.close()
       })
     } recover {
       case e: Exception =>
-        loader = false
+        scope.loader  = false
 
         val toast = mdToast.simple("Désolé, une erreur s'est produite.")
         toast._options.position = "{right: true}"

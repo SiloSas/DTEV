@@ -92,7 +92,7 @@
     </div>
 
 
-    <div ng-show="controller.loader$2 == false">
+    <div ng-show="loader == false">
         <md-button type="submit"
                    class="primCol column large-2 float-right"
                    ng-click="">
@@ -100,7 +100,7 @@
         </md-button>
     </div>
 
-    <div ng-show="controller.loader$2 == true">
+    <div ng-show="loader == true">
         <md-progress-linear class = "column large-12 md-primary" md-mode="indeterminate"></md-progress-linear>
     </div>
 

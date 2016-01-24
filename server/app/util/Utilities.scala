@@ -34,7 +34,8 @@ class Utilities @Inject() (mailerClient: MailerClient) extends Controller {
            |à cette addresse : <a href="des-toits-en-ville.com/#/admin">des-toits-en-ville.com/#/admin</a></p></body></html>""".stripMargin)
     )
 
-    mailerClient.send(email)
+//    mailerClient.send(email)
+    println(email)
   }
 
   def contact = Action(parse.json) { request =>
