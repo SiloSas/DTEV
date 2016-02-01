@@ -3,8 +3,8 @@
 @main("Des toits en ville") {
 
   <md-content class="height100p">
-    <div class = "float-right margin20 paddingRight20 column large-12">
-      <a href="/" class = "padding10 hvr-pop">Accueil</a>
+    <div class = "float-right margin20 text-right paddingRight20 column large-12">
+      <a href="/" class = "padding10 hvr-pop float-right">Accueil</a>
     </div>
 
     <div ng-controller="fileDownloader">
@@ -47,23 +47,6 @@
       <update-comments></update-comments>
 
     </div>
-
-    <md-list>
-      <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">
-        <md-button aria-label="button" class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
-        <div class="md-list-item-text">
-          <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le 
-            <b class="textPrimColor">{{comment.date | date:'dd.MM.yyyy'}}</b>
-          </h4>
-          <p>{{comment.comment}}</p>
-        </div>
-        <div class="md-secondary">
-          <i data-ng-repeat="star in [1, 2, 3, 4, 5]" class="fa fa-star" ng-class="{'textPrimColor': star <= comment.rate}"></i>
-        </div>
-        <md-divider ng-if="!$last"></md-divider>
-      </md-list-item>
-    </md-list>
-
 
     <div class="column">
       <h1 class="text-center">Chambres</h1>
