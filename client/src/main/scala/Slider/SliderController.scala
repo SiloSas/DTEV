@@ -20,7 +20,6 @@ class SliderController(sliderScope: SliderScope, roomService: RoomService, timeo
   if(location.path().indexOf("rooms") > -1) findById($routeParams.get("id").toString)
   else findAll()
 
-
   def findAll(): Any = {
     roomService.findAll() onComplete {
       case Success(rooms) =>

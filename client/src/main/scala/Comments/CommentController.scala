@@ -37,8 +37,13 @@ class CommentController(scope: CommentScope,
 
   commentService.findAll() onComplete {
     case Success(foundComments) =>
+
+      val commentsWithFormattedStringDates = foundComments.map { c =>
+        c.copy(date = new Date(c.date).getTime().toString)
+      }
+
       scope.$apply {
-        scope.comments = foundComments.toJSArray
+        scope.comments = commentsWithFormattedStringDates.toJSArray
       }
     case Failure(t: Throwable) =>
       handleError(t)

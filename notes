@@ -17,8 +17,7 @@ hamburger menu anim + bounce
 
 tester chrome et autres
 
-file upload : créer /public/images/public/images/
-images non téléchargées
+
 
 mettre meme marge sideleft regarder sur chrome
 
@@ -27,11 +26,14 @@ en savoir plus non clqiuable en petit
 side left chambres pas présentes sur page room
 
 
-regarder monter vvolume bdd/supervisor et tester reboot
-
 
 changer la date quand sur page de résa et date est changé après
 
+
+
+(file upload : créer /public/images/public/images/
+images non téléchargées
+regarder monter vvolume bdd/supervisor et tester reboot)
 
 
 Bonjour,
