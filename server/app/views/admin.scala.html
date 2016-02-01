@@ -3,7 +3,7 @@
 @main("Des toits en ville") {
 
   <md-content class="height100p">
-    <div class = "float-right margin20 paddingRight20">
+    <div class = "float-right margin20 paddingRight20 column large-12">
       <a href="/" class = "padding10 hvr-pop">Accueil</a>
     </div>
 
@@ -43,16 +43,18 @@
 
     <div data-ng-controller="commentController">
 
-      <h1 class="text-center">Commentaires</h1>
+      <h1 class="text-center column large-12">Commentaires</h1>
       <update-comments></update-comments>
 
     </div>
 
     <md-list>
       <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">
-        <md-button aria-label="button"class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
+        <md-button aria-label="button" class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
         <div class="md-list-item-text">
-          <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>
+          <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le 
+            <b class="textPrimColor">{{comment.date | date:'dd.MM.yyyy'}}</b>
+          </h4>
           <p>{{comment.comment}}</p>
         </div>
         <div class="md-secondary">
