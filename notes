@@ -13,11 +13,12 @@ metas
 
 hamburger menu anim + bounce
 
-les résérvations ne marchent pas (admin)
+
 
 tester chrome et autres
 
 file upload : créer /public/images/public/images/
+images non téléchargées
 
 mettre meme marge sideleft regarder sur chrome
 
@@ -26,9 +27,7 @@ en savoir plus non clqiuable en petit
 side left chambres pas présentes sur page room
 
 
-repass ssl to true in app.conf
-
-regarder monter vvolume bdd/supervisor
+regarder monter vvolume bdd/supervisor et tester reboot
 
 
 changer la date quand sur page de résa et date est changé après
