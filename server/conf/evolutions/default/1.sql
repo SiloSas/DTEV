@@ -62,16 +62,16 @@ CREATE TABLE comments(
   date                      VARCHAR,
   isValidated               BOOLEAN DEFAULT FALSE
 );
-INSERT INTO comments(id, comment, userName, rate, date, isValidated) VALUES
-  ('a4aea509-1002-47d0-b55c-593c91cb32ae',  'super', 'usfsdfsdf', 4, '2012-08-24', true);
-INSERT INTO comments(id, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-593cq1cb32a', 'dsdlksdadss', 'esfsdfsdf', 2, '2012-08-24');
-INSERT INTO comments(id, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-47d0-b55c-53cq1cb32ae', 'dsdlksdadss', 'jsfsdfsdf', 5, '2012-08-24');
-INSERT INTO comments(id, comment, userName, rate, date, isValidated) VALUES
-  ('a4aea509-1002-47d0-b55c-53cq1cb32e', 'dsdlksdadss', 'gsfsdfsdf', 5, '2012-08-24', true);
-INSERT INTO comments(id, comment, userName, rate, date) VALUES
-  ('a4aea509-1002-4d0-b55c-53cqcb32e', 'dsdlksdadss', 'bgsfsdfsdf', 2, '2012-08-24');
+-- INSERT INTO comments(id, comment, userName, rate, date, isValidated) VALUES
+--   ('a4aea509-1002-47d0-b55c-593c91cb32ae',  'super', 'usfsdfsdf', 4, '2012-08-24', true);
+-- INSERT INTO comments(id, comment, userName, rate, date) VALUES
+--   ('a4aea509-1002-47d0-b55c-593cq1cb32a', 'dsdlksdadss', 'esfsdfsdf', 2, '2012-08-24');
+-- INSERT INTO comments(id, comment, userName, rate, date) VALUES
+--   ('a4aea509-1002-47d0-b55c-53cq1cb32ae', 'dsdlksdadss', 'jsfsdfsdf', 5, '2012-08-24');
+-- INSERT INTO comments(id, comment, userName, rate, date, isValidated) VALUES
+--   ('a4aea509-1002-47d0-b55c-53cq1cb32e', 'dsdlksdadss', 'gsfsdfsdf', 5, '2012-08-24', true);
+-- INSERT INTO comments(id, comment, userName, rate, date) VALUES
+--   ('a4aea509-1002-4d0-b55c-53cqcb32e', 'dsdlksdadss', 'bgsfsdfsdf', 2, '2012-08-24');
 
 
 CREATE TABLE users(
