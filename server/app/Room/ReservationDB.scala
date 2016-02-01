@@ -8,6 +8,7 @@ import database.{MyDBTableDefinitions, MyPostgresDriver}
 import play.api.db.slick.{DatabaseConfigProvider, HasDatabaseConfigProvider}
 
 import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
 
 case class ReservationDB(id: Option[Long],
@@ -36,7 +37,14 @@ class ReservationMethods @Inject()(protected val dbConfigProvider: DatabaseConfi
     val nowLong = new java.util.Date().getTime
     val now = new Date(nowLong)
 
-    db.run(reservations.filter(_.departureDate > now).result)
+    db.run(reservations.result) map {
+      println
+    }
+
+    db.run(reservations.filter(_.departureDate >= now).result) map { a =>
+      println(a)
+      a
+    }
   }
 
   def findReservationsInInterval(start: Long, end: Long): Future[Seq[ReservationDB]] = {

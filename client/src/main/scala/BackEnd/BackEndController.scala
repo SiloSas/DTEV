@@ -41,7 +41,11 @@ class BackEndController(backEndScope: BackEndScope, $routeParams: RouteParams, h
 
 
   http.get[js.Any]("/reservations") map { r =>
-    timeout(() => backEndScope.$apply(backEndScope.reservations =
-      read[Seq[ClientReservationDB]](JSON.stringify(r)).toJSArray))
+    println("r = " + r)
+    timeout{() =>
+      val a = read[Seq[ClientReservationDB]](JSON.stringify(r)).toJSArray
+      backEndScope.$apply(backEndScope.reservations = a)
+      println("a = " + a)
+    }
   }
 }

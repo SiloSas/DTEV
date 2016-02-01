@@ -16,7 +16,7 @@
                           <!--ng-class="{'medium-12 height100p scrollAuto': changeAgreement, 'medium-6': !changeAgreement}"-->
                           <!--class="column medium-6 float-left padding0"></agreement-be>-->
         <!--</div>-->
-        <!--<md-button class="primCol" ng-click="addAgreement = true">Ajouter un service</md-button>-->
+        <!--<md-button aria-label="button" class="primCol" ng-click="addAgreement = true">Ajouter un service</md-button>-->
 
         <!--<form name="addAgreementForm"-->
               <!--ng-submit="addAgreement = false"-->
@@ -29,7 +29,7 @@
                 <!--<label>Présentation</label>-->
                 <!--<input ng-model="newAgreement.presentation"/>-->
             <!--</md-input-container>-->
-            <!--<md-button type="submit" class="primCol">Ajouter</md-button>-->
+            <!--<md-button aria-label="button" type="submit" class="primCol">Ajouter</md-button>-->
             <!--<a class="md-button primCol float-left" data-ng-click="addAgreement = false">Annuler</a>-->
         <!--</form>-->
     <!--</div>-->
@@ -41,22 +41,6 @@
 
     </div>
 </div>
-
-
-<!--<md-list>-->
-    <!--<md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">-->
-        <!--<md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>-->
-        <!--<div class="md-list-item-text">-->
-            <!--<h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>-->
-            <!--<p>{{comment.comment}}</p>-->
-        <!--</div>-->
-        <!--<div class="md-secondary">-->
-            <!--<i data-ng-repeat="star in [1, 2, 3, 4, 5]" class="fa fa-star" ng-class="{'textPrimColor': star <= comment.rate}"></i>-->
-        <!--</div>-->
-        <!--<md-divider ng-if="!$last"></md-divider>-->
-    <!--</md-list-item>-->
-    <!--<md-button class="primCol large-4 large-offset-4" ng-click="limit = limit + 5"><b>Voir plus d'avis</b></md-button>-->
-<!--</md-list>-->
 
 
 <div ng-if="!isConnected" style="margin-top: 150px">
@@ -92,5 +76,5 @@
             <!--<img src="{{newRoom.images}}" ng-init="newRoom.images = room.images">-->
         <!--</div>-->
     <!--</div>-->
-    <!--<md-button type="submit" class="primCol">Valider</md-button>-->
+    <!--<md-button aria-label="button" type="submit" class="primCol">Valider</md-button>-->
 <!--</form>-->

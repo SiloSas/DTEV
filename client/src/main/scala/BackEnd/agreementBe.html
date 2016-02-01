@@ -4,7 +4,10 @@
         <h2>
             <span class="textColorWhite">{{agreement.title}}</span>
             <span class="textColorWhite">
-                <md-button class="md-primary primCol" ng-click="changeAgreement = true"><i class="fa fa-pen"></i>Modifier</md-button>
+                <md-button aria-label="button" class="md-primary primCol" ng-click="changeAgreement = true">
+                    <i class="fa fa-pen"></i>
+                    Modifier
+                </md-button>
             </span>
         </h2>
         <p>{{agreement.description}}</p>
@@ -33,5 +36,5 @@
             <img src="{{agreement.image}}">
         </div>
     </div>
-    <md-button type="submit" class="primCol">Valider</md-button>
+    <md-button aria-label="button" type="submit" class="primCol">Valider</md-button>
 </form>

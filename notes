@@ -13,6 +13,7 @@ metas
 
 hamburger menu anim + bounce
 
+les résérvations ne marchent pas (admin)
 
 tester chrome et autres
 
@@ -29,6 +30,8 @@ repass ssl to true in app.conf
 
 regarder monter vvolume bdd/supervisor
 
+
+changer la date quand sur page de résa et date est changé après
 
 
 

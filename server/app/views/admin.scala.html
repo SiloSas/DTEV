@@ -19,6 +19,7 @@
     <div data-ng-controller="backEndController" class="column small-12">
       <ul>
         <li ng-repeat="r in reservations  | orderBy : 'arrivalDate$1'">
+          {{r}}
 
           <h4>
             {{r.roomName$1}} du {{r.arrivalDate$1 | date: 'dd.MM.yyyy'}} au {{r.departureDate$1 | date: 'dd.MM.yyyy'}}
@@ -50,7 +51,7 @@
 
     <md-list>
       <md-list-item class="md-3-line" ng-repeat="comment in comments | limitTo: limit + 5 | filter: {isValidated: true}">
-        <md-button class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
+        <md-button aria-label="button"class="md-fab primCol"><b>{{comment.userName[0]}}</b></md-button>
         <div class="md-list-item-text">
           <h4>Par <b class="textPrimColor">{{comment.userName}}</b> le <b class="textPrimColor">{{comment.date}}</b></h4>
           <p>{{comment.comment}}</p>
@@ -110,7 +111,7 @@
       @*<img src="{{newRoom.images}}" ng-init="newRoom.images = room.images">*@
       @*</div>*@
       @*</div>*@
-      @*<md-button type="submit" class="primCol">Valider</md-button>*@
+      @*<md-button aria-label="button"type="submit" class="primCol">Valider</md-button>*@
     @*</form>*@
 
   </md-content>

@@ -6,7 +6,7 @@
     </a>
     <h2 class="textColorWhite textColorWhite zIndex2">
         <a href="#/rooms/{{room.id}}" class="width100p float-left">{{room.name}}</a>
-        <md-button class="md-primary primCol" ng-click="changeRoom = true">
+        <md-button aria-label="button" class="md-primary primCol" ng-click="changeRoom = true">
             <i class="fa fa-pen"></i>
             Modifier
         </md-button>
@@ -19,19 +19,19 @@
     <figcaption>
         <p class="icon-links padding0">
         <div class="float-left column medium-3 padding0">
-            <md-button class="md-fab md-mini  primCol float-left"><i class="fa fa-eur"></i></md-button>
+            <md-button aria-label="button" class="md-fab md-mini  primCol float-left"><i class="fa fa-eur"></i></md-button>
             <b class="textPrimColor minRoomInfo">{{room.price}}</b>
         </div>
         <div class="float-left column medium-3 padding0">
-            <md-button class="md-fab md-mini  primCol float-left"><i class="fa fa-subway"></i></md-button>
+            <md-button aria-label="button" class="md-fab md-mini  primCol float-left"><i class="fa fa-subway"></i></md-button>
             <b class="textPrimColor minRoomInfo">Métro A Cusset</b>
         </div>
         <div class="float-left column medium-3 padding0">
-            <md-button class="md-fab  md-mini primCol float-left"><i class="fa fa-car"></i></md-button>
+            <md-button aria-label="button" class="md-fab  md-mini primCol float-left"><i class="fa fa-car"></i></md-button>
             <b class="textPrimColor minRoomInfo">Parking (4€)</b>
         </div>
         <div class="float-left column medium-3 padding0">
-            <md-button class="md-fab md-mini primCol float-left"><i class="fa fa-paw"></i></md-button>
+            <md-button aria-label="button" class="md-fab md-mini primCol float-left"><i class="fa fa-paw"></i></md-button>
             <b class="textPrimColor minRoomInfo">Animaux acceptés</b>
         </div>
         </p>
@@ -89,5 +89,5 @@
 
 
     </div>
-    <md-button type="submit" class="primCol">Valider</md-button>
+    <md-button aria-label="button" type="submit" class="primCol">Valider</md-button>
 </form>
