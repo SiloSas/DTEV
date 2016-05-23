@@ -5,10 +5,11 @@ import com.greencatsoft.angularjs.{AbstractController, injectable}
 
 import scala.concurrent.Future
 import scala.scalajs.js
-import scala.scalajs.js.annotation.JSExport
+import scala.scalajs.js.annotation.{JSExport, JSExportAll}
 import scala.concurrent.ExecutionContext.Implicits.global
+import scala.util.control.NonFatal
 
-@JSExport
+@JSExportAll
 @injectable("generalDescController")
 class GeneralDescController(scope: GeneralDescScope, http: HttpService, timeout: Timeout, sceService: SceService)
   extends AbstractController[GeneralDescScope](scope) {
@@ -25,10 +26,17 @@ class GeneralDescController(scope: GeneralDescScope, http: HttpService, timeout:
     }
   }
 
-  def update(text: String): Future[Int] = {
-    http.put[js.Any]("/generalDesc") map { r =>
-      scope.desc = text
-      r.asInstanceOf[Int]
+  var stateMessage = ""
+
+  def update(text: String): Unit = {
+    stateMessage = "Veuillez patienter"
+    http.put[js.Any](s"/generalDesc?text=$text").map { _ =>
+      timeout(() => {
+        stateMessage = "La modification a bien été prise en compte"
+        scope.desc = text
+      }) }.recover {
+      case NonFatal(e) =>
+        stateMessage = "Désolé, une erreur s'est produite, veuillez réessayer."
     }
   }
 }

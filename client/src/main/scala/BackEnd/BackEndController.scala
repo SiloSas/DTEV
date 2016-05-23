@@ -29,7 +29,6 @@ class BackEndController(backEndScope: BackEndScope, $routeParams: RouteParams, h
                         location: Location)
   extends AbstractController[BackEndScope](backEndScope) {
 
-
   val eventuallyIsConnected = http.get[String]("/isConnected")
     .map(isConnected => isConnected.toBoolean)
     .recover { case e: Exception => false }
@@ -41,11 +40,9 @@ class BackEndController(backEndScope: BackEndScope, $routeParams: RouteParams, h
 
 
   http.get[js.Any]("/reservations") map { r =>
-    println("r = " + r)
     timeout{() =>
       val a = read[Seq[ClientReservationDB]](JSON.stringify(r)).toJSArray
       backEndScope.$apply(backEndScope.reservations = a)
-      println("a = " + a)
     }
   }
 }
