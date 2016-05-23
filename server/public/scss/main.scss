@@ -130,17 +130,17 @@ md-input-container > label {
 
 .arrows path.a1 {
   animation-delay:-1s;
-  -webkit-animation-delay:-1s; /* Safari 和 Chrome */
+  -webkit-animation-delay:-1s; /* Safari  Chrome */
 }
 
 .arrows path.a2 {
   animation-delay:-0.5s;
-  -webkit-animation-delay:-0.5s; /* Safari 和 Chrome */
+  -webkit-animation-delay:-0.5s; /* Safari  Chrome */
 }
 
 .arrows path.a3 {
   animation-delay:0s;
-  -webkit-animation-delay:0s; /* Safari 和 Chrome */
+  -webkit-animation-delay:0s; /* Safari  Chrome */
 }
 
 .homeRoomTitle, .homeRoomTitle > h1 {
@@ -171,7 +171,7 @@ md-input-container > label {
   padding: 20px;
 }
 
-.mainText {
+.mainText, .mainText p {
   font-size: 26px;
   padding: 20px 50px;
   text-align: justify;

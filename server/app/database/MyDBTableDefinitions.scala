@@ -5,8 +5,8 @@ import java.sql.Date
 import Room.ReservationDB
 import administration.UserActor.User
 import database.MyPostgresDriver.api._
+import generalDescription.Description
 import shared.{Agreement, Comment, Room}
-
 
 trait MyDBTableDefinitions {
 
@@ -22,6 +22,13 @@ trait MyDBTableDefinitions {
     def * = (id, name, presentation, header, images, isAnApartment, price) <> ((Room.apply _).tupled, Room.unapply)
   }
   lazy val rooms = TableQuery[Rooms]
+
+  class GeneralDescriptions(tag: Tag) extends Table[Description](tag, "generaldescription") {
+    def description = column[String]("text")
+
+    def * = description <> (Description.apply, Description.unapply)
+  }
+  lazy val generalDescriptions = TableQuery[GeneralDescriptions]
 
   class Agreements(tag: Tag) extends Table[Agreement](tag, "agreements") {
     def id = column[String]("id")

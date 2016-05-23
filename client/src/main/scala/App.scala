@@ -10,6 +10,7 @@ import RoomNav.{RoomNavDirective, SlideLeftDirective}
 import SearchBar.SearchBarDirective
 import Slider.{SliderContentDirective, SliderController, SliderDirective}
 import com.greencatsoft.angularjs._
+import generalDescription.GeneralDescController
 import materialDesign.MdDateLocaleProviderConfig
 import services.{AgreementController, AgreementDirective, AgreementServiceFactory}
 
@@ -32,6 +33,7 @@ object App extends JSApp {
       .controller[BookingController]
       .controller[BookingModalController]
       .controller[BackEndController]
+      .controller[GeneralDescController]
       .directive[RoomMinDirective]
       .directive[AgreementDirective]
       .directive[RoomMinHomeDirective]
