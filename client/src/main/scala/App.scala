@@ -49,7 +49,7 @@ object App extends JSApp {
       .directive[AgreementBackEndDirective]
       .directive[SmoothScrollDirective]
       .directive[AnimationsAtScrollDirective]
-      .directive[CookiesDirective]
+//      .directive[CookiesDirective]
       .factory[RoomServiceFactory]
       .factory[AgreementServiceFactory]
       .factory[CommentServiceFactory]

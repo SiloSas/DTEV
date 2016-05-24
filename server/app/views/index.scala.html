@@ -3,18 +3,19 @@
 @main("Des toits en ville") {
  <div class=" height100p ng-cloak">
 
-   <div id = "cookieHeadband"
-   class = "column large-12 text-center"
-   style=" background-color: #CBAC75;"
-   ng-show = "hideCookie">
-       En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour réaliser des statistiques de visites.
-           <a href="#/cookies">En savoir plus</a>
-           <i class="fa fa-times pointer marginLeft10 absolute float-right"
-           style="vertical-align: middle; line-height: inherit; z-index: 99"
-           ng-click="hideCookie = true"> </i> </div>
-     <md-toolbar
-     class="absolute transparent zIndex4"
-     ng-class="{'marginTop30': !hideCookie}">
+   @*<div id = "cookieHeadband"*@
+       @*class = "column large-12 text-center"*@
+       @*style=" background-color: #CBAC75;"*@
+       @*ng-show = "hideCookie">*@
+       @*En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies pour réaliser des statistiques de visites.*@
+           @*<a href="#/cookies">En savoir plus</a>*@
+           @*<i class="fa fa-times pointer marginLeft10 absolute float-right"*@
+           @*style="vertical-align: middle; line-height: inherit; z-index: 99"*@
+           @*ng-click="hideCookie = true"> </i> *@
+   @*</div>*@
+
+     <md-toolbar class="absolute transparent zIndex4">
+                 @*ng-class="{'marginTop30': !hideCookie}">*@
          <div>
              <div class = "float-right margin20 paddingRight20" hide-sm>
                  <a href="#/" class = "padding10 hvr-pop">Accueil</a>
@@ -35,16 +36,26 @@
          </div>
      </md-toolbar>
 
-     <md-content class="mainContainer parallax"  style="height: 400px"
-                 cookies="{{hideCookie}}"
-                 ng-view="" id="mainContainer">
+     <md-button class="md-fab md-mini primCol hvr-pop show-for-small-only"
+                href="https://www.facebook.com/des.toits.en.ville/"
+                style="position: absolute; right: 20px; top: 10px;"
+     target="_blank">
+         <a href="https://www.facebook.com/des.toits.en.ville/"
+         class="fa fa-facebook textPrimColor hvr-icon-grow-rotate"
+         target="_blank">
+
+         </a>
+     </md-button>
+
+     <md-content class="mainContainer parallax" ng-view="" id="mainContainer">
+                 @*cookies="{{hideCookie}}"*@
 
      </md-content>
 
 
-     <data-search-bar  id="searchBar" class="zIndex5 left0">
+     @*<data-search-bar  id="searchBar" class="zIndex5 left0">*@
 
-     </data-search-bar>
+     @*</data-search-bar>*@
 
 
      <md-sidenav
