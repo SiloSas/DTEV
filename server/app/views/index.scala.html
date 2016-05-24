@@ -53,17 +53,16 @@
      </md-content>
 
 
-     @*<data-search-bar  id="searchBar" class="zIndex5 left0">*@
+     <data-search-bar  id="searchBar" class="zIndex5 left0">
 
-     @*</data-search-bar>*@
+     </data-search-bar>
 
 
-     <md-sidenav
-     class="md-sidenav-left md-whiteframe-z2 slide-left "
-     style="background-color: #CBAC75;"
-     slide-left
-     md-component-id="left"
-     hide-gt-md>
+     <md-sidenav class="md-sidenav-left md-whiteframe-z2 slide-left "
+                 style="background-color: #CBAC75;"
+                 slide-left
+                 md-component-id="left"
+                 hide-gt-md>
          <md-button ng-click="directive.close()" class="md-primary primCol column small-8 small-offset-2" hide-gt-md>
              <b>Fermer le menu </b>
          </md-button>
@@ -88,7 +87,7 @@
         style="margin-bottom: -5px;"
         ng-click="directive.close()"
         data-ng-repeat="room in rooms | filter: { isAnApartment: false }">
-        <b>{{room.name}}</b>
+        <b>{{room.name.replace("Chambre d'hôtes", "")}}</b>
       </a>
 
     </md-content>
@@ -108,7 +107,7 @@
         style="margin-bottom: -5px;"
         ng-click="directive.close()"
         data-ng-repeat="room in rooms | filter: { isAnApartment: true }">
-        <b>{{room.name}}</b>
+        <b>{{room.name.replace("Appartement", "")}}</b>
       </a>
 
     </md-content>
