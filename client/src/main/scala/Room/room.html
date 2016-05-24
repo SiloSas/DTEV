@@ -1,4 +1,6 @@
-<slider ng-controller="sliderController"></slider>
+<slider ng-controller="sliderController">
+</slider>
+
 <div class="absolute zIndex2 homeRoomTitle float-left">
     <div class="float-left column large-12" style="margin-bottom: -60px">{{room.name}}</div>
     <b class="animated hvr-underline-from-center underlineHomeTitle"
@@ -7,6 +9,7 @@
     </b>
     <p class = "hide-for-small-only">{{room.header}}</p>
 </div>
+
 <div class="slider-content width100p float-left parallax__layer parallax__layer--base zIndex3">
     <div class="white width100p float-left text-center">
         <div class="column large-12 mainText">
@@ -34,18 +37,83 @@
         </div>
     </div>
 
-    <div class="column large-12 text-center margin0 mainTitles">
+    <div ng-if="room.isAnApartment$1">
+        <div>
+            <div class="column large-12 text-center margin0 mainTitles">
+                <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
+                    Voir nos autres appartements :
+                </h1>
+                <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
+                </b>
+            </div>
+            <span data-ng-repeat="room in rooms | filter: {isAnApartment: true, name: '!' + room.name}">
+                <h1 style="text-align: center;"><a href="#/rooms/{{room.id}}">{{room.name}}</a></h1>
+            </span>
+        </div>
+        <div>
+            <div class="column large-12 text-center margin0 mainTitles">
+                <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
+                    Voir nos chambres :
+                </h1>
+                <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
+                </b>
+            </div>
+            <span data-ng-repeat="room in rooms | filter: {isAnApartment: false, name: '!' + room.name}">
+                <h1 style="text-align: center;"><a href="#/rooms/{{room.id}}">{{room.name}}</a></h1>
+            </span>
+        </div>
+    </div>
+
+    <div ng-if="!room.isAnApartment$1" data-ng-controller = "roomController">
+        <div>
+            <div class="column large-12 text-center margin0 mainTitles">
+                <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
+                    Voir notre autre chambre :
+                </h1>
+                <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
+                </b>
+            </div>
+            <span data-ng-repeat="room in rooms | filter: {isAnApartment: false, name: '!' + room.name}">
+                <h1 style="text-align: center;"><a href="#/rooms/{{room.id}}">{{room.name}}</a></h1>
+            </span>
+        </div>
+
+        <div>
+            <div class="column large-12 text-center margin0 mainTitles">
+                <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
+                    Voir nos appartements :
+                </h1>
+                <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
+                </b>
+            </div>
+            <span data-ng-repeat="room in rooms | filter: {isAnApartment: true, name: '!' + room.name}">
+                <h1 style="text-align: center;"><a href="#/rooms/{{room.id}}">{{room.name}}</a></h1>
+            </span>
+        </div>
+    </div>
+
+
+
+    <div class="column large-12 text-center margin0 mainTitles" style="border-bottom: solid; border-color: #4F0029">
         <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
+            <i class="fa fa-chevron-down"
+               aria-hidden="true"
+               class="primCol"
+               ng-init="servicesFolded=true"
+               ng-click="servicesFolded=!servicesFolded">
+            </i>
             NOS SERVICES
         </h1>
-        <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
-        </b>
     </div>
-    <div class="width100p white float-left column large-12 padding0 marginTop0 marginLeft0 marginRight0 grid"
-         data-ng-controller="agreementController">
-        <agreement class="column large-3 medium-6 padding0 margin0 float-left" ng-repeat="agreement in agreements">
-        </agreement>
+
+    <div ng-if="!servicesFolded">
+        <div class="width100p white float-left column large-12 padding0 marginTop0 marginLeft0 marginRight0 grid"
+             data-ng-controller="agreementController">
+            <agreement class="column large-3 medium-6 padding0 margin0 float-left" ng-repeat="agreement in agreements">
+            </agreement>
+        </div>
     </div>
+
 
     <div class="column large-12 margin0 mainTitles">
         <b class="column large-4 marginTop10">2016 - Des toits en ville</b>

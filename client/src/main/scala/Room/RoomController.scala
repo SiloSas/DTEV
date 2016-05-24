@@ -22,7 +22,8 @@ class RoomController(scope: RoomScope,
     extends AbstractController[RoomScope](scope) {
 
   if(location.path().indexOf("rooms") > -1) findById($routeParams.get("id").toString)
-  else findAll()
+
+  findAll()
 
   def findAll(): Any = {
     scope.rooms = js.Array[Room]()
