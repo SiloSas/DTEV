@@ -25691,7 +25691,7 @@ md-input-container > label {
 /* line 175, ../scss/main.scss */
 .mainText, .mainText p {
   font-size: 20px;
-  padding: 8px 0 0 0;
+  padding: 8px 8px;
   text-align: justify;
 }
 
