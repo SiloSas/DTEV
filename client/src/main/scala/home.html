@@ -19,17 +19,18 @@
 </smooth-scroll>
 
 <div class="slider-content width100p float-left parallax__layer parallax__layer--base zIndex3">
+    <div class="white width100p float-left" data-ng-controller="generalDescController">
+        <div class="column large-10 large-offset-1 mainText" id="firstDescriptionText" data-ng-bind-html="desc">
+        </div>
+    </div>
+
+
     <div class="column large-12 text-center margin0 mainTitles">
         <h1 class="textColorWhite marginBottom0" style='font-family: "CaviarDreams", sans-serif!important;'>
             NOS CHAMBRES
         </h1>
         <b class="animated hvr-underline-from-center underlineHomeTitle" animations-at-scroll>
         </b>
-    </div>
-
-    <div class="white width100p float-left" data-ng-controller="generalDescController">
-        <div class="column large-10 large-offset-1 mainText" id="firstDescriptionText" data-ng-bind-html="desc">
-        </div>
     </div>
 
     <div class="width100p white float-left grid parallax__layer--base" data-ng-controller = "roomController">
@@ -79,9 +80,13 @@
 
     <ng-comments class="column large-12 float-left white padding0" ng-controller="commentController"></ng-comments>
 
+
     <div class="column large-12 margin0 mainTitles">
-        <b class="column large-4 marginTop10">2016 - Des toits en ville</b>
-        <span class="column large-4" >
+        <b class="column large-4 marginTop10" style="text-align: center;">
+            2016 - Des toits en ville
+        </b>
+
+        <span class="column large-4" style="text-align: center;">
             <a href="tel:0616184341" class="d-fab md-mini primCol md-button md-ink-ripple">
                 <i class="fa fa-phone"></i>
             </a>
@@ -91,7 +96,8 @@
                 </b>
             </a>
         </span>
-        <span class="column large-4 marginTop10 ">
+
+        <span class="column large-4 marginTop10" style="text-align: center;">
             <a href="#/mentionsLegales" class = "hvr-pop">Mentions légales</a>
         </span>
     </div>

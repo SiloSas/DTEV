@@ -25684,12 +25684,12 @@ md-input-container > label {
 .mainTitles {
   background-color: rgba(132, 91, 212, 0.39);
   font-weight: 800;
-  padding: 16px;
+  padding: 0;
 }
 
 /* line 174, ../scss/main.scss */
 .mainText, .mainText p {
-  font-size: 2em;
+  font-size: 1.7em;
   padding: 20px 50px;
   text-align: justify;
 }
