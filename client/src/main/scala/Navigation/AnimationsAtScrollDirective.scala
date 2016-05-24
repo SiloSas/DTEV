@@ -50,7 +50,7 @@ class AnimationsAtScrollDirective(modal: ModalService, timeout: Timeout, compile
                   waitForImageToBeCompleted(i)
                 else
                   waitForImageToBeCompleted(i + 1)
-            }, 100)
+            }, 150)
           }
       }, 0)
     }

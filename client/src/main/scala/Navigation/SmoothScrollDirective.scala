@@ -34,7 +34,6 @@ class SmoothScrollDirective(window: Window, modal: ModalService, timeout: Timeou
 
     scrollIterationFunction = dom.setInterval(() => {
       if(actualPosition < whereScrollShouldStop - offset) {
-        println("actualPosition = " + actualPosition)
         container.scrollTop = actualPosition + offset
         actualPosition += offset
       } else if(actualPosition < whereScrollShouldStop) {

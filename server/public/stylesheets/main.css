@@ -25689,7 +25689,7 @@ md-input-container > label {
 
 /* line 174, ../scss/main.scss */
 .mainText, .mainText p {
-  font-size: 26px;
+  font-size: 2em;
   padding: 20px 50px;
   text-align: justify;
 }
