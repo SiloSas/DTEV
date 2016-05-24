@@ -47,7 +47,6 @@ class CookiesDirective(window: Window, timeout: Timeout) extends AttributeDirect
         setMainContainerHeight()
       })
       scope.$on("$locationChangeSuccess", () => {
-        console.log("yooy")
         timeout( () => {
           setMainContainerHeight()
         }, 100)
