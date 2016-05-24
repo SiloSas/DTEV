@@ -14,8 +14,7 @@
            @*ng-click="hideCookie = true"> </i> *@
    @*</div>*@
 
-     <md-toolbar class="absolute transparent zIndex4">
-                 @*ng-class="{'marginTop30': !hideCookie}">*@
+     <md-toolbar class="absolute transparent zIndex4"> @*ng-class="{'marginTop30': !hideCookie}">*@
          <div>
              <div class = "float-right margin20 paddingRight20" hide-sm>
                  <a href="#/" class = "padding10 hvr-pop">Accueil</a>
@@ -31,8 +30,9 @@
                  </md-button>
              </div>
              <room-nav data-ng-controller = "roomController"
-             style = "margin-top: 12px; margin-left: 12px;"
-             class = "zIndex4 float-left"> </room-nav>
+                       style = "margin-top: 12px; margin-left: 12px;"
+                       class = "zIndex4 float-left">
+             </room-nav>
          </div>
      </md-toolbar>
 
