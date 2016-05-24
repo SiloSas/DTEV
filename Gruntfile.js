@@ -24,10 +24,10 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
-      bower: {
-        files: ['bower.json'],
-        tasks: ['wiredep']
-      },
+      // bower: {
+      //   files: ['bower.json'],
+      //   tasks: ['wiredep']
+      // },
 
       compass: {
         files: ['client/src/main/scala/{,*/}*.{scss,sass}', 'server/app/public/scss/*.{scss,sass}'],
@@ -41,12 +41,12 @@ module.exports = function (grunt) {
 
       gruntfile: {
         files: ['Gruntfile.js']
-      },
-
-      concat: {
-        files: ['Gruntfile.js', 'bower_components/*/*.js'],
-        tasks: 'concat'
       }
+
+      // concat: {
+      //   files: ['Gruntfile.js', 'bower_components/*/*.js'],
+      //   tasks: 'concat'
+      // }
     },
 
     // Empties folders to start fresh
