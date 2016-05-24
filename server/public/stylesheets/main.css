@@ -25690,8 +25690,8 @@ md-input-container > label {
 
 /* line 175, ../scss/main.scss */
 .mainText, .mainText p {
-  font-size: 1.7em;
-  padding: 20px 50px;
+  font-size: 20px;
+  padding: 8px 0 0 0;
   text-align: justify;
 }
 
@@ -25839,7 +25839,7 @@ md-input-container > label {
   animation-iteration-count: 1;
 }
 
-/* line 353, ../scss/main.scss */
+/* line 351, ../scss/main.scss */
 .myTooltip {
   display: inline;
   background: #333;
@@ -25855,20 +25855,20 @@ md-input-container > label {
 }
 
 /* For Firefox */
-/* line 370, ../scss/main.scss */
+/* line 368, ../scss/main.scss */
 input[type='number'] {
   -moz-appearance: textfield !important;
 }
 
 /* Webkit browsers like Safari and Chrome */
-/* line 375, ../scss/main.scss */
+/* line 373, ../scss/main.scss */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none !important;
   margin: 0;
 }
 
-/* line 381, ../scss/main.scss */
+/* line 379, ../scss/main.scss */
 .starColor {
   color: #f08a24;
 }

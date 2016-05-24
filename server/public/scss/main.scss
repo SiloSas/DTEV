@@ -173,8 +173,8 @@ md-input-container > label {
 }
 
 .mainText, .mainText p {
-  font-size: 1.7em;
-  padding: 20px 50px;
+  font-size: 20px;
+  padding: 8px 0 0 0;
   text-align: justify;
   //word-spacing: 14px;
 }
@@ -347,8 +347,6 @@ md-input-container > label {
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
 }
-
-
 
 .myTooltip {
   display: inline;
