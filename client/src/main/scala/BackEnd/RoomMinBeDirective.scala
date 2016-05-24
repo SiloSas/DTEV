@@ -38,7 +38,6 @@ class RoomMinBeDirective(window: Window, timeout: Timeout, roomService: RoomServ
 
   @JSExport
   def updateRoom(room: js.Any): Unit = {
-    org.scalajs.dom.console.log(room)
     roomService.update(read[Room](JSON.stringify(room)))
   }
 }
