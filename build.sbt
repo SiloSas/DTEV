@@ -20,6 +20,7 @@ lazy val server = (project in file("server")).settings(
   resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases",
   libraryDependencies ++= Seq(
     evolutions,
+    filters,
     "com.vmunier" %% "play-scalajs-scripts" % "0.3.0",
     "org.webjars" %% "webjars-play" % "2.4.0-1",
     "org.webjars" % "jquery" % "1.11.1",
