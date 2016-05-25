@@ -1,5 +1,5 @@
-<!--mobile and tablet-->
-<figure class="column roomImage padding0 margin0 hide-for-touch">
+<!--touch-->
+<figure class="column roomImage padding0 margin0 show-for-touch">
     <span ng-repeat="img in room.images.split(',')" ng-if="$first">
         <img src="{{img}}" alt="{{room.name}}"/>
     </span>
@@ -10,8 +10,8 @@
     </figcaption>
 </figure>
 
-<!--large-up-->
-<figure class="effect-layla column roomImage padding0 margin0 show-for-touch">
+<!--not touch-->
+<figure class="effect-layla column roomImage padding0 margin0 hide-for-touch">
     <span ng-repeat="img in room.images.split(',')" ng-if="$first">
         <img src="{{img}}" alt="{{room.name}}"/>
     </span>
