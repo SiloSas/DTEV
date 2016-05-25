@@ -143,26 +143,49 @@ md-input-container > label {
   -webkit-animation-delay:0s; /* Safari  Chrome */
 }
 
-.homeRoomTitle, .homeRoomTitle > h1 {
-  width: 100%;
-  top: 22%;
-  font-size: 80px;
-  text-align: center;
-  font-weight: 800;
-  color: $primary-color;
-  z-index: 100000;
-  transform: translateZ(-0.8px) scale(1);
-}
+
+
+//@media only screen and (min-width: 800px) {
+  .homeRoomTitle, .homeRoomTitle > h1 {
+    width: 100%;
+    top: 22%;
+    font-size: 80px;
+    text-align: center;
+    font-weight: 800;
+    color: $primary-color;
+    z-index: 100000;
+    transform: translateZ(-0.8px) scale(1);
+  }
+
+  .homeRoomTitle > p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+  }
+//}
+//
+//@media only screen and (max-width: 800px) {
+//  .homeRoomTitle, .homeRoomTitle > h1 {
+//    width: 100%;
+//    top: -120px;
+//    font-size: 80px;
+//    text-align: center;
+//    font-weight: 800;
+//    color: $primary-color;
+//    z-index: 100000;
+//    transform: translateZ(-0.8px) scale(1);
+//  }
+//
+//  .homeRoomTitle > p {
+//    letter-spacing: 1px;
+//    font-size: 60%;
+//  }
+//}
+
 
 .bookingTitle {
   text-align: center;
   color: $primary-color;
   font-family: "CaviarDreams", sans-serif!important;
-}
-
-.homeRoomTitle > p {
-  letter-spacing: 1px;
-  font-size: 68.5%;
 }
 
 
@@ -189,27 +212,35 @@ md-input-container > label {
   .homeRoomTitle {
     right: auto;
     left: 0;
-    top: 20px;
+    top: -120px;
     text-align: center;
   }
+
+  .homeRoomTitle > p {
+    letter-spacing: 1px;
+    font-size: 60%;
+  }
+
   .paddingSearchMin {
     padding-bottom: 150px;
     float: left;
     width: 100%;
   }
+
   .bookingModal {
     max-height: 80%;
     overflow: auto;
-    padding: 0px! important;
+    padding: 0! important;
   }
 
 }
- @media (max-width: 900px) {
 
-   .parallax__layer--back {
-     transform: translateZ(0) scale(1);
-   }
+@media (max-width: 900px) {
+
+ .parallax__layer--back {
+   transform: translateZ(0) scale(1);
  }
+}
 
 /* Underline From Center */
 .hvr-underline-from-center {

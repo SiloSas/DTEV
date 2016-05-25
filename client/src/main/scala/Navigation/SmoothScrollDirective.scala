@@ -26,9 +26,9 @@ class SmoothScrollDirective(window: Window, modal: ModalService, timeout: Timeou
 
     val offset = 50
 
-    val cookieHeadbandHeight = document.getElementById("cookieHeadband").asInstanceOf[Html].clientHeight
+//    val cookieHeadbandHeight = document.getElementById("cookieHeadband").asInstanceOf[Html].clientHeight
 
-    val whereScrollShouldStop = anchorPosition + startingPosition - cookieHeadbandHeight
+    val whereScrollShouldStop = anchorPosition + startingPosition //- cookieHeadbandHeight
 
     var scrollIterationFunction: Int = 0
 
@@ -41,7 +41,7 @@ class SmoothScrollDirective(window: Window, modal: ModalService, timeout: Timeou
         actualPosition += whereScrollShouldStop
       } else
         dom.clearInterval(scrollIterationFunction)
-    }, 2)
+    }, 20)
   }
 
   override def link(scope: ScopeType, elems: Seq[Element], attrs: Attributes) {
