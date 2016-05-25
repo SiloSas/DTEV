@@ -1,13 +1,17 @@
 <slider ng-controller="sliderController" class="zIndex1">
 </slider>
 
-<div class="absolute homeRoomTitle float-left">
-    <div class="float-left column large-12" style="margin-bottom: -60px">{{room.name}}</div>
+<div class="absolute homeRoomTitle float-left hide-for-small-only">
+    <div class="float-left column large-12" style="margin-bottom: -60px">
+        {{room.name}}
+    </div>
     <b class="animated hvr-underline-from-center underlineHomeTitle"
        animations-at-scroll
        style="transform: translateZ(0px) scale(1.75, 1.8);">
     </b>
-    <p class = "hide-for-small-only">{{room.header}}</p>
+    <p>
+        {{room.header}}
+    </p>
 </div>
 
 <div class="slider-content width100p float-left parallax__layer parallax__layer--base zIndex3">
@@ -115,7 +119,7 @@
     </div>
 
 
-    <div class="column large-12 margin0 mainTitles">
+    <div class="column large-12 margin0 mainTitles" style="padding-bottom: 50px;">
         <b class="column large-4 marginTop10" style="text-align: center;">
             2016 - Des toits en ville
         </b>
