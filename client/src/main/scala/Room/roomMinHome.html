@@ -1,23 +1,31 @@
-<!--touch-->
-<figure class="column roomImage padding0 margin0 show-for-touch">
+<!--mobile and tablet-->
+<figure class="column roomImage padding0 margin0 hide-for-large-up">
     <span ng-repeat="img in room.images.split(',')" ng-if="$first">
         <img src="{{img}}" alt="{{room.name}}"/>
     </span>
     <figcaption>
-        <h2><span class="textColorWhite">{{room.name}}</span></h2>
-        <p class="hide-for-small-only">{{room.header}}</p>
-        <a href="#/rooms/{{room.id}}">View more</a>
+        <h2>
+            <span class="textColorWhite">
+                {{room.name}}
+            </span>
+        </h2>
+        <!--<p class="hide-for-small-only">{{room.header}}</p>-->
+        <a href="#/rooms/{{room.id}}">
+            View more
+        </a>
     </figcaption>
 </figure>
 
-<!--not touch-->
-<figure class="effect-layla column roomImage padding0 margin0 hide-for-touch">
+<!--large-->
+<figure class="effect-layla column roomImage padding0 margin0 show-for-large-up">
     <span ng-repeat="img in room.images.split(',')" ng-if="$first">
         <img src="{{img}}" alt="{{room.name}}"/>
     </span>
     <figcaption>
         <h2><span class="textColorWhite">{{room.name}}</span></h2>
-        <p class="hide-for-small-only">{{room.header}}</p>
+        <p>
+            {{room.header}}
+        </p>
         <a href="#/rooms/{{room.id}}">View more</a>
     </figcaption>
 </figure>
