@@ -22,6 +22,9 @@ PUT     /comments                 @Comments.CommentsController.update
 GET     /tariffs                  @tariffs.TariffsController.find
 PUT     /tariffs                  @tariffs.TariffsController.update(text: String)
 
+################################## Mails ################################################
+POST    /mails                    @mails.MailController.send(content: String, from: String)
+
 POST    /upload                   images.Images.uploadImage
 GET     /images/:fileName         images.Images.getImage(fileName: String)
 

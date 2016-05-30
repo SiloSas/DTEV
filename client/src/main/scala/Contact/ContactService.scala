@@ -44,7 +44,10 @@ class ContactService(http: HttpService,
   def post(message: Message): Unit = {
     println(message)
 
-    http.post[js.Any]("/contact", write(message)) map { _ =>
+    val content = message.message
+    val from = message.email
+
+    http.post[js.Any](s"/mails?content=$content&from=$from") map { _ =>
       displaySuccessToast()
     } recover {
       case _ => displayErrorToast()

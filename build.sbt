@@ -21,6 +21,7 @@ lazy val server = (project in file("server")).settings(
   libraryDependencies ++= Seq(
     evolutions,
     filters,
+    ws,
     "com.sksamuel.scrimage" %% "scrimage-filters" % "2.1.0",
     "com.vmunier" %% "play-scalajs-scripts" % "0.3.0",
     "org.webjars" %% "webjars-play" % "2.4.0-1",
