@@ -43,6 +43,11 @@ object RoutingConfig extends Config {
         route = Route(
           templateUrl = "/assets/templates/legalNotice/cookiesNotice.html",
           title = "cookiesNotice"))
+      .when(
+        path = "/tarifs",
+        route = Route(
+          templateUrl = "/assets/templates/legalNotice/tariffs.html",
+          title = "cookiesNotice"))
 //      .when(
 //        path = "/admin",
 //        route = Route(

@@ -22,7 +22,7 @@
         <div class="column large-12 mainText">
             <div class="column medium-6 small-12">
                 <md-button class="md-fab primCol" style="pointer-events: none;"><i class="fa fa-eur"></i></md-button>
-                <b class="textPrimColor">{{room.price}}</b>
+                <b class="textPrimColor">à partir de {{room.price}}</b>
             </div>
             <div class="column medium-6 small-12">
                 <md-button class="md-fab primCol" style="pointer-events: none;"><i class="fa fa-subway"></i></md-button>
@@ -37,6 +37,12 @@
                     <i class="fa fa-paw"></i>
                 </md-button>
                 <b class="textPrimColor">Animaux acceptés</b>
+            </div>
+            <div class="column medium-6 small-12" style="float: left" data-ng-if="!room.isAnApartment">
+                <md-button class="md-fab primCol" style="pointer-events: none;">
+                    <img src="assets/images/cup-of-coffee.png" alt="breakfast">
+                </md-button>
+                <b class="textPrimColor">Petit-déjeuner offert</b>
             </div>
         </div>
     </div>
