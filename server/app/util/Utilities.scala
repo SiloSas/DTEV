@@ -34,8 +34,8 @@ class Utilities @Inject() (mailerClient: MailerClient) extends Controller {
            |à cette addresse : <a href="des-toits-en-ville.com/#/admin">des-toits-en-ville.com/#/admin</a></p></body></html>""".stripMargin)
     )
 
-//    mailerClient.send(email)
     println(email)
+//    mailerClient.send(email)
   }
 
   def contact = Action(parse.json) { request =>
@@ -44,7 +44,7 @@ class Utilities @Inject() (mailerClient: MailerClient) extends Controller {
     val email = Email(
       subject = "Des Toits En Ville : vous avez un nouveau message",
       from = message.email,
-      to = destinationMail,
+      to = Seq("simongarnier07@hotmail.fr"),
       bodyHtml = Some(message.message)
     )
 

@@ -18,8 +18,14 @@ class TariffsController @Inject()(protected val dbConfigProvider: DatabaseConfig
     with MyDBTableDefinitions {
 
   def find() = Action.async {
-    db.run(tariffsTable.result).map { tariffs =>
-      Ok(write(tariffs))
+    db.run(tariffsTable.result.head).map { tariffs =>
+      Ok(tariffs.text)
+    }
+  }
+
+  def update(text: String) = Action.async {
+    db.run(tariffsTable.map(_.text).update(text)) map { _ =>
+      Ok
     }
   }
 }

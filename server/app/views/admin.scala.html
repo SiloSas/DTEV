@@ -66,7 +66,7 @@
       </agreement-be>
     </div>
 
-    <div data-ng-controller="generalDescController">
+    <div data-ng-controller="generalDescController" class="column">
       <h1>Descriptif général de la page d’accueil</h1>
 
       <p>
@@ -77,6 +77,22 @@
 
       <form ng-submit="controller.update(desc)">
         <textarea rows="20" ng-model="desc" >
+        </textarea>
+        <input type="submit" value="Valider"> {{ controller.stateMessage }}
+      </form>
+    </div>
+
+    <div data-ng-controller="tariffsController" class="column">
+      <h1>Modifier la page de tarifs</h1>
+
+      <p>
+        Entourer le texte avec des balises &lt;p> pour faire des paragraphes. Par exemple : " 	&lt;p&gt;Un paragraphe 	&lt;/p&gt;"<br>
+        Pour avoir du texte gras et en violet, entourer le texte comme ceci :  	"&lt;b class="textPrimColor"&gt;Texte gras et violet 	&lt;/b&gt;"<br>
+        Les retours à la ligne ne sont pas pris en compte, il faut utiliser la balise &lt;br&gt;.
+      </p>
+
+      <form ng-submit="controller.update(tariffs)">
+        <textarea rows="100" ng-model="tariffs">
         </textarea>
         <input type="submit" value="Valider"> {{ controller.stateMessage }}
       </form>

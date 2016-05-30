@@ -1,26 +1,36 @@
 package tariffs
 
-import com.greencatsoft.angularjs.core.HttpService
+import com.greencatsoft.angularjs.core.{HttpService, SceService, Timeout}
 import com.greencatsoft.angularjs.{AbstractController, injectable}
-import upickle.default._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
-import scala.scalajs.js.JSON
-import scala.scalajs.js.annotation.{JSExport, JSExportAll}
+import scala.scalajs.js.annotation.JSExportAll
+import scala.util.control.NonFatal
 
 @JSExportAll
 @injectable("tariffsController")
-class TariffsController(http: HttpService, scope: TariffsScope) extends AbstractController[TariffsScope](scope) {
+class TariffsController(http: HttpService, scope: TariffsScope, timeout: Timeout, sceService: SceService)
+    extends AbstractController[TariffsScope](scope) {
 
-  case class Tariffs(id: Option[Long], text: String)
+  http.get[js.Any]("/tariffs") map { tariffs =>
+    org.scalajs.dom.console.log(tariffs)
 
-  @JSExport
-  def find = {
-    http.get[js.Any]("/tariffs").map(JSON.stringify(_)) map { t =>
-      scope.tariffs = read[Seq[Tariffs]](t).head.text
-    } recover {
-      case e: Exception => print(e)
+    timeout(() => scope.tariffs = sceService.trustAsHtml(tariffs.asInstanceOf[String]))
+  }
+
+  var stateMessage = ""
+
+  def update(text: String): Unit = {
+    stateMessage = "Veuillez patienter"
+    http.put[js.Any](s"/tariffs?text=$text").map { _ =>
+      timeout(() => {
+        stateMessage = "La modification a bien été prise en compte"
+        scope.tariffs = text
+      })
+    }.recover {
+      case NonFatal(e) =>
+        stateMessage = "Désolé, une erreur s'est produite, veuillez réessayer."
     }
   }
 }

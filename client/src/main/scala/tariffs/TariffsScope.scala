@@ -5,5 +5,5 @@ import com.greencatsoft.angularjs.core.Scope
 import scala.scalajs.js
 
 trait TariffsScope extends Scope {
-  var tariffs: String = js.native
+  var tariffs: js.Any = js.native
 }
