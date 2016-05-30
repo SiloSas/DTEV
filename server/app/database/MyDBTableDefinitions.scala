@@ -7,8 +7,16 @@ import administration.UserActor.User
 import database.MyPostgresDriver.api._
 import generalDescription.Description
 import shared.{Agreement, Comment, Room}
+import tariffs.Tariffs
 
 trait MyDBTableDefinitions {
+  class TariffsTable(tag: Tag) extends Table[Tariffs](tag, "tariffs") {
+    def id = column[Long]("id")
+    def text = column[String]("text")
+
+    def * = (id.?, text) <> ((Tariffs.apply _).tupled, Tariffs.unapply)
+  }
+  lazy val tariffsTable = TableQuery[TariffsTable]
 
   class Rooms(tag: Tag) extends Table[Room](tag, "rooms") {
     def id = column[String]("id")

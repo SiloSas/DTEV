@@ -19,6 +19,7 @@ GET	    /agreements               @services.ServicesController.findAll
 GET	    /comments                 @Comments.CommentsController.findAll
 POST    /comments                 @Comments.CommentsController.post
 PUT     /comments                 @Comments.CommentsController.update
+GET     /tariffs                  @tariffs.TariffsController.find
 
 POST    /upload                   images.Images.uploadImage
 GET     /images/:fileName         images.Images.getImage(fileName: String)

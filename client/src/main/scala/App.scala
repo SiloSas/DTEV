@@ -13,6 +13,7 @@ import com.greencatsoft.angularjs._
 import generalDescription.GeneralDescController
 import materialDesign.MdDateLocaleProviderConfig
 import services.{AgreementController, AgreementDirective, AgreementServiceFactory}
+import tariffs.TariffsController
 
 import scala.scalajs.js.JSApp
 import scala.scalajs.js.annotation.JSExport
@@ -34,6 +35,7 @@ object App extends JSApp {
       .controller[BookingModalController]
       .controller[BackEndController]
       .controller[GeneralDescController]
+      .controller[TariffsController]
       .directive[RoomMinDirective]
       .directive[AgreementDirective]
       .directive[RoomMinHomeDirective]

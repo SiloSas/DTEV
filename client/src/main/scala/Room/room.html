@@ -21,12 +21,24 @@
         </div>
         <div class="column large-12 mainText">
             <div class="column medium-6 small-12">
-                <md-button class="md-fab primCol" style="pointer-events: none;"><i class="fa fa-eur"></i></md-button>
-                <b class="textPrimColor">à partir de {{room.price}}</b>
+                <md-button class="md-fab primCol" href="/#/tarifs">
+                    <i class="fa fa-eur"></i>
+                </md-button>
+                <b class="textPrimColor" >
+                    <a href="/#/tarifs">
+                        à partir de {{room.price}}
+                    </a>
+                </b>
             </div>
             <div class="column medium-6 small-12">
-                <md-button class="md-fab primCol" style="pointer-events: none;"><i class="fa fa-subway"></i></md-button>
-                <b class="textPrimColor">Métro A Cusset</b>
+                <md-button class="md-fab primCol" href="/assets/images/plan_metro.png" target="_blank">
+                    <i class="fa fa-subway"></i>
+                </md-button>
+                <b class="textPrimColor">
+                    <a href="/assets/images/plan_metro.png" target="_blank">
+                        Métro A Cusset
+                    </a>
+                </b>
             </div>
             <div class="column medium-6 small-12">
                 <md-button class="md-fab primCol" style="pointer-events: none;"><i class="fa fa-car"></i></md-button>
