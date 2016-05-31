@@ -24904,22 +24904,62 @@ th {
 }
 
 /* line 1, ../../../client/src/main/scala/Room/room.scss */
+.chevron::before {
+  vertical-align: middle;
+  border-style: solid;
+  border-color: #031634;
+  border-width: 0.15em 0.15em 0 0;
+  content: '';
+  display: inline-block;
+  height: 4.5em;
+  left: 0.20em;
+  position: relative;
+  top: 0.20em;
+  transform: rotate(-45deg);
+  width: 4.5em;
+}
+
+/* line 16, ../../../client/src/main/scala/Room/room.scss */
+.imageSlider {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+/* line 21, ../../../client/src/main/scala/Room/room.scss */
+.chevron.right:before {
+  left: -1.9em;
+  transform: rotate(45deg);
+}
+
+/* line 26, ../../../client/src/main/scala/Room/room.scss */
+.chevron.bottom:before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+/* line 31, ../../../client/src/main/scala/Room/room.scss */
+.chevron.left:before {
+  left: 0.95em;
+  transform: rotate(-135deg);
+}
+
+/* line 36, ../../../client/src/main/scala/Room/room.scss */
 .mainImageMin {
   filter: grayscale(100%);
 }
 
-/* line 4, ../../../client/src/main/scala/Room/room.scss */
+/* line 39, ../../../client/src/main/scala/Room/room.scss */
 room-min-home {
   text-align: center;
   overflow: hidden;
 }
 
-/* line 8, ../../../client/src/main/scala/Room/room.scss */
+/* line 43, ../../../client/src/main/scala/Room/room.scss */
 room-min {
   padding: 0 !important;
 }
 
-/* line 11, ../../../client/src/main/scala/Room/room.scss */
+/* line 46, ../../../client/src/main/scala/Room/room.scss */
 .mainRoomMinText {
   display: table-cell;
   vertical-align: middle;
@@ -24938,7 +24978,7 @@ room-min {
   url('../fonts/feathericons/feathericons.svg?-8is7zf#feathericons') format('svg');
 }
 */
-/* line 30, ../../../client/src/main/scala/Room/room.scss */
+/* line 65, ../../../client/src/main/scala/Room/room.scss */
 .grid {
   position: relative;
   margin: 0 auto;
@@ -24948,7 +24988,7 @@ room-min {
 }
 
 /* Common style */
-/* line 39, ../../../client/src/main/scala/Room/room.scss */
+/* line 74, ../../../client/src/main/scala/Room/room.scss */
 .grid figure {
   position: relative;
   float: left;
@@ -24960,7 +25000,7 @@ room-min {
   cursor: pointer;
 }
 
-/* line 50, ../../../client/src/main/scala/Room/room.scss */
+/* line 85, ../../../client/src/main/scala/Room/room.scss */
 .grid figure img {
   position: relative;
   display: block;
@@ -24969,7 +25009,7 @@ room-min {
   opacity: 0.8;
 }
 
-/* line 58, ../../../client/src/main/scala/Room/room.scss */
+/* line 93, ../../../client/src/main/scala/Room/room.scss */
 .grid figure figcaption {
   padding: 2em;
   color: #fff;
@@ -24979,13 +25019,13 @@ room-min {
   backface-visibility: hidden;
 }
 
-/* line 67, ../../../client/src/main/scala/Room/room.scss */
+/* line 102, ../../../client/src/main/scala/Room/room.scss */
 .grid figure figcaption::before,
 .grid figure figcaption::after {
   pointer-events: none;
 }
 
-/* line 72, ../../../client/src/main/scala/Room/room.scss */
+/* line 107, ../../../client/src/main/scala/Room/room.scss */
 .grid figure figcaption,
 .grid figure figcaption > a {
   position: absolute;
@@ -24997,7 +25037,7 @@ room-min {
 
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
-/* line 83, ../../../client/src/main/scala/Room/room.scss */
+/* line 118, ../../../client/src/main/scala/Room/room.scss */
 .grid figure figcaption > a {
   z-index: 1000;
   text-indent: 200%;
@@ -25006,30 +25046,30 @@ room-min {
   opacity: 0;
 }
 
-/* line 91, ../../../client/src/main/scala/Room/room.scss */
+/* line 126, ../../../client/src/main/scala/Room/room.scss */
 .grid figure h2 {
   word-spacing: -0.15em;
   font-weight: 300;
 }
 
-/* line 96, ../../../client/src/main/scala/Room/room.scss */
+/* line 131, ../../../client/src/main/scala/Room/room.scss */
 .grid figure h2 span {
   font-weight: 800;
 }
 
-/* line 100, ../../../client/src/main/scala/Room/room.scss */
+/* line 135, ../../../client/src/main/scala/Room/room.scss */
 .grid figure h2,
 .grid figure p {
   margin: 0;
 }
 
-/* line 105, ../../../client/src/main/scala/Room/room.scss */
+/* line 140, ../../../client/src/main/scala/Room/room.scss */
 .grid figure p {
   letter-spacing: 1px;
   font-size: 68.5%;
 }
 
-/* line 109, ../../../client/src/main/scala/Room/room.scss */
+/* line 144, ../../../client/src/main/scala/Room/room.scss */
 figure.roomImage {
   height: 100%;
 }
@@ -25037,23 +25077,23 @@ figure.roomImage {
 /*---------------*/
 /***** Layla *****/
 /*---------------*/
-/* line 117, ../../../client/src/main/scala/Room/room.scss */
+/* line 152, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla {
   background: #18a367;
 }
 
-/* line 121, ../../../client/src/main/scala/Room/room.scss */
+/* line 156, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla img {
   min-height: 110%;
   min-width: 100%;
 }
 
-/* line 126, ../../../client/src/main/scala/Room/room.scss */
+/* line 161, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla figcaption {
   padding: 3em;
 }
 
-/* line 130, ../../../client/src/main/scala/Room/room.scss */
+/* line 165, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla figcaption::before,
 figure.effect-layla figcaption::after {
   position: absolute;
@@ -25061,7 +25101,7 @@ figure.effect-layla figcaption::after {
   opacity: 0;
 }
 
-/* line 137, ../../../client/src/main/scala/Room/room.scss */
+/* line 172, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla figcaption::before {
   top: 50px;
   right: 30px;
@@ -25075,7 +25115,7 @@ figure.effect-layla figcaption::before {
   transform-origin: 0 0;
 }
 
-/* line 150, ../../../client/src/main/scala/Room/room.scss */
+/* line 185, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla figcaption::after {
   top: 30px;
   right: 50px;
@@ -25089,14 +25129,14 @@ figure.effect-layla figcaption::after {
   transform-origin: 100% 0;
 }
 
-/* line 163, ../../../client/src/main/scala/Room/room.scss */
+/* line 198, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla h2 {
   padding-top: 26%;
   -webkit-transition: -webkit-transform 0.35s;
   transition: transform 0.35s;
 }
 
-/* line 169, ../../../client/src/main/scala/Room/room.scss */
+/* line 204, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla p {
   padding: 0.5em 2em;
   text-transform: none;
@@ -25105,14 +25145,14 @@ figure.effect-layla p {
   transform: translate3d(0, -10px, 0);
 }
 
-/* line 177, ../../../client/src/main/scala/Room/room.scss */
+/* line 212, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla img,
 figure.effect-layla h2 {
   -webkit-transform: translate3d(0, -30px, 0);
   transform: translate3d(0, -30px, 0);
 }
 
-/* line 183, ../../../client/src/main/scala/Room/room.scss */
+/* line 218, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla img,
 figure.effect-layla figcaption::before,
 figure.effect-layla figcaption::after,
@@ -25121,14 +25161,14 @@ figure.effect-layla p {
   transition: opacity 0.35s, transform 0.35s;
 }
 
-/* line 191, ../../../client/src/main/scala/Room/room.scss */
+/* line 226, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla:hover img {
   opacity: 0.7;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
 
-/* line 197, ../../../client/src/main/scala/Room/room.scss */
+/* line 232, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla:hover figcaption::before,
 figure.effect-layla:hover figcaption::after {
   opacity: 1;
@@ -25136,7 +25176,7 @@ figure.effect-layla:hover figcaption::after {
   transform: scale(1);
 }
 
-/* line 204, ../../../client/src/main/scala/Room/room.scss */
+/* line 239, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla:hover h2,
 figure.effect-layla:hover p {
   opacity: 1;
@@ -25144,7 +25184,7 @@ figure.effect-layla:hover p {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 211, ../../../client/src/main/scala/Room/room.scss */
+/* line 246, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-layla:hover figcaption::after,
 figure.effect-layla:hover h2,
 figure.effect-layla:hover p,
@@ -25156,7 +25196,7 @@ figure.effect-layla:hover img {
 /*---------------*/
 /***** Zoe *****/
 /*---------------*/
-/* line 223, ../../../client/src/main/scala/Room/room.scss */
+/* line 258, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe figcaption {
   top: auto;
   bottom: 0;
@@ -25170,7 +25210,7 @@ figure.effect-zoe figcaption {
   transform: translate3d(0, 100%, 0);
 }
 
-/* line 236, ../../../client/src/main/scala/Room/room.scss */
+/* line 271, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe h2 {
   position: absolute;
   top: 20%;
@@ -25180,7 +25220,7 @@ figure.effect-zoe h2 {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 244, ../../../client/src/main/scala/Room/room.scss */
+/* line 279, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe h3 {
   float: left;
   padding-top: 26%;
@@ -25192,14 +25232,14 @@ figure.effect-zoe h3 {
   top: 0;
 }
 
-/* line 255, ../../../client/src/main/scala/Room/room.scss */
+/* line 290, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe p.icon-links a {
   float: right;
   color: #3c4a50;
   font-size: 1.4em;
 }
 
-/* line 260, ../../../client/src/main/scala/Room/room.scss */
+/* line 295, ../../../client/src/main/scala/Room/room.scss */
 .minRoomInfo {
   float: left;
   position: relative;
@@ -25213,13 +25253,13 @@ figure.effect-zoe p.icon-links a {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 273, ../../../client/src/main/scala/Room/room.scss */
+/* line 308, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe:hover p.icon-links a:hover,
 figure.effect-zoe:hover p.icon-links a:focus {
   color: #252d31;
 }
 
-/* line 278, ../../../client/src/main/scala/Room/room.scss */
+/* line 313, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe p.description {
   position: absolute;
   bottom: 8em;
@@ -25234,7 +25274,7 @@ figure.effect-zoe p.description {
   /* Fix for Chrome 37.0.2062.120 (Mac) */
 }
 
-/* line 291, ../../../client/src/main/scala/Room/room.scss */
+/* line 326, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe h3,
 figure.effect-zoe p.icon-links a {
   -webkit-transition: -webkit-transform 0.35s;
@@ -25243,7 +25283,7 @@ figure.effect-zoe p.icon-links a {
   transform: translate3d(0, 200%, 0);
 }
 
-/* line 299, ../../../client/src/main/scala/Room/room.scss */
+/* line 334, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe p.icon-links a span::before {
   display: inline-block;
   padding: 8px 10px;
@@ -25253,27 +25293,27 @@ figure.effect-zoe p.icon-links a span::before {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* line 308, ../../../client/src/main/scala/Room/room.scss */
+/* line 343, ../../../client/src/main/scala/Room/room.scss */
 .icon-eye::before {
   content: '\e000';
 }
 
-/* line 312, ../../../client/src/main/scala/Room/room.scss */
+/* line 347, ../../../client/src/main/scala/Room/room.scss */
 .icon-paper-clip::before {
   content: '\e001';
 }
 
-/* line 316, ../../../client/src/main/scala/Room/room.scss */
+/* line 351, ../../../client/src/main/scala/Room/room.scss */
 .icon-heart::before {
   content: '\e024';
 }
 
-/* line 320, ../../../client/src/main/scala/Room/room.scss */
+/* line 355, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe:hover p.description {
   opacity: 1;
 }
 
-/* line 324, ../../../client/src/main/scala/Room/room.scss */
+/* line 359, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe:hover figcaption,
 figure.effect-zoe:hover h3,
 figure.effect-zoe:hover p.icon-links a {
@@ -25281,32 +25321,32 @@ figure.effect-zoe:hover p.icon-links a {
   transform: translate3d(0, 0, 0);
 }
 
-/* line 331, ../../../client/src/main/scala/Room/room.scss */
+/* line 366, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe:hover h3 {
   -webkit-transition-delay: 0.05s;
   transition-delay: 0.05s;
 }
 
-/* line 336, ../../../client/src/main/scala/Room/room.scss */
+/* line 371, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe:hover p.icon-links a:nth-child(3) {
   -webkit-transition-delay: 0.1s;
   transition-delay: 0.1s;
 }
 
-/* line 341, ../../../client/src/main/scala/Room/room.scss */
+/* line 376, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe:hover p.icon-links a:nth-child(2) {
   -webkit-transition-delay: 0.15s;
   transition-delay: 0.15s;
 }
 
-/* line 346, ../../../client/src/main/scala/Room/room.scss */
+/* line 381, ../../../client/src/main/scala/Room/room.scss */
 figure.effect-zoe:hover p.icon-links a:first-child {
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
 }
 
 @media (max-width: 777px) {
-  /* line 352, ../../../client/src/main/scala/Room/room.scss */
+  /* line 387, ../../../client/src/main/scala/Room/room.scss */
   figure.effect-zoe figcaption {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);

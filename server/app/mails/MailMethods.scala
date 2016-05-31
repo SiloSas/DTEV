@@ -25,9 +25,9 @@ class MailMethods @Inject()(wSClient: WSClient) {
 
   def send(content: String, email: String): Future[MailResult] = mailGunRequest
     .post(Map(
-      "from" -> Seq("Utilisateur <" + email + ">"),
-      "to" -> Seq("simongarnier07@hotmail.fr"),
-      "subject" -> Seq("Des toits en ville : vous avez un nouveau message"),
+      "from" -> Seq("Des toits en ville <" + email + ">"),
+      "to" -> Seq("jpgarcia4@free.fr"),
+      "subject" -> Seq("Vous avez un nouveau message"),
       "html" -> Seq(content))) map { response =>
     response.status match {
       case 200 =>
