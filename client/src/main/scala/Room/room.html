@@ -1,7 +1,7 @@
-<slider ng-controller="sliderController" class="zIndex1"  data-ng-show="!$parent.controller.slider">
+<slider ng-controller="sliderController" class="zIndex1" data-ng-show="!$root.full">
 </slider>
 
-<div class="absolute homeRoomTitle float-left hide-for-small-only"  data-ng-show="!controller.slider">
+<div class="absolute homeRoomTitle float-left hide-for-small-only"  data-ng-show="!$root.full">
     <div class="float-left column large-12" style="margin-bottom: -60px">
         {{room.name}}
     </div>
@@ -15,7 +15,7 @@
 </div>
 
 <div class="slider-content width100p float-left parallax__layer parallax__layer--base zIndex3"
-     data-ng-show="!controller.slider">
+     data-ng-show="!$root.full">
     <div class="white width100p float-left text-center">
         <div class="column large-12 mainText">
             {{room.presentation}}
@@ -64,7 +64,7 @@
     <div>
         <h1 class="column pointer"
             style="text-align: center;"
-            data-ng-click="controller.slider = true; $root.full = true">
+            data-ng-click="$root.full = true">
             <b>Cliquer ici pour voir un diaporama des photos</b>
         </h1>
     </div>
@@ -172,18 +172,9 @@
     <div class="white" style="margin-bottom:48px"></div>
 </div>
 
-<div ng-if="controller.slider"
+<div ng-if="$root.full"
      class="height100p width100p float-left top0 left0 right0 bottom0"
      style="z-index: 10000; display: block; position: relative;">
-
-    <span ng-click="controller.slider=false; $root.full=false"
-          ng-show="$root.full"
-          class="absolute pointer"
-          style="top: 20px; right: 48%; z-index: 10010;">
-        <md-button class="md-fab md-mini md-primary float-right" style="z-index: 10011;">
-            <i class="fa fa-times" style="color: white; z-index: 10012;"></i>
-        </md-button>
-    </span>
 
    <div class="height100p width100p float-left" style="text-align: center; line-height: 100%;">
        <div class="absolute left0 marginLeft10 pointer"
@@ -193,6 +184,7 @@
             hide-md>
            <i class="chevron left"></i>
        </div>
+
        <div ng-repeat="image in controller.images.u"
             class="padding0 text-center height100p"
             ng-if="controller.index == $index"
@@ -202,6 +194,7 @@
            <img ng-src="{{image}}" class="animated fadeIn imageSlider"/>
 
        </div>
+
        <div class="absolute right0 marginRight10 pointer"
             style="top: 50%;"
             ng-click="controller.nextIndex()"

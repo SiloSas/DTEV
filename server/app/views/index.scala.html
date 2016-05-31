@@ -17,6 +17,7 @@
      <md-toolbar class="absolute transparent zIndex4"> @*ng-class="{'marginTop30': !hideCookie}">*@
          <div>
              <div class = "float-right margin20 paddingRight20" hide-sm>
+
                  <a href="#/" class = "padding10 hvr-pop">Accueil</a>
                  <a href="#/tarifs" class = "padding10 hvr-pop">Tarifs</a>
                  <a href="#/contact" class = "padding10 textPrimColor pointer hvr-pop">Infos pratiques</a>
@@ -29,6 +30,15 @@
                      </a>
                  </md-button>
              </div>
+
+             <md-button class="md-fab md-mini primCol hvr-pop"
+                         ng-if="$root.full"
+                         ng-click="$root.full=false"
+                         style="position: absolute; left: 49%;">
+             <a class="fa fa-times textPrimColor hvr-icon-grow-rotate">
+                 </a>
+             </md-button>
+
              <room-nav data-ng-controller = "roomController"
                        style = "margin-top: 12px; margin-left: 12px;"
                        class = "zIndex4 float-left">
