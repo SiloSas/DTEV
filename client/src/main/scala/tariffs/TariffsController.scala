@@ -5,8 +5,12 @@ import com.greencatsoft.angularjs.{AbstractController, injectable}
 
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.scalajs.js
+import scala.scalajs.js.JSON
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.control.NonFatal
+import upickle.default._
+
+case class Tariff(text: String)
 
 @JSExportAll
 @injectable("tariffsController")
@@ -23,7 +27,7 @@ class TariffsController(http: HttpService, scope: TariffsScope, timeout: Timeout
 
   def update(text: String): Unit = {
     stateMessage = "Veuillez patienter"
-    http.put[js.Any](s"/tariffs?text=$text").map { _ =>
+    http.put[js.Any](s"/tariffs", write(Tariff(text))).map { _ =>
       timeout(() => {
         stateMessage = "La modification a bien été prise en compte"
         scope.tariffs = text
