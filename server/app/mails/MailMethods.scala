@@ -24,17 +24,12 @@ class MailMethods @Inject()(wSClient: WSClient) {
     .withAuth("api", "key-1adeded763a2b700e2876487fe04f1b9", WSAuthScheme.BASIC)
 
   def send(content: String, email: String): Future[MailResult] = {
-    println(email)
     val splittedContent = email.split("""qqqpaaa""")
-    println("splittedContent = " )
-    splittedContent map println
 
     val toSend = "Email: " + splittedContent(0) + "<br>Prénom et nom: " + splittedContent(1) + "<br>"
     val infos = if (splittedContent.length > 2) "Infos: " + splittedContent(2) else ""
 
     val realToSend: String = toSend + infos + "<br>" + content
-
-    println(realToSend)
 
     mailGunRequest
       .post(Map(
