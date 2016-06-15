@@ -1,11 +1,19 @@
 <form name="contactForm"
-      ng-submit="controller.post(email, message);
+      ng-submit="controller.post(email + 'qqqpaaa' + name  + 'qqqpaaa' + info, message);
       controller.close()"
       class="marginBottom50 column"
       style="margin-top: 100px">
     <md-input-container class="width100p">
         <label>Email</label>
         <input ng-model="email" type="email" required>
+    </md-input-container>
+    <md-input-container class="width100p">
+        <label>Prénom et nom</label>
+        <input ng-model="name" type="text" required>
+    </md-input-container>
+    <md-input-container class="width100p" style="margin-top: 30px;">
+        <label>Si vous avez déjà réservé, nombre de personnes et date du séjour :</label>
+        <input ng-model="info" type="text">
     </md-input-container>
     <md-input-container class="width100p">
         <label>Message</label>

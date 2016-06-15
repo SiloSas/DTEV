@@ -23,23 +23,32 @@ class MailMethods @Inject()(wSClient: WSClient) {
     .url("https://api.mailgun.net/v3/sandbox7cf91efa20a44e9c81d3344e9f565e0e.mailgun.org/messages")
     .withAuth("api", "key-1adeded763a2b700e2876487fe04f1b9", WSAuthScheme.BASIC)
 
-  def send(content: String, email: String): Future[MailResult] = mailGunRequest
-    .post(Map(
-      "from" -> Seq("Des toits en ville <" + email + ">"),
-      "to" -> Seq("jpgarcia4@free.fr"),
-      "subject" -> Seq("Vous avez un nouveau message"),
-      "html" -> Seq(content))) map { response =>
-    response.status match {
-      case 200 =>
-        println("Mail sent")
-        MailResult(hasSucceeded = true)
+  def send(content: String, email: String): Future[MailResult] = {
+    println(email)
+    val splittedContent = email.split("""qqqpaaa""")
+    println("splittedContent = " )
+    splittedContent map println
 
-      case errorStatus: Int =>
-        println(response)
-        println(content)
-        println(email)
-        println("Error: Mail not sent, errorStatus: " + errorStatus)
-        MailResult(hasSucceeded = false, errorStatus = errorStatus)
+    val toSend = "Email: " + splittedContent(0) + "<br>Prénom et nom: " + splittedContent(1) + "<br>"
+    val infos = if (splittedContent.length > 2) "Infos: " + splittedContent(2) else ""
+
+    val realToSend: String = toSend + infos + "<br>" + content
+
+    println(realToSend)
+
+    mailGunRequest
+      .post(Map(
+        "from" -> Seq("Des toits en ville <" + splittedContent(0) + ">"),
+        "to" -> Seq("jpgarcia4@free.fr"),
+        "subject" -> Seq("Vous avez un nouveau message"),
+        "html" -> Seq(realToSend))) map { response =>
+      response.status match {
+        case 200 =>
+          MailResult(hasSucceeded = true)
+
+        case errorStatus: Int =>
+          MailResult(hasSucceeded = false, errorStatus = errorStatus)
+      }
     }
   }
 }
