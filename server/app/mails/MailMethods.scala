@@ -34,7 +34,7 @@ class MailMethods @Inject()(wSClient: WSClient) {
     mailGunRequest
       .post(Map(
         "from" -> Seq("Des toits en ville <" + splittedContent(0) + ">"),
-        "to" -> Seq("jpgarcia4@free.fr"),
+        "to" -> Seq("des.toits.en.ville@gmail.com"),
         "subject" -> Seq("Vous avez un nouveau message"),
         "html" -> Seq(realToSend))) map { response =>
       response.status match {
