@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea_modules/client.iml" filepath="$PROJECT_DIR$/.idea_modules/client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea_modules/dtev.iml" filepath="$PROJECT_DIR$/.idea_modules/dtev.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea_modules/dtev-build.iml" filepath="$PROJECT_DIR$/.idea_modules/dtev-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea_modules/server.iml" filepath="$PROJECT_DIR$/.idea_modules/server.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea_modules/sharedJS.iml" filepath="$PROJECT_DIR$/.idea_modules/sharedJS.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea_modules/sharedJVM.iml" filepath="$PROJECT_DIR$/.idea_modules/sharedJVM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dtev_3938.iml" filepath="$PROJECT_DIR$/.idea/modules/dtev_3938.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dtev_3938-build.iml" filepath="$PROJECT_DIR$/.idea/modules/dtev_3938-build.iml" />
     </modules>
   </component>
 </project>
